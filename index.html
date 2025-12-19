@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abambas - Interior Design Studio | Port Harcourt</title>
+    <meta
+      name="description"
+      content="Professional interior design services in Port Harcourt. Residential, office, and commercial space design by Abambas."
+    />
+    <meta
+      property="og:image"
+      content="https://bolt.new/static/og_default.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://bolt.new/static/og_default.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <!-- Hamburger positioned outside navigation -->
+    <button
+      class="hamburger"
+      aria-label="Toggle mobile menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg
+        class="hamburger-icon"
+        width="24"
+        height="18"
+        viewBox="0 0 24 18"
+        fill="none"
+      >
+        <line
+          class="hamburger-line"
+          x1="0"
+          y1="2"
+          x2="24"
+          y2="2"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+        <line
+          class="hamburger-line"
+          x1="0"
+          y1="9"
+          x2="24"
+          y2="9"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+        <line
+          class="hamburger-line"
+          x1="0"
+          y1="16"
+          x2="24"
+          y2="16"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+      </svg>
+    </button>
+
+    <nav class="main-nav">
+      <div class="nav-container">
+        <div class="logo">ABAMBAS</div>
+        <ul class="nav-menu">
+          <li><a href="#home">HOMEPAGE</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#services">SERVICES</a></li>
+          <li><a href="#work">PROJECTS</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+        <div class="nav-phone">
+          <a href="tel:+2348034550910">+(234) 909 719 2285</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
+      <div class="mobile-menu-content">
+        <nav class="mobile-nav">
+          <ul class="mobile-nav-list">
+            <li class="mobile-nav-item">
+              <a href="#home" class="mobile-nav-link">HOME</a>
+            </li>
+            <li class="mobile-nav-item">
+              <a href="#about" class="mobile-nav-link">ABOUT</a>
+            </li>
+            <li class="mobile-nav-item">
+              <a href="#services" class="mobile-nav-link">SERVICES</a>
+            </li>
+            <li class="mo bile-nav-item">
+              <a href="#work" class="mobile-nav-link">PROJECTS</a>
+            </li>
+            <li class="mobile-nav-item">
+              <a href="#contact" class="mobile-nav-link">CONTACT</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="mobile-menu-footer">
+          <div class="mobile-contact">
+            <div class="mobile-contact-item">
+              <span class="mobile-contact-label">PHONE</span>
+              <a href="tel:+2348034550910" class="mobile-contact-value"
+                >+(234) 909 719 2285</a
+              >
+            </div>
+            <div class="mobile-contact-item">
+              <span class="mobile-contact-label">LOCATION</span>
+              <p class="mobile-contact-value">Port Harcourt, Nigeria</p>
+            </div>
+          </div>
+          <div class="mobile-menu-divider"></div>
+          <div class="mobile-social">
+            <a href="#" class="mobile-social-link" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+            <a href="#" class="mobile-social-link" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <rect
+                  x="2"
+                  y="2"
+                  width="20"
+                  height="20"
+                  rx="5"
+                  ry="5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <line
+                  x1="17.5"
+                  y1="6.5"
+                  x2="17.51"
+                  y2="6.5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="home" class="hero">
+      <div class="hero-container">
+        <div class="hero-image">
+          <img
+            src="assets/images/Modern Minimalist Interior with Orange Armchair.png"
+            alt="Modern interior design"
+          />
+        </div>
+        <div class="hero-content">
+          <h1 class="hero-title">
+            <span class="hero-line">DESIGN WITH</span>
+            <span class="hero-line">ABAMBAS</span>
+          </h1>
+
+          <div class="project-button-container hero-button">
+            <span class="btn-text">GET STARTED</span>
+            <button class="btn-circle-outline">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path
+                  d="M4 10H16M16 10L10 4M16 10L10 16"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-content">
+            <span class="section-label">MAIN</span>
+            <h2 class="section-title">ABOUT US</h2>
+            <p class="about-text">
+              At Abambas, we believe a good space should feel natural the moment
+              you walk in. Not staged. Not overdesigned. Just right.
+            </p>
+            <p class="about-text">
+              We work closely with our clients to understand how they live,
+              move, and relax. From homes to commercial spaces, our goal is to
+              design interiors that support real life.
+            </p>
+            <button class="btn-link">
+              LEARN MORE
+              <span
+                ><svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M4 10H16M16 10L10 4M16 10L10 16"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  /></svg
+              ></span>
+            </button>
+          </div>
+          <div class="about-image">
+            <img
+              src="assets/images/Luxurious Modern Interior.webp"
+              alt="Interior design workspace"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number" data-target="10">0</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="30">0</div>
+
+            <div class="stat-label">Projects</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="40">0</div>
+            <div class="stat-label">Concepts</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="200">0</div>
+            <div class="stat-label">Happy Clients</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cinematic-carousel">
+      <div class="carousel-container">
+        <div class="carousel-track">
+          <div class="carousel-slide active">
+            <img
+              src="assets/images/Modern Minimalist Interior with Orange Armchair.png"
+              alt="Modern minimalist interior with orange armchair"
+            />
+          </div>
+          <div class="carousel-slide">
+            <img
+              src="assets/images/Luxurious Modern Interior.webp"
+              alt="Luxurious modern interior design"
+            />
+          </div>
+          <div class="carousel-slide">
+            <img
+              src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              alt="Luxury interior space with modern furniture"
+            />
+          </div>
+          <div class="carousel-slide">
+            <img
+              src="https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              alt="Elegant apartment living area"
+            />
+          </div>
+          <div class="carousel-slide">
+            <img
+              src="https://images.pexels.com/photos/1648771/pexels-photo-1648771.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              alt="Family home dining area"
+            />
+          </div>
+        </div>
+        <div class="carousel-gradient"></div>
+        <div class="carousel-progress">
+          <div class="progress-line"></div>
+        </div>
+        <div class="carousel-controls">
+          <div class="carousel-prev"></div>
+          <div class="carousel-next"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="container">
+        <span class="section-label">OUR</span>
+        <h2 class="section-title">SERVICES</h2>
+        <div class="services-grid">
+          <div class="service-item">
+            <h3 class="service-title">Interior Design</h3>
+            <p class="service-description">
+              Complete interior solutions tailored to your space, style, and
+              daily needs.
+            </p>
+          </div>
+          <div class="service-item">
+            <h3 class="service-title">Space Planning</h3>
+            <p class="service-description">
+              Thoughtful layouts that improve flow, comfort, and functionality.
+            </p>
+          </div>
+
+          <div class="service-item">
+            <h3 class="service-title">Furniture & Finishes</h3>
+            <p class="service-description">
+              Carefully selected materials, textures, and finishes that feel
+              warm and lasting.
+            </p>
+          </div>
+        </div>
+        <br /><br />
+        <div class="project-button-container service-button">
+          <span class="btn-text">GET STARTED</span>
+          <button class="btn-circle-solid">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path
+                d="M4 10H16M16 10L10 4M16 10L10 16"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="our-work">
+      <div class="container">
+        <div class="work-layout">
+          <div class="work-image">
+            <img
+              src="https://images.pexels.com/photos/1648768/pexels-photo-1648768.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Design process"
+            />
+          </div>
+
+          <div class="work-content">
+            <span class="section-label">WHAT IS</span>
+            <h2 class="section-title">OUR WORK</h2>
+            <div class="work-process">
+              <div class="process-item">
+                <h3 class="process-title">Measurement</h3>
+                <p class="process-description">
+                  Comprehensive site analysis and precise measurements to
+                  establish the foundation for exceptional design solutions.
+                </p>
+              </div>
+              <div class="process-divider"></div>
+              <div class="process-item">
+                <h3 class="process-title">Concept</h3>
+                <p class="process-description">
+                  Development of creative concepts that align with your vision,
+                  lifestyle, and spatial requirements.
+                </p>
+              </div>
+              <div class="process-divider"></div>
+              <div class="process-item">
+                <h3 class="process-title">Visualization</h3>
+                <p class="process-description">
+                  Detailed 3D renderings and mood boards to help you envision
+                  the final result before implementation.
+                </p>
+              </div>
+              <div class="process-divider"></div>
+              <div class="process-item">
+                <h3 class="process-title">Construction</h3>
+                <p class="process-description">
+                  Expert project management and construction oversight ensuring
+                  flawless execution of the design vision.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects">
+      <div class="container">
+        <span class="section-label">OUR</span>
+        <h2 class="section-title">COMPLETED PROJECTS</h2>
+
+        <div class="project-item">
+          <div class="project-image">
+            <img
+              src="https://images.pexels.com/photos/1571453/pexels-photo-1571453.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Elegant apartment living area"
+            />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">ELEGANT APARTMENT ON LUMEN AREA</h3>
+            <p class="project-description">
+              A sophisticated residential project featuring contemporary design
+              elements and luxurious finishes throughout the living spaces.
+            </p>
+            <div class="project-button-container">
+              <span class="btn-text">Learn More</span>
+              <button class="btn-circle-outline">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M4 10H16M16 10L10 4M16 10L10 16"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-image">
+            <img
+              src="https://images.pexels.com/photos/1571458/pexels-photo-1571458.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Open plan bedroom"
+            />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">OPEN PLAN BEDROOM IN URBAN DISTRICT</h3>
+            <p class="project-description">
+              Modern minimalist bedroom design emphasizing natural light, clean
+              lines, and functional elegance for urban living.
+            </p>
+
+            <div class="project-button-container">
+              <span class="btn-text">Learn More</span>
+              <button class="btn-circle-outline">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M4 10H16M16 10L10 4M16 10L10 16"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-image">
+            <img
+              src="https://images.pexels.com/photos/1648771/pexels-photo-1648771.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Family home dining area"
+            />
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">DESIGN OF A COZY FAMILY HOUSE</h3>
+            <p class="project-description">
+              Warm and inviting family home featuring natural materials,
+              thoughtful spatial planning, and timeless design principles.
+            </p>
+            <div class="project-button-container">
+              <span class="btn-text">Learn More</span>
+              <button class="btn-circle-outline">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M4 10H16M16 10L10 4M16 10L10 16"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="discussion">
+      <div class="container">
+        <div class="discussion-layout">
+          <div class="discussion-content">
+            <h2 class="section-title discussion-title">
+              <span>IT'S TIME TO</span>
+              <span>DISCUSS YOUR PROJECT</span>
+            </h2>
+            <p class="discussion-text">
+              Share your vision with us and let's create something extraordinary
+              together.
+            </p>
+
+            <form class="contact-form" id="contactForm">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Your Phone"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Tell us about your project"
+                  required
+                ></textarea>
+              </div>
+              <div class="form-button-container">
+                <span class="btn-text">Send a Request</span>
+                <button type="submit" class="btn-circle-solid">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path
+                      d="M4 10H16M16 10L10 4M16 10L10 16"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="discussion-image">
+            <img
+              src="https://images.pexels.com/photos/1571468/pexels-photo-1571468.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Modern interior design consultation"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-layout">
+          <div class="footer-image">
+            <img
+              src="https://images.pexels.com/photos/1457847/pexels-photo-1457847.jpeg?auto=compress&cs=tinysrgb&w=800"
+              alt="Interior design detail"
+            />
+          </div>
+          <div class="footer-content">
+            <h2 class="section-title">CONTACTS</h2>
+
+            <div class="contact-info">
+              <div class="contact-item">
+                <div class="contact-label">CALL US ON PHONE</div>
+                <a href="tel:09097192285" class="contact-value">09097192285</a>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-label">THE SHOWROOM IS LOCATED AT</div>
+                <p class="contact-value">
+                  Along Mgbuoba Road, After Mount Harmond Hospital, Port
+                  Harcourt
+                </p>
+                <p class="contact-meta">VX95+6J, Port Harcourt</p>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-label">FOLLOW US ON SOCIAL NETWORKS</div>
+                <div class="social-links">
+                  <a href="#" aria-label="Facebook" class="social-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </a>
+                  <a href="#" aria-label="Instagram" class="social-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <rect
+                        x="2"
+                        y="2"
+                        width="20"
+                        height="20"
+                        rx="5"
+                        ry="5"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <line
+                        x1="17.5"
+                        y1="6.5"
+                        x2="17.51"
+                        y2="6.5"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </a>
+                  <a href="#" aria-label="Twitter" class="social-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="newsletter">
+          <div class="container">
+            <div class="newsletter-content">
+              <h2 class="newsletter-title">Stay Updated</h2>
+              <p class="newsletter-text">
+                Subscribe to our newsletter for the latest design trends,
+                project updates, and exclusive insights.
+              </p>
+              <form class="newsletter-form">
+                <input
+                  type="email"
+                  placeholder="Enter your email address"
+                  required
+                />
+                <button type="submit" class="btn-subscribe">Subscribe</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2024 Abambas. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="/js/animations.js"></script>
+    <script type="module" src="/js/script.js"></script>
+  </body>
+</html>
