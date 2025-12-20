@@ -136,7 +136,6 @@ function setupMobileMenuLinks(mobileMenu) {
 // HERO SECTION ANIMATIONS
 // ===================================
 
-
 /**
  * Hero Section Entrance Animation Timeline
  * Coordinates multiple elements for a cohesive entrance effect
@@ -147,12 +146,12 @@ function initHeroAnimations() {
   // Set initial states for button text and arrow animation
   gsap.set(".btn-text", {
     opacity: 0,
-    x: -30
+    x: -30,
   });
-  
+
   gsap.set(".btn-circle-outline", {
     opacity: 0,
-    scale: 0.8
+    scale: 0.8,
   });
 
   heroTimeline
@@ -583,6 +582,105 @@ function initProjectsAnimations() {
 }
 
 /**
+ * Product Categories Section Animations
+ * Category items reveal animation with stagger
+ */
+function initProductCategoriesAnimations() {
+  const categoryItems = document.querySelectorAll(".category-item");
+  categoryItems.forEach((item, index) => {
+    gsap.to(item, {
+      scrollTrigger: {
+        trigger: ".product-categories",
+        start: "top 70%",
+      },
+      opacity: 1,
+      y: -8,
+      duration: 0.8,
+      delay: index * 0.15,
+      ease: "power2.out",
+    });
+  });
+
+  // Animate categories intro
+  gsap.to(".categories-intro", {
+    scrollTrigger: {
+      trigger: ".product-categories",
+      start: "top 70%",
+    },
+    opacity: 1,
+    y: -8,
+    duration: 0.8,
+    delay: 0.2,
+    ease: "power2.out",
+  });
+
+  // Animate categories image
+  gsap.to(".categories-image", {
+    scrollTrigger: {
+      trigger: ".product-categories",
+      start: "top 70%",
+    },
+    opacity: 1,
+    y: -8,
+    duration: 1,
+    delay: 0.3,
+    ease: "power2.out",
+  });
+
+  // Animate CTA buttons
+  gsap.to(".categories-cta", {
+    scrollTrigger: {
+      trigger: ".product-categories",
+      start: "top 70%",
+    },
+    opacity: 1,
+    y: -8,
+    duration: 0.8,
+    delay: 0.5,
+    ease: "power2.out",
+  });
+}
+
+/**
+ * CTA Button Animation System
+ * Fade and settle buttons into view when entering viewport
+ */
+function initCTAAnimations() {
+  const ctaContainers = [
+    ".hero-button",
+    ".service-button",
+    ".project-button-container",
+    ".form-button-container",
+    ".categories-cta",
+  ];
+
+  ctaContainers.forEach((selector) => {
+    const containers = document.querySelectorAll(selector);
+    containers.forEach((container, index) => {
+      const triggerElement =
+        container.closest(".hero") ||
+        container.closest(".services") ||
+        container.closest(".projects") ||
+        container.closest(".discussion") ||
+        container.closest(".product-categories") ||
+        container;
+
+      gsap.to(container, {
+        scrollTrigger: {
+          trigger: triggerElement,
+          start: "top 70%",
+        },
+        opacity: 1,
+        y: -8,
+        duration: 0.8,
+        delay: 0.3 + index * 0.1,
+        ease: "power2.out",
+      });
+    });
+  });
+}
+
+/**
  * Discussion Section Animations
  * Discussion image reveal and scale animations
  */
@@ -998,6 +1096,8 @@ function initAnimations() {
   initWorkAnimations();
   initProcessAnimations();
   initProjectsAnimations();
+  initProductCategoriesAnimations();
+  initCTAAnimations();
   initDiscussionAnimations();
   initFooterAnimations();
   initCounterAnimations();

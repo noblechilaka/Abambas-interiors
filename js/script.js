@@ -16,7 +16,10 @@
  */
 function initApp() {
   console.log("Application initialized");
-  
+
+  // Initialize product categories interaction
+  initProductCategories();
+
   // Animation system is initialized via animations.js
   // This file focuses on non-animation functionality
 }
@@ -25,6 +28,57 @@ function initApp() {
 document.addEventListener("DOMContentLoaded", () => {
   initApp();
 });
+
+// ===================================
+// PRODUCT CATEGORIES INTERACTION
+// ===================================
+
+/**
+ * Initialize Product Categories Hover Interaction
+ * Handles hover events to switch category images
+ */
+function initProductCategories() {
+  const categoryItems = document.querySelectorAll(".category-item");
+  const categoryImages = document.querySelectorAll(".category-image");
+
+  if (categoryItems.length === 0 || categoryImages.length === 0) return;
+
+  categoryItems.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      const category = item.getAttribute("data-category");
+
+      // Remove active class from all images
+      categoryImages.forEach((img) => {
+        img.classList.remove("active");
+      });
+
+      // Add active class to corresponding image
+      const targetImage = document.querySelector(
+        `.category-image[data-category="${category}"]`
+      );
+      if (targetImage) {
+        targetImage.classList.add("active");
+      }
+    });
+  });
+
+  // Optional: Reset to default on mouse leave (first image)
+  const categoriesList = document.querySelector(".categories-list");
+  if (categoriesList) {
+    categoriesList.addEventListener("mouseleave", () => {
+      categoryImages.forEach((img) => {
+        img.classList.remove("active");
+      });
+      // Set first image as active (default)
+      const firstImage = document.querySelector(
+        '.category-image[data-category="seating"]'
+      );
+      if (firstImage) {
+        firstImage.classList.add("active");
+      }
+    });
+  }
+}
 
 // ===================================
 // UTILITY FUNCTIONS
