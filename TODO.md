@@ -1,55 +1,70 @@
-# Product Categories Section Implementation
+# Typography Implementation Plan
 
-## Completed Tasks
+## Information Gathered
+- Current heading font: "Playfair Display", serif
+- Current body font: "Inter", sans-serif
+- Font loading from Google Fonts in HTML head
+- 89 font-family references found across the CSS file
+- Typography hierarchy needs complete overhaul
 
-- [x] Add HTML section in index.html after services, before our-work
-- [x] Add CSS styles in styles.css for layout, hover effects, responsive design
-- [x] Add JavaScript in script.js for hover interaction
-- [x] Add scroll animations in animations.js
-- [x] Use placeholder images from Pexels
-- [x] Implement hover-driven image reveal with fade transition (1.2s)
-- [x] Add minimal CTA at bottom
-- [x] Ensure responsive design (stack on mobile)
-- [x] Add clear header section with user guidance
-- [x] Implement refined CTA interaction system across the site
+## Typography Changes Required
 
-## CTA Interaction System Features
+### Font Replacement
+- **Headings (H1-H3)**: Replace with "Carves" 
+- **Body/Navigation/Buttons/UI**: Replace with "Montserrat"
+- **Remove fallback fonts** as specified
 
-- [x] Subtle scale up on hover (anticipation) - scale(1.05)
-- [x] Physical compression on click/tap - scale(0.95)
-- [x] Smooth release with micro overshoot
-- [x] Tactile and responsive feel
-- [x] Scroll-aware presence using GSAP ScrollTrigger
-- [x] Calm fade and settle animations
-- [x] Applied to all button types across the site
-- [x] No attention-grabbing effects
-- [x] Premium, physical interaction feel
+### Typography Hierarchy
+- **H1-H3 Elements**: Carves only (hero-title, section-title, category-title, service-title, process-title, project-title, newsletter-title, stat-number, logo, mobile-nav-link)
+- **Body Elements**: Montserrat only (about-text, service-description, process-description, project-description, discussion-text, newsletter-text, contact-value, nav-menu a, nav-phone a, mobile-contact-value, form inputs, btn-text, footer-bottom p)
 
-## Button Types Enhanced
+### Responsive Typography Rules
+- **Desktop**: Tighter letter-spacing
+- **Tablet**: Neutral spacing  
+- **Mobile**: Slightly increased line-height for readability
 
-- [x] .btn-circle - Main circular buttons
-- [x] .btn-outline - Outline style buttons
-- [x] .btn-circle-solid - Solid filled circular buttons
-- [x] .btn-circle-outline - Outline circular buttons
-- [x] .social-icon - Social media buttons
-- [x] .btn-subscribe - Newsletter subscribe button
-- [x] .mobile-social-link - Mobile social buttons
-- [x] .newsletter-form input - Form inputs
+### Spacing Adjustments
+- **Headings**: Tighten line-height to 1.05-1.15
+- **Body text**: Use slightly relaxed spacing
+- **Never center long paragraphs**
+- **Headlines**: May center only in hero and CTA sections
 
-## Animation System
+## Implementation Steps
 
-- [x] initCTAAnimations() function for scroll-aware presence
-- [x] GSAP ScrollTrigger integration
-- [x] Fade and settle animations (0.8s duration)
-- [x] Smooth power2.out easing
-- [x] Staggered delays for multiple CTAs
+### Step 1: Update Font Loading
+- [x] Replace Google Fonts link to include "Carves" and "Montserrat"
+- [x] Remove fallback fonts from font declarations
 
-## Followup Steps
+### Step 2: Update CSS Variables
+- [x] Update --font-heading variable to "Carves"
+- [x] Update --font-body variable to "Montserrat"
 
-- [x] Test hover interaction on desktop
-- [x] Test responsive behavior on mobile
-- [x] Verify animations work correctly
-- [x] Check image loading and transitions
-- [x] Test CTA tactile interactions
-- [x] Verify scroll-triggered animations
-- [x] Confirm all button types work consistently
+### Step 3: Verify Font Hierarchy
+- [x] Ensure all heading elements use --font-heading (Carves)
+- [x] Ensure all body/nav/UI elements use --font-body (Montserrat)
+- [x] Remove any inline font-family declarations that override variables
+
+### Step 4: Adjust Line Heights
+- [x] Tighten heading line-heights to 1.05-1.15
+- [x] Apply slightly relaxed spacing for body text
+- [x] Update responsive media queries for proper spacing
+
+### Step 5: Implement Responsive Rules
+- [x] Add tighter letter-spacing for desktop
+- [x] Maintain neutral spacing for tablet
+- [x] Increase line-height for mobile readability
+
+### Step 6: Validate Typography Feel
+- [ ] Ensure typography feels: Architectural, Calm, Premium, Editorial, Minimal
+- [ ] Check that no decorative styles are introduced
+- [ ] Verify proper hierarchy is maintained
+
+## Files to Edit
+1. `/Users/mac/Desktop/Abambas/index.html` - Update Google Fonts link ✅
+2. `/Users/mac/Desktop/Abambas/css/styles.css` - Complete typography overhaul ✅
+
+## Follow-up Steps
+- [ ] Test typography changes across different screen sizes
+- [ ] Verify font loading and rendering
+- [ ] Ensure no decorative typography styles are present
+- [ ] Confirm typography hierarchy feels architectural, calm, premium, editorial, and minimal

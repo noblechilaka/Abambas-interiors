@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=DM+Serif+Display&display=swap');
+
+
+
 * {
   margin: 0;
   padding: 0;
@@ -22,8 +26,8 @@
   --border-brown: var(--border);
 
   /* Typography */
-  --font-heading: "Playfair Display", serif;
-  --font-body: "Inter", sans-serif;
+  --font-heading: 'DM Serif Display', serif;
+  --font-body: 'Montserrat', sans-serif;
 
   /* Layout & Spacing */
   --spacing-sm: 60px;
@@ -67,13 +71,19 @@ body {
 
 .section-title {
   font-family: var(--font-heading);
-  font-size: 54px;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
   font-weight: 400;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-primary);
   margin-bottom: 40px;
+  line-height: 1.1;
 }
+p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
 
 .main-nav {
   position: fixed;
@@ -171,9 +181,9 @@ body {
 
 .hero-title {
   font-family: var(--font-heading);
-  font-size: 56px;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.05;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   margin-bottom: 30px;
@@ -385,6 +395,7 @@ body {
   font-weight: 400;
   color: var(--text-primary);
   margin-bottom: 10px;
+  line-height: 1.1;
 }
 
 .stat-number::after {
@@ -721,7 +732,7 @@ body {
   color: var(--bg-primary);
   text-decoration: none;
   letter-spacing: 0.02em;
-  line-height: 1.1;
+  line-height: 1.05;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
   display: inline-block;
@@ -856,6 +867,7 @@ body {
   margin-bottom: 8px;
   letter-spacing: 0.02em;
   transition: color 0.3s ease;
+  line-height: 1.15;
 }
 
 .category-item:hover .category-title {
@@ -956,6 +968,7 @@ body {
   color: var(--text-primary);
   margin-bottom: 20px;
   letter-spacing: 0.02em;
+  line-height: 1.1;
 }
 
 .service-description {
@@ -1013,6 +1026,7 @@ body {
   color: var(--text-primary);
   margin-bottom: 15px;
   letter-spacing: 0.02em;
+  line-height: 1.1;
 }
 
 .process-description {
@@ -1071,7 +1085,7 @@ body {
   color: var(--text-primary);
   margin-bottom: 20px;
   letter-spacing: 0.02em;
-  line-height: 1.3;
+  line-height: 1.1;
 }
 
 .project-description {
@@ -1318,6 +1332,7 @@ body {
   color: var(--text-primary);
   margin-bottom: 15px;
   letter-spacing: 0.02em;
+  line-height: 1.1;
 }
 
 .newsletter-text {
@@ -1526,5 +1541,64 @@ body {
 
   .project-image {
     height: 250px;
+  }
+}
+
+/* RESPONSIVE TYPOGRAPHY RULES */
+
+/* Desktop - Tighter letter-spacing */
+@media (min-width: 1025px) {
+  .section-title,
+  .hero-title,
+  .stat-number,
+  .category-title,
+  .service-title,
+  .process-title,
+  .project-title,
+  .newsletter-title,
+  .mobile-nav-link {
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Tablet - Neutral spacing (default styles apply) */
+/* Mobile - Slightly increased line-height for readability */
+@media (max-width: 768px) {
+  .hero-title {
+    line-height: 1.2;
+  }
+
+  .section-title {
+    line-height: 1.25;
+  }
+
+  .stat-number,
+  .service-title,
+  .process-title,
+  .project-title,
+  .newsletter-title {
+    line-height: 1.3;
+  }
+
+  .category-title {
+    line-height: 1.35;
+  }
+
+  .mobile-nav-link {
+    line-height: 1.15;
+  }
+
+  /* Body text adjustments for mobile */
+  body {
+    line-height: 1.8;
+  }
+
+  .about-text,
+  .service-description,
+  .process-description,
+  .project-description,
+  .discussion-text,
+  .newsletter-text {
+    line-height: 1.9;
   }
 }
