@@ -474,22 +474,24 @@ function initAboutAnimations() {
 
 /**
  * Stats Section Animations
- * Counter animation with stagger effect
+ * Single trigger for entire stats section to prevent repeated motion
  */
 function initStatsAnimations() {
-  const statItems = document.querySelectorAll(".stat-item");
-  statItems.forEach((item, index) => {
-    gsap.to(item, {
-      scrollTrigger: {
-        trigger: ".stats",
-        start: "top 70%",
-      },
-      opacity: 1,
-      y: -8,
-      duration: 0.8,
-      delay: index * 0.1,
-      ease: "power2.out",
-    });
+  // Create a single scroll trigger for the entire stats section
+  ScrollTrigger.create({
+    trigger: ".stats",
+    start: "top 70%",
+    once: true,
+    onEnter: () => {
+      // Animate all stat items with stagger
+      gsap.to(".stat-item", {
+        opacity: 1,
+        y: -8,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power2.out",
+      });
+    },
   });
 }
 
@@ -563,11 +565,11 @@ function initProcessAnimations() {
 
 /**
  * Projects Section Animations
- * Project items reveal animation
+ * Project items reveal animation with parallax
  */
 function initProjectsAnimations() {
   const projectItems = document.querySelectorAll(".project-item");
-  projectItems.forEach((item) => {
+  projectItems.forEach((item, index) => {
     gsap.to(item, {
       scrollTrigger: {
         trigger: item,
@@ -578,6 +580,21 @@ function initProjectsAnimations() {
       duration: 1,
       ease: "power2.out",
     });
+
+    // Add subtle parallax to project images
+    const image = item.querySelector(".project-image img");
+    if (image) {
+      gsap.to(image, {
+        scrollTrigger: {
+          trigger: item,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 0.5,
+        },
+        y: -20,
+        ease: "none",
+      });
+    }
   });
 }
 
@@ -1087,6 +1104,13 @@ function initCarousel() {
  * Called when DOM is fully loaded to initialize all animations
  */
 function initAnimations() {
+  // Check if mobile and adjust animation durations
+  const isMobile = window.innerWidth <= 768;
+  if (isMobile) {
+    // Reduce animation durations by 30% for mobile
+    gsap.globalTimeline.timeScale(0.7);
+  }
+
   // Initialize all animation systems
   setupSmoothScrollLinks();
   initHeroAnimations();
