@@ -1117,31 +1117,6 @@ p {
   opacity: 0;
 }
 
-.project-item.alternate {
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: "content image";
-}
-
-.project-item .project-content {
-  grid-area: content;
-}
-
-.project-item .project-image {
-  grid-area: image;
-}
-
-.project-item.alternate .project-content {
-  order: 1;
-}
-
-.project-item.alternate .project-image {
-  order: 2;
-}
-
-.project-item:first-of-type {
-  margin-top: 60px;
-}
-
 .project-image {
   height: 450px;
   overflow: hidden;
