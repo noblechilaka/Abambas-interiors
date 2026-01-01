@@ -93,6 +93,22 @@ p {
   transition: all 0.3s ease;
 }
 
+/* Navbar entrance animation initial states */
+.logo {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.nav-menu li {
+  opacity: 0;
+  transform: translateY(-15px);
+}
+
+.nav-phone {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
 .main-nav.scrolled {
   background: rgba(248, 244, 225, 0.95);
   backdrop-filter: blur(10px);
@@ -666,7 +682,7 @@ p {
   stroke: currentColor;
   stroke-width: 1.5;
   stroke-linecap: round;
-  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Hamburger hover effect */
@@ -678,19 +694,19 @@ p {
   transform: translateY(0.5px);
 }
 
-/* Hamburger to Close Animation */
+/* Hamburger to Close Animation - Minimal transition */
 .hamburger.active .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(4px, 4px);
   transform-origin: 12px 2px;
 }
 
 .hamburger.active .hamburger-line:nth-child(2) {
   opacity: 0;
-  transform: scale(0);
+  transform: scale(0.8);
 }
 
 .hamburger.active .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
+  transform: rotate(-45deg) translate(5px, -5px);
   transform-origin: 12px 16px;
 }
 
@@ -706,8 +722,8 @@ p {
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-20px);
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateY(-10px);
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
   overflow-y: auto;
 }
 
@@ -742,25 +758,25 @@ p {
 
 .mobile-nav-item {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(15px);
   margin-bottom: 35px;
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mobile-nav-item:nth-child(1) {
-  transition-delay: 0.1s;
+  transition-delay: 0.08s;
 }
 .mobile-nav-item:nth-child(2) {
-  transition-delay: 0.15s;
+  transition-delay: 0.12s;
 }
 .mobile-nav-item:nth-child(3) {
-  transition-delay: 0.2s;
+  transition-delay: 0.16s;
 }
 .mobile-nav-item:nth-child(4) {
-  transition-delay: 0.25s;
+  transition-delay: 0.2s;
 }
 .mobile-nav-item:nth-child(5) {
-  transition-delay: 0.3s;
+  transition-delay: 0.24s;
 }
 
 .mobile-menu-overlay.active .mobile-nav-item {
@@ -784,16 +800,16 @@ p {
 .mobile-nav-link:hover,
 .mobile-nav-link:focus {
   color: rgba(248, 244, 225, 0.8);
-  transform: translateX(8px);
+  transform: translateX(4px);
 }
 
 /* Mobile Menu Footer */
 .mobile-menu-footer {
   margin-top: 80px;
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition-delay: 0.4s;
+  transform: translateY(10px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.35s;
 }
 
 .mobile-menu-overlay.active .mobile-menu-footer {

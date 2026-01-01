@@ -163,6 +163,7 @@ function initHeroAnimations() {
       stagger: 0.2,
       ease: "power3.out",
     })
+
     // Fade in hero image container
     .to(
       ".hero-image",
@@ -204,6 +205,51 @@ function initHeroAnimations() {
         ease: "power2.out",
       },
       "-=0.6"
+    );
+}
+
+/**
+ * Navbar Entrance Animation
+ * Staggered reveal of navbar elements for a sophisticated entrance
+ * Timing: Starts after hero text begins animating for cohesive flow
+ */
+function initNavbarAnimations() {
+  // Create a timeline that starts after hero text begins
+  // The first hero line appears at around 0.5-0.8s, so we start navbar animation then
+  const navTimeline = gsap.timeline({
+    delay: 0.8, // Start after first hero line appears
+  });
+
+  // Animate logo in first
+  navTimeline
+    .to(".logo", {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: "power3.out",
+    })
+    // Animate nav menu items with stagger
+    .to(
+      ".nav-menu li",
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        stagger: 0.1, // Each item appears 0.1s after the previous
+        ease: "power2.out",
+      },
+      "-=0.2" // Start slightly before logo animation completes
+    )
+    // Animate phone number last
+    .to(
+      ".nav-phone",
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power2.out",
+      },
+      "-=0.1" // Start slightly before nav items complete
     );
 }
 
@@ -308,30 +354,30 @@ class MobileMenu {
       },
     });
 
-    // Animate menu overlay
+    // Animate menu overlay - smoother, minimal animation
     this.animationTimeline.to(
       this.mobileMenu,
       {
         opacity: 1,
         visibility: "visible",
         transform: "translateY(0)",
-        duration: 0.6,
-        ease: "power2.out",
+        duration: 0.7,
+        ease: "power3.out",
       },
       0
     );
 
-    // Stagger animate navigation items
+    // Stagger animate navigation items - tighter timing
     this.animationTimeline.to(
       ".mobile-nav-item",
       {
         opacity: 1,
         y: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power2.out",
+        duration: 0.6,
+        stagger: 0.08,
+        ease: "power3.out",
       },
-      0.2
+      0.15
     );
 
     // Animate footer
@@ -341,9 +387,9 @@ class MobileMenu {
         opacity: 1,
         y: 0,
         duration: 0.6,
-        ease: "power2.out",
+        ease: "power3.out",
       },
-      0.4
+      0.35
     );
   }
 
@@ -370,15 +416,15 @@ class MobileMenu {
       },
     });
 
-    // Reverse animations
+    // Reverse animations - smoother, minimal timing
     this.animationTimeline
       .to(
         ".mobile-menu-footer",
         {
           opacity: 0,
-          y: 20,
+          y: 10,
           duration: 0.4,
-          ease: "power2.in",
+          ease: "power3.in",
         },
         0
       )
@@ -386,23 +432,23 @@ class MobileMenu {
         ".mobile-nav-item",
         {
           opacity: 0,
-          y: 30,
+          y: 15,
           duration: 0.5,
-          stagger: 0.05,
-          ease: "power2.in",
+          stagger: 0.06,
+          ease: "power3.in",
         },
-        0.1
+        0.08
       )
       .to(
         this.mobileMenu,
         {
           opacity: 0,
           visibility: "hidden",
-          transform: "translateY(-20px)",
+          transform: "translateY(-10px)",
           duration: 0.5,
-          ease: "power2.in",
+          ease: "power3.in",
         },
-        0.2
+        0.15
       );
   }
 }
@@ -1114,6 +1160,7 @@ function initAnimations() {
   // Initialize all animation systems
   setupSmoothScrollLinks();
   initHeroAnimations();
+  initNavbarAnimations(); // Navbar staggered entrance (starts after hero text)
   initAboutAnimations();
   initStatsAnimations();
   initServicesAnimations();
