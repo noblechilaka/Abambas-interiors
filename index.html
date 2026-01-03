@@ -372,7 +372,57 @@
       </div>
     </section>
 
-    <section class="product-categories">
+    <section class="categories">
+      <div class="category">
+        <img
+          src="/assets/images/Minimalist Shelf Decor.png"
+          alt="Decor category"
+          loading="lazy"
+        />
+        <div class="overlay">
+          <h3>Decor</h3>
+          <span>20 products</span>
+        </div>
+      </div>
+
+      <div class="category">
+        <img
+          src="/assets/images/Elegant Armchair Design.png"
+          alt="Furniture category"
+          loading="lazy"
+        />
+        <div class="overlay">
+          <h3>Furniture</h3>
+          <span>176 products</span>
+        </div>
+      </div>
+
+      <div class="category">
+        <img
+          src="/assets/images/Minimalist Table Lamp.png"
+          alt="Lighting category"
+          loading="lazy"
+        />
+        <div class="overlay">
+          <h3>Lighting</h3>
+          <span>9 products</span>
+        </div>
+      </div>
+
+      <div class="category">
+        <img
+          src="/assets/images/Modern Interior Design.png"
+          alt="Kitchen category"
+          loading="lazy"
+        />
+        <div class="overlay">
+          <h3>Kitchen</h3>
+          <span>57 products</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section class="product-categories">
       <div class="container">
         <span class="section-label">BROWSE</span>
         <h2 class="section-title">PRODUCT CATEGORIES</h2>
@@ -500,7 +550,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <section id="work" class="our-work">
       <div class="container">
@@ -842,5 +892,31 @@
 
     <script src="/js/script.js"></script>
     <script src="/js/animations.js"></script>
+    <script>
+      const cards = document.querySelectorAll(".category");
+
+      cards.forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          cards.forEach((c) => c.classList.remove("active"));
+          card.classList.add("active");
+
+          gsap.to(card.querySelector("img"), {
+            scale: 1.06,
+            duration: 0.8,
+            ease: "power3.out",
+          });
+        });
+
+        card.addEventListener("mouseleave", () => {
+          cards.forEach((c) => c.classList.remove("active"));
+
+          gsap.to(card.querySelector("img"), {
+            scale: 1,
+            duration: 0.8,
+            ease: "power3.out",
+          });
+        });
+      });
+    </script>
   </body>
 </html>

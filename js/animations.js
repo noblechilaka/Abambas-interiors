@@ -454,6 +454,51 @@ class MobileMenu {
 }
 
 // ===================================
+// CATEGORY SECTION ANIMATIONS
+// ===================================
+gsap.set(".category", {
+  y: 50,
+  clipPath: "inset(100% 0% 0% 0%)",
+});
+
+gsap.to(".category", {
+  y: 0,
+  clipPath: "inset(0% 0% 0% 0%)",
+  duration: 1.1,
+  ease: "power4.out",
+  stagger: 0.16,
+  scrollTrigger: {
+    trigger: ".categories",
+    start: "top 75%",
+  },
+});
+
+gsap.to(".category", {
+  scale: 1,
+  scrollTrigger: {
+    trigger: ".category",
+    start: "left center",
+    end: "right center",
+    scrub: true,
+  },
+});
+
+ScrollTrigger.matchMedia({
+  "(max-width: 1023px)": function () {
+    gsap.from(".category", {
+      y: 40,
+      opacity: 0,
+      duration: 0.9,
+      ease: "power3.out",
+      stagger: 0.15,
+      scrollTrigger: {
+        trigger: ".categories",
+        start: "top 85%",
+      },
+    });
+  },
+});
+// ===================================
 // SCROLL-TRIGGERED SECTION ANIMATIONS
 // ===================================
 
