@@ -31,36 +31,6 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 
-// ===================================
-// GSAP & SCROLLTRIGGER SETUP
-// ===================================
-
-/**
- * GSAP and ScrollTrigger Registration
- * Core animation libraries setup and configuration
- */
-gsap.registerPlugin(ScrollTrigger);
-
-/**
- * Integration of Lenis with GSAP ScrollTrigger
- * Allows scroll-triggered animations to work with smooth scroll
- */
-lenis.on("scroll", ScrollTrigger.update);
-
-/**
- * GSAP Ticker Configuration
- * Synchronizes GSAP animations with Lenis smooth scroll
- */
-gsap.ticker.add((time) => {
-  lenis.raf(time * 1000);
-});
-
-/**
- * Lag smoothing optimization for better performance
- * Reduces animation lag for smoother experience
- */
-gsap.ticker.lagSmoothing(0);
-
 /**
  * Global ScrollTrigger refresh
  * Ensures all scroll triggers are properly calculated after DOM changes
@@ -1219,6 +1189,100 @@ function initAnimations() {
   initCounterAnimations();
   initContactForm();
   initNewsletterForm();
+
+  // Initialize new magnetic portal CTAs
+  initMagneticPortalCTAs();
+}
+
+/**
+ * Magnetic Portal CTA System
+ * Creates magnetic pull effect for portal-style CTAs
+ */
+function initMagneticPortalCTAs() {
+  const portalCTAs = document.querySelectorAll(".btn-portal");
+
+  portalCTAs.forEach((cta) => {
+    const circle = cta.querySelector(".btn-portal-circle");
+    if (!circle) return;
+
+    let isHovering = false;
+    let mouseX = 0;
+    let mouseY = 0;
+    let ctaX = 0;
+    let ctaY = 0;
+
+    // Track mouse position
+    document.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    // Get CTA position
+    const updatePosition = () => {
+      const rect = circle.getBoundingClientRect();
+      ctaX = rect.left + rect.width / 2;
+      ctaY = rect.top + rect.height / 2;
+    };
+
+    // Magnetic pull effect
+    const applyMagneticPull = () => {
+      if (!isHovering) return;
+
+      const distance = Math.sqrt(
+        Math.pow(mouseX - ctaX, 2) + Math.pow(mouseY - ctaY, 2)
+      );
+
+      // Only apply magnetism within 100px radius
+      if (distance < 100) {
+        const strength = (100 - distance) / 100; // 0 to 1
+        const pullX = (mouseX - ctaX) * strength * 0.3;
+        const pullY = (mouseY - ctaY) * strength * 0.3;
+
+        gsap.to(circle, {
+          x: pullX,
+          y: pullY,
+          duration: 0.1,
+          ease: "power2.out",
+        });
+      } else {
+        // Return to original position
+        gsap.to(circle, {
+          x: 0,
+          y: 0,
+          duration: 0.3,
+          ease: "power2.out",
+        });
+      }
+    };
+
+    // Hover events
+    cta.addEventListener("mouseenter", () => {
+      isHovering = true;
+      cta.classList.add("magnetic");
+      updatePosition();
+    });
+
+    cta.addEventListener("mouseleave", () => {
+      isHovering = false;
+      cta.classList.remove("magnetic");
+      gsap.to(circle, {
+        x: 0,
+        y: 0,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+    });
+
+    // Continuous magnetic effect while hovering
+    const magneticLoop = () => {
+      if (isHovering) {
+        updatePosition();
+        applyMagneticPull();
+      }
+      requestAnimationFrame(magneticLoop);
+    };
+    magneticLoop();
+  });
 }
 
 /**
@@ -1234,7 +1298,651 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize all animations
   initAnimations();
+
+  // Initialize luxury cursor
+  new LuxuryCursor();
+
+  // Initialize text reveal animations
+  initTextReveals();
+
+  // Initialize Abambas Method process section
+  initAbambasMethod();
+
+  // Initialize example modals
+  initExampleModals();
+
+  // Initialize comparison slider
+  new ComparisonSlider();
+
+  // Initialize project hover stats
+  initProjectHoverStats();
+
+  // Initialize parallax effects
+  initParallaxEffects();
+
+  // Initialize multi-step inquiry form
+  new MultiStepForm("inquiryForm");
+
+  // Handle reduced motion preference
+  initReducedMotion();
 });
+
+// ===================================
+// CUSTOM LUXURY CURSOR
+// ===================================
+
+/**
+ * Custom Cursor Implementation
+ * Elegant ring cursor with buttery smooth interpolation
+ */
+class LuxuryCursor {
+  constructor() {
+    this.cursor = document.getElementById("customCursor");
+    this.cursorDot = document.getElementById("customCursorDot");
+    this.hoverElements = [
+      "a",
+      "button",
+      ".btn-link",
+      ".btn-circle",
+      ".btn-circle-outline",
+      ".btn-circle-solid",
+      ".project-item",
+      ".category",
+      ".service-item",
+      ".process-item",
+      ".contact-item",
+      ".stat-item",
+      ".nav-menu a",
+      ".mobile-nav-link",
+      ".social-icon",
+      ".category-item",
+      ".option-card",
+      ".btn-next",
+      ".btn-back",
+      ".btn-submit",
+      ".btn-book-calendar",
+      ".phase-cta",
+      ".example-link",
+    ];
+
+    // Cursor position tracking
+    this.mouseX = 0;
+    this.mouseY = 0;
+    this.cursorX = 0;
+    this.cursorY = 0;
+    this.dotX = 0;
+    this.dotY = 0;
+
+    // Smooth interpolation factor (lower = smoother/slower)
+    this.lerpFactor = 0.1;
+
+    this.isVisible = false;
+    this.isHovering = false;
+
+    this.init();
+  }
+
+  init() {
+    if (!this.cursor || !this.cursorDot) return;
+
+    // Check for touch device
+    if ("ontouchstart" in window) {
+      this.cursor.style.display = "none";
+      this.cursorDot.style.display = "none";
+      return;
+    }
+
+    this.bindEvents();
+    this.animate();
+  }
+
+  bindEvents() {
+    // Track mouse position
+    document.addEventListener("mousemove", (e) => {
+      this.isVisible = true;
+      this.mouseX = e.clientX;
+      this.mouseY = e.clientY;
+
+      // Show cursor immediately on first move
+      this.cursor.style.opacity = "1";
+      this.cursorDot.style.opacity = "1";
+    });
+
+    // Mouse leave window
+    document.addEventListener("mouseleave", () => {
+      this.isVisible = false;
+      this.cursor.style.opacity = "0";
+      this.cursorDot.style.opacity = "0";
+    });
+
+    // Mouse enter window
+    document.addEventListener("mouseenter", () => {
+      this.isVisible = true;
+      this.cursor.style.opacity = "1";
+      this.cursorDot.style.opacity = "1";
+    });
+
+    // Hover states
+    this.hoverElements.forEach((selector) => {
+      const elements = document.querySelectorAll(selector);
+      elements.forEach((el) => {
+        el.addEventListener("mouseenter", () => this.expand());
+        el.addEventListener("mouseleave", () => this.shrink());
+      });
+    });
+
+    // Handle iframe interactions
+    document.querySelectorAll("iframe").forEach((iframe) => {
+      iframe.addEventListener("mouseenter", () => this.hide());
+      iframe.addEventListener("mouseleave", () => this.show());
+    });
+  }
+
+  expand() {
+    this.isHovering = true;
+    this.cursor.classList.add("hover");
+  }
+
+  shrink() {
+    this.isHovering = false;
+    this.cursor.classList.remove("hover");
+  }
+
+  hide() {
+    this.cursor.classList.add("hidden");
+    this.cursorDot.classList.add("hidden");
+  }
+
+  show() {
+    this.cursor.classList.remove("hidden");
+    this.cursorDot.classList.remove("hidden");
+  }
+
+  // Linear interpolation for smooth movement
+  lerp(start, end, factor) {
+    return start + (end - start) * factor;
+  }
+
+  animate() {
+    // Smoothly interpolate cursor position towards mouse position
+    this.cursorX = this.lerp(this.cursorX, this.mouseX, this.lerpFactor);
+    this.cursorY = this.lerp(this.cursorY, this.mouseY, this.lerpFactor);
+
+    // Dot follows faster (higher lerp factor)
+    this.dotX = this.lerp(this.dotX, this.mouseX, 0.25);
+    this.dotY = this.lerp(this.dotY, this.mouseY, 0.25);
+
+    // Apply positions
+    if (this.cursor) {
+      this.cursor.style.left = `${this.cursorX}px`;
+      this.cursor.style.top = `${this.cursorY}px`;
+    }
+
+    if (this.cursorDot) {
+      this.cursorDot.style.left = `${this.dotX}px`;
+      this.cursorDot.style.top = `${this.dotY}px`;
+    }
+
+    // Continue animation loop
+    requestAnimationFrame(() => this.animate());
+  }
+}
+
+// ===================================
+// TEXT REVEAL ANIMATIONS
+// ===================================
+
+/**
+ * Text Reveal Animation System
+ * Headings float up from 0% opacity as they enter viewport
+ * Uses GSAP native animation for smooth, performant reveals
+ */
+function initTextReveals() {
+  // Select all headings and elements that need reveal animation
+  const revealElements = document.querySelectorAll(
+    ".section-title, .hero-title, .stat-number, .section-label, " +
+      ".process-title, .service-title, .project-title, .phase-title, " +
+      ".about-text, .service-description, .process-description, " +
+      ".project-description, .discussion-text, .newsletter-title, " +
+      ".step-question, .inquiry-intro, .phase-description"
+  );
+
+  // Set initial hidden state for all elements
+  gsap.set(revealElements, {
+    y: 30,
+    opacity: 0,
+  });
+
+  // Animate each element when it enters viewport
+  revealElements.forEach((el, index) => {
+    gsap.to(el, {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: el,
+        start: "top 85%",
+        toggleActions: "play none none reverse",
+      },
+      delay: index * 0.05,
+    });
+  });
+}
+
+// ===================================
+// PREFERS REDUCED MOTION
+// ===================================
+
+/**
+ * Handle prefers-reduced-motion preference
+ */
+function initReducedMotion() {
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (prefersReducedMotion) {
+    // Disable all enhanced animations
+    document
+      .querySelectorAll(".custom-cursor, .grain-overlay")
+      .forEach((el) => {
+        el.style.display = "none";
+      });
+
+    // Reset all animated elements
+    document.querySelectorAll(".text-reveal").forEach((el) => {
+      el.style.opacity = "1";
+      el.style.transform = "none";
+    });
+  }
+}
+
+// ===================================
+// BEFORE/AFTER COMPARISON SLIDER
+// ===================================
+
+/**
+ * Comparison Slider Implementation
+ * Draggable before/after transformation reveal
+ */
+class ComparisonSlider {
+  constructor() {
+    this.slider = document.getElementById("comparisonSlider");
+    this.beforeImage = this.slider?.querySelector(".comparison-before");
+    this.afterImage = this.slider?.querySelector(".comparison-after");
+    this.handle = this.slider?.querySelector(".comparison-handle");
+
+    this.isDragging = false;
+    this.init();
+  }
+
+  init() {
+    if (!this.slider || !this.beforeImage || !this.afterImage || !this.handle)
+      return;
+
+    // Mouse events
+    this.slider.addEventListener("mousedown", (e) => this.startDrag(e));
+    document.addEventListener("mousemove", (e) => this.drag(e));
+    document.addEventListener("mouseup", () => this.endDrag());
+
+    // Touch events
+    this.slider.addEventListener("touchstart", (e) => this.startDrag(e), {
+      passive: true,
+    });
+    document.addEventListener("touchmove", (e) => this.drag(e), {
+      passive: true,
+    });
+    document.addEventListener("touchend", () => this.endDrag());
+
+    // Click to position
+    this.slider.addEventListener("click", (e) => {
+      if (!this.isDragging) {
+        this.setPosition(e.clientX || e.touches?.[0]?.clientX);
+      }
+    });
+  }
+
+  startDrag(e) {
+    this.isDragging = true;
+    this.setPosition(e.clientX || e.touches?.[0]?.clientX);
+  }
+
+  drag(e) {
+    if (!this.isDragging) return;
+    e.preventDefault();
+    this.setPosition(e.clientX || e.touches?.[0]?.clientX);
+  }
+
+  endDrag() {
+    this.isDragging = false;
+  }
+
+  setPosition(x) {
+    const rect = this.slider.getBoundingClientRect();
+    let percentage = ((x - rect.left) / rect.width) * 100;
+
+    // Clamp between 0 and 100
+    percentage = Math.max(0, Math.min(100, percentage));
+
+    this.afterImage.style.width = `${percentage}%`;
+    this.handle.style.left = `${percentage}%`;
+
+    // Move handle vertically to center
+    const handleHeight = 50;
+    this.handle.style.top = `calc(50% - ${handleHeight / 2}px)`;
+  }
+}
+
+/**
+ * Project Hover Stats Overlay
+ * Shows stats on project card hover
+ */
+function initProjectHoverStats() {
+  const projectCards = document.querySelectorAll(".project-item");
+
+  projectCards.forEach((card) => {
+    const overlay = card.querySelector(".project-stats-overlay");
+    if (!overlay) return;
+
+    // Create overlay if it doesn't exist
+    if (overlay.children.length === 0) {
+      // Stats are now visible on hover for featured project
+    }
+
+    card.addEventListener("mouseenter", () => {
+      overlay.style.opacity = "1";
+    });
+
+    card.addEventListener("mouseleave", () => {
+      overlay.style.opacity = "0";
+    });
+  });
+}
+
+/**
+ * Parallax Image Effect
+ * Creates depth by moving images at different speeds
+ */
+function initParallaxEffects() {
+  const parallaxContainers = document.querySelectorAll(".parallax-container");
+
+  if (parallaxContainers.length === 0) return;
+
+  parallaxContainers.forEach((container) => {
+    const image = container.querySelector(".parallax-image");
+    if (!image) return;
+
+    ScrollTrigger.create({
+      trigger: container,
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true,
+      onUpdate: (self) => {
+        const progress = self.progress;
+        const translateY = (progress - 0.5) * 40; // -20px to 20px
+        image.style.transform = `translateY(${translateY}px)`;
+      },
+    });
+  });
+}
+
+/**
+ * Multi-Step Inquiry Form
+ * Concierge-style qualifying form
+ */
+class MultiStepForm {
+  constructor(formId) {
+    this.form = document.getElementById(formId);
+    this.steps = this.form?.querySelectorAll(".form-step");
+    this.progressSteps = this.form?.querySelectorAll(".progress-step");
+    this.currentStep = 1;
+    this.totalSteps = this.steps?.length || 3;
+
+    if (!this.form || !this.steps) return;
+
+    this.init();
+  }
+
+  init() {
+    this.bindEvents();
+    this.updateProgress();
+  }
+
+  bindEvents() {
+    // Next buttons
+    this.form.querySelectorAll(".btn-next").forEach((btn) => {
+      btn.addEventListener("click", () => this.nextStep());
+    });
+
+    // Back buttons
+    this.form.querySelectorAll(".btn-back").forEach((btn) => {
+      btn.addEventListener("click", () => this.prevStep());
+    });
+
+    // Radio inputs - enable next button
+    this.form.querySelectorAll('input[type="radio"]').forEach((input) => {
+      input.addEventListener("change", (e) => {
+        this.enableNextButton();
+      });
+    });
+
+    // Form submit
+    this.form.addEventListener("submit", (e) => this.handleSubmit(e));
+  }
+
+  nextStep() {
+    if (this.currentStep < this.totalSteps) {
+      this.goToStep(this.currentStep + 1);
+    }
+  }
+
+  prevStep() {
+    if (this.currentStep > 1) {
+      this.goToStep(this.currentStep - 1);
+    }
+  }
+
+  goToStep(stepNumber) {
+    // Hide current step
+    this.steps[this.currentStep - 1]?.classList.remove("active");
+    this.progressSteps[this.currentStep - 1]?.classList.remove("active");
+
+    // Show target step
+    this.currentStep = stepNumber;
+    this.steps[this.currentStep - 1]?.classList.add("active");
+    this.progressSteps[this.currentStep - 1]?.classList.add("active");
+
+    this.updateProgress();
+
+    // Scroll to form on mobile
+    if (window.innerWidth < 768) {
+      const formTop =
+        this.form.getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({ top: formTop, behavior: "smooth" });
+    }
+  }
+
+  updateProgress() {
+    this.progressSteps.forEach((step, index) => {
+      if (index + 1 <= this.currentStep) {
+        step.classList.add("active");
+      } else {
+        step.classList.remove("active");
+      }
+    });
+
+    // Disable next button if no selection
+    const currentStepEl = this.steps[this.currentStep - 1];
+    const nextBtn = currentStepEl?.querySelector(".btn-next");
+    const hasSelection = currentStepEl?.querySelector(
+      'input[type="radio"]:checked'
+    );
+
+    if (nextBtn) {
+      nextBtn.disabled = !hasSelection && this.currentStep < this.totalSteps;
+    }
+  }
+
+  enableNextButton() {
+    const currentStepEl = this.steps[this.currentStep - 1];
+    const nextBtn = currentStepEl?.querySelector(".btn-next");
+
+    if (nextBtn) {
+      nextBtn.disabled = false;
+    }
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    // Collect form data
+    const formData = {
+      space: this.form.querySelector('input[name="space"]:checked')?.value,
+      timeline: this.form.querySelector('input[name="timeline"]:checked')
+        ?.value,
+      vision: this.form.querySelector('textarea[name="vision"]')?.value,
+      name: this.form.querySelector('input[name="name"]')?.value,
+      email: this.form.querySelector('input[name="email"]')?.value,
+      phone: this.form.querySelector('input[name="phone"]')?.value,
+    };
+
+    console.log("Inquiry form submitted:", formData);
+
+    // Hide all steps
+    this.steps.forEach((step) => step.classList.remove("active"));
+    this.progressSteps.forEach((step) => step.classList.remove("active"));
+    this.form.querySelector(".form-progress")?.classList.add("hidden");
+    this.form.querySelector(".booking-cta")?.classList.add("hidden");
+
+    // Show success message
+    this.form.querySelector(".form-success")?.classList.add("active");
+
+    // In production, you would send this data to your server
+    // Example: sendToServer(formData);
+  }
+}
+
+// ===================================
+// ABAMBAS METHOD - PROCESS SECTION
+// ===================================
+
+/**
+ * Abambas Method Phase Scroll Highlighting
+ * Phases glow when active, desaturate when inactive
+ */
+function initAbambasMethod() {
+  const phases = document.querySelectorAll(".phase");
+  const phaseDots = document.querySelectorAll(".phase-dot");
+
+  if (phases.length === 0) return;
+
+  // Create scroll triggers for each phase
+  phases.forEach((phase, index) => {
+    ScrollTrigger.create({
+      trigger: phase,
+      start: "top center",
+      end: "bottom center",
+      onEnter: () => activatePhase(index + 1),
+      onEnterBack: () => activatePhase(index + 1),
+      onLeave: () => deactivatePhase(index + 1),
+      onLeaveBack: () => {},
+    });
+  });
+
+  function activatePhase(phaseNumber) {
+    // Update phases
+    phases.forEach((phase, index) => {
+      if (index + 1 === phaseNumber) {
+        phase.classList.add("active");
+      } else {
+        phase.classList.remove("active");
+      }
+    });
+
+    // Update dots
+    phaseDots.forEach((dot, index) => {
+      if (index + 1 === phaseNumber) {
+        dot.classList.add("active");
+      } else {
+        dot.classList.remove("active");
+      }
+    });
+  }
+
+  function deactivatePhase(phaseNumber) {
+    // Optional: Keep phase active while visible
+  }
+}
+
+/**
+ * Example Modal System
+ * Handles "See an Example" popup functionality
+ */
+function initExampleModals() {
+  const exampleLinks = document.querySelectorAll(".example-link");
+  const modals = document.querySelectorAll(".example-modal");
+  const closeButtons = document.querySelectorAll(".modal-close");
+
+  if (exampleLinks.length === 0) return;
+
+  // Open modal on link click
+  exampleLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const exampleType = link.getAttribute("data-example");
+      const modal = document.getElementById(`${exampleType}-modal`);
+
+      if (modal) {
+        openModal(modal);
+      }
+    });
+  });
+
+  // Close modal on button click
+  closeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const modal = button.closest(".example-modal");
+      closeModal(modal);
+    });
+  });
+
+  // Close modal on backdrop click
+  modals.forEach((modal) => {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        closeModal(modal);
+      }
+    });
+  });
+
+  // Close modal on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      modals.forEach((modal) => {
+        if (modal.classList.contains("active")) {
+          closeModal(modal);
+        }
+      });
+    }
+  });
+
+  function openModal(modal) {
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+
+    // Focus close button for accessibility
+    setTimeout(() => {
+      const closeBtn = modal.querySelector(".modal-close");
+      if (closeBtn) closeBtn.focus();
+    }, 100);
+  }
+
+  function closeModal(modal) {
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+}
 
 // Export for use in other files if needed
 window.AnimationSystem = {
@@ -1242,4 +1950,9 @@ window.AnimationSystem = {
   CinematicCarousel,
   initAnimations,
   initMobileMenu,
+  LuxuryCursor,
+  initTextReveals,
+  initReducedMotion,
+  initAbambasMethod,
+  initExampleModals,
 };

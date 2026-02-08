@@ -32,6 +32,13 @@
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   </head>
   <body>
+    <!-- Custom Luxury Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="custom-cursor-dot" id="customCursorDot"></div>
+    
+    <!-- Film Grain Overlay -->
+    <div class="grain-overlay"></div>
+
     <!-- Hamburger positioned outside navigation -->
     <button
       class="hamburger"
@@ -196,20 +203,20 @@
             <span class="hero-line">ABAMBAS</span>
           </h1>
 
-          <div class="project-button-container hero-button">
-            <span class="btn-text">GET STARTED</span>
-            <button class="btn-circle-outline">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path
-                  d="M4 10H16M16 10L10 4M16 10L10 16"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
-          </div>
+          <a href="#" class="btn-portal">
+                <span class="btn-text">START YOUR JOURNEY</span>
+                <div class="btn-portal-circle">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path
+                      d="M4 10H16M16 10L10 4M16 10L10 16"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+              </a>
         </div>
       </div>
     </section>
@@ -229,19 +236,20 @@
               move, and relax. From homes to commercial spaces, our goal is to
               design interiors that support real life.
             </p>
-            <button class="btn-link">
-              LEARN MORE
-              <span
-                ><svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <a href="about.html" class="btn-link-portal">
+              <span>LEARN MORE</span>
+              <span class="btn-link-portal-circle">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                   <path
                     d="M4 10H16M16 10L10 4M16 10L10 16"
                     stroke="currentColor"
                     stroke-width="1.5"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                  /></svg
-              ></span>
-            </button>
+                  />
+                </svg>
+              </span>
+            </a>
           </div>
           <div class="about-image">
             <img
@@ -264,20 +272,20 @@
         <div class="stats-grid">
           <div class="stat-item">
             <div class="stat-number" data-target="10">0</div>
-            <div class="stat-label">Years Experience</div>
+            <div class="stat-label" style="color: var(--text-secondary);">Years Experience</div>
           </div>
           <div class="stat-item">
             <div class="stat-number" data-target="30">0</div>
 
-            <div class="stat-label">Projects</div>
+            <div class="stat-label" style="color: var(--text-secondary);">Projects</div>
           </div>
           <div class="stat-item">
             <div class="stat-number" data-target="40">0</div>
-            <div class="stat-label">Concepts</div>
+            <div class="stat-label" style="color: var(--text-secondary);">Concepts</div>
           </div>
           <div class="stat-item">
             <div class="stat-number" data-target="200">0</div>
-            <div class="stat-label">Happy Clients</div>
+            <div class="stat-label" style="color: var(--text-secondary);">Happy Clients</div>
           </div>
         </div>
       </div>
@@ -356,20 +364,7 @@
           </div>
         </div>
         <br /><br />
-        <div class="project-button-container service-button">
-          <span class="btn-text">GET STARTED</span>
-          <button class="btn-circle-solid">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path
-                d="M4 10H16M16 10L10 4M16 10L10 16"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
-        </div>
+        <a href="#contact" class="btn-secondary-cta">GET STARTED</a>
       </div>
     </section>
    
@@ -430,135 +425,137 @@
       </div>
     </section>
 
-    <!-- <section class="product-categories">
+    
+
+    <!-- Example Modal Templates -->
+    <div class="example-modal" id="moodboard-modal">
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Close modal">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M4 4L16 16M16 4L4 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <img src="assets/images/moodboard-placeholder.jpg" alt="Sample Mood Board" class="modal-image">
+        <div class="modal-caption">
+          <h4>Sample Mood Board</h4>
+          <p>A curated collection of textures, colors, and materials that define the project's direction</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="example-modal" id="drawing-modal">
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Close modal">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M4 4L16 16M16 4L4 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <img src="assets/images/render-placeholder.jpg" alt="Technical Drawing" class="modal-image">
+        <div class="modal-caption">
+          <h4>Technical Drawing</h4>
+          <p>Precise architectural plans and detailed specifications for flawless execution</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="example-modal" id="installation-modal">
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Close modal">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M4 4L16 16M16 4L4 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <img src="assets/images/installation-placeholder.jpg" alt="Installation in Progress" class="modal-image">
+        <div class="modal-caption">
+          <h4>White-Glove Installation</h4>
+          <p>Our skilled team ensuring every piece finds its perfect place with meticulous attention to detail</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Abambas Method - Enhanced Process Section -->
+    <section class="abambas-method">
       <div class="container">
-        <span class="section-label">BROWSE</span>
-        <h2 class="section-title">PRODUCT CATEGORIES</h2>
-        <p class="categories-intro">
-          Hover over each category to explore our curated selections
-        </p>
-        <div class="categories-layout">
-          <div class="categories-list">
-            <div class="category-item" data-category="seating">
-              <div class="category-title-container">
-                <h3 class="category-title">Seating</h3>
-                <button class="btn-circle-outline category-arrow">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path
-                      d="M4 10H16M16 10L10 4M16 10L10 16"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div>
-              <p class="category-description">
-                Pieces designed for everyday comfort.
+        <div class="method-header">
+          <span class="section-label">THE</span>
+          <h2 class="section-title">ABAMBAS METHOD</h2>
+        </div>
+        
+        <div class="phase-indicator">
+          <div class="phase-dot active" data-phase="1"></div>
+          <div class="phase-dot" data-phase="2"></div>
+          <div class="phase-dot" data-phase="3"></div>
+        </div>
+        
+        <div class="phases-wrapper">
+          <!-- Phase 1: Defining Your Vision -->
+          <div class="phase active" id="phase-1">
+            <div class="phase-content">
+              <span class="phase-number">01</span>
+              <h3 class="phase-title text-reveal">Defining Your Vision</h3>
+              <p class="phase-description text-reveal">
+                We begin by immersing ourselves in your world. Through in-depth consultations, 
+                we uncover not just what you want, but why you want it. This discovery process 
+                forms the foundation of a design that truly reflects your essence.
               </p>
-            </div>
-            <div class="category-item" data-category="tables">
-              <div class="category-title-container">
-                <h3 class="category-title">Tables</h3>
-                <button class="btn-circle-outline category-arrow">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path
-                      d="M4 10H16M16 10L10 4M16 10L10 16"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div>
-              <p class="category-description">
-                Functional forms with quiet presence.
-              </p>
-            </div>
-            <div class="category-item" data-category="lighting">
-              <div class="category-title-container">
-                <h3 class="category-title">Lighting</h3>
-                <button class="btn-circle-outline category-arrow">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path
-                      d="M4 10H16M16 10L10 4M16 10L10 16"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div>
-              <p class="category-description">
-                Warm illumination for any space.
-              </p>
-            </div>
-            <div class="category-item" data-category="storage">
-              <div class="category-title-container">
-                <h3 class="category-title">Storage</h3>
-                <button class="btn-circle-outline category-arrow">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path
-                      d="M4 10H16M16 10L10 4M16 10L10 16"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div>
-              <p class="category-description">
-                Organized solutions that blend seamlessly.
-              </p>
-            </div>
-            <div class="categories-cta">
-              <span class="btn-text">Explore Full Collection</span>
-              <button class="btn-circle-outline">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path
-                    d="M4 10H16M16 10L10 4M16 10L10 16"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
+              <a href="#" class="phase-cta example-link text-reveal" data-example="moodboard">
+                <span>See an Example</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M8 1V15M8 1L15 8M8 1L1 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
                 </svg>
-              </button>
+              </a>
+            </div>
+            <div class="phase-visual">
+              <img src="assets/images/Cozy Minimalist Bedroom.png" alt="Discovery Phase Mood Board">
             </div>
           </div>
-          <div class="categories-image">
-            <img
-              src="assets/images/Modern Minimalist Interior with Orange Armchair.png"
-              alt="Seating category"
-              class="category-image active"
-              data-category="seating"
-            />
-            <img
-              src="assets/images/Modern Wooden Table.png"
-              alt="Tables category"
-              class="category-image"
-              data-category="tables"
-            />
-            <img
-              src="assets/images/Minimalist Table Lamp.png"
-              alt="Lighting category"
-              class="category-image"
-              data-category="lighting"
-            />
-            <img
-              src="assets/images/Minimalist Shelf Decor.png"
-              alt="Storage category"
-              class="category-image"
-              data-category="storage"
-            />
+          
+          <!-- Phase 2: The Art of Realization -->
+          <div class="phase" id="phase-2">
+            <div class="phase-content">
+              <span class="phase-number">02</span>
+              <h3 class="phase-title text-reveal">The Art of Realization</h3>
+              <p class="phase-description text-reveal">
+                Here, vision becomes reality. Our master craftsmen and design specialists 
+                work in harmonious precision, bringing every detail to life. We curate 
+                exceptional materials and execute with architectural precision.
+              </p>
+              <a href="#" class="phase-cta example-link text-reveal" data-example="drawing">
+                <span>See an Example</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M8 1V15M8 1L15 8M8 1L1 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </a>
+            </div>
+            <div class="phase-visual">
+              <img src="assets/images/Modern Minimalist Interior with Orange Armchair.png" alt="Design Phase Technical Drawing">
+            </div>
+          </div>
+          
+          <!-- Phase 3: The Finished Symphony -->
+          <div class="phase" id="phase-3">
+            <div class="phase-content">
+              <span class="phase-number">03</span>
+              <h3 class="phase-title text-reveal">The Finished Symphony</h3>
+              <p class="phase-description text-reveal">
+                The culmination of our shared journey. Every element finds its perfect place, 
+                creating a sanctuary that transcends mere aesthetics to become an extension 
+                of your most refined self.
+              </p>
+              <a href="#" class="phase-cta example-link text-reveal" data-example="installation">
+                <span>See an Example</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M8 1V15M8 1L15 8M8 1L1 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </a>
+            </div>
+            <div class="phase-visual">
+              <img src="assets/images/Luxurious Modern Interior.webp" alt="Installation in Progress">
+            </div>
           </div>
         </div>
       </div>
-    </section> -->
+    </section>
 
     <section id="work" class="our-work">
       <div class="container">
@@ -611,101 +608,286 @@
       </div>
     </section>
 
-    <section class="projects">
+    <!-- MONOLITH PROJECTS SECTION -->
+    <section class="monolith-projects">
       <div class="container">
-        <span class="section-label">OUR</span>
-        <h2 class="section-title">COMPLETED PROJECTS</h2>
-
-        <div class="project-item">
-          <div class="project-image">
-            <img
-              src="assets/images/Modern Minimalist Living Room.png"
-              alt="Elegant apartment living area"
-            />
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">ELEGANT APARTMENT ON LUMEN AREA</h3>
-            <p class="project-description">
-              A sophisticated residential project featuring contemporary design
-              elements and luxurious finishes throughout the living spaces.
-            </p>
-            <div class="project-button-container">
-              <span class="btn-text">View Project</span>
-              <button class="btn-circle-outline">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path
-                    d="M4 10H16M16 10L10 4M16 10L10 16"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
+        <div class="monolith-header">
+          <span class="section-label">OUR</span>
+          <h2 class="section-title">COMPLETED PROJECTS</h2>
         </div>
 
-        <div class="project-item">
-          <div class="project-image">
-            <img
-              src="https://images.pexels.com/photos/1571458/pexels-photo-1571458.jpeg?auto=compress&cs=tinysrgb&w=800"
-              alt="Open plan bedroom"
-            />
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">OPEN PLAN BEDROOM IN URBAN DISTRICT</h3>
-            <p class="project-description">
-              Modern minimalist bedroom design emphasizing natural light, clean
-              lines, and functional elegance for urban living.
-            </p>
-
-            <div class="project-button-container">
-              <span class="btn-text">View Project</span>
-              <button class="btn-circle-outline">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path
-                    d="M4 10H16M16 10L10 4M16 10L10 16"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
+        <!-- Row 1: Full-Width Hero Project -->
+        <article class="monolith-row monolith-row-hero">
+          <div class="project-frame">
+            <div class="project-sliding-image">
+              <img src="assets/images/Modern Minimalist Living Room.png" alt="The Minimalist Sanctuary - Full width hero project">
+            </div>
+            <a href="projects.html" class="portal-btn">
+              <div class="portal-btn-circle">
+                <svg width="24" height="24" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-              </button>
+              </div>
+              <span class="portal-btn-text">VIEW PROJECT</span>
+            </a>
+          </div>
+          <div class="project-info-block">
+            <span class="project-label">FEATURED</span>
+            <h3 class="project-vibe-title">The Minimalist Sanctuary</h3>
+            <p class="project-vibe">Old GRA, Port Harcourt</p>
+            <p class="project-summary">A complete transformation of a concrete shell into a warm, organic retreat that embraces natural light and sustainable materials.</p>
+          </div>
+        </article>
+
+        <!-- Row 2: Split - Image Left, Text Right -->
+        <article class="monolith-row monolith-row-split">
+          <div class="project-frame">
+            <div class="project-sliding-image">
+              <img src="assets/images/Cozy Minimalist Bedroom.png" alt="Serene Bedroom Retreat">
+            </div>
+            <a href="projects.html" class="portal-btn">
+              <div class="portal-btn-circle">
+                <svg width="24" height="24" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <span class="portal-btn-text">VIEW PROJECT</span>
+            </a>
+          </div>
+          <div class="project-info-block">
+            <span class="project-label">RESIDENTIAL</span>
+            <h3 class="project-vibe-title">Serene Bedroom Retreat</h3>
+            <p class="project-vibe">Garden City, Port Harcourt</p>
+            <p class="project-summary">Creating a peaceful sanctuary from a noisy street-facing room through strategic sound dampening and calming color palettes.</p>
+          </div>
+        </article>
+
+        <!-- Row 3: Split Reversed - Text Left, Image Right -->
+        <article class="monolith-row monolith-row-split monolith-row-reversed">
+          <div class="project-frame">
+            <div class="project-sliding-image">
+              <img src="assets/images/Luxurious Modern Interior.webp" alt="Modern Luxury Residence">
+            </div>
+            <a href="projects.html" class="portal-btn">
+              <div class="portal-btn-circle">
+                <svg width="24" height="24" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <span class="portal-btn-text">VIEW PROJECT</span>
+            </a>
+          </div>
+          <div class="project-info-block">
+            <span class="project-label">LUXURY</span>
+            <h3 class="project-vibe-title">Modern Luxury Residence</h3>
+            <p class="project-vibe">Borokiri, Port Harcourt</p>
+            <p class="project-summary">Blending contemporary elegance with stunning waterfront views through floor-to-ceiling windows and curated art pieces.</p>
+          </div>
+        </article>
+
+        <!-- Row 4: Split - Image Left, Text Right -->
+        <article class="monolith-row monolith-row-split">
+          <div class="project-frame">
+            <div class="project-sliding-image">
+              <img src="assets/images/Modern Minimalist Interior with Orange Armchair.png" alt="Statement Living Room">
+            </div>
+            <a href="projects.html" class="portal-btn">
+              <div class="portal-btn-circle">
+                <svg width="24" height="24" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <span class="portal-btn-text">VIEW PROJECT</span>
+            </a>
+          </div>
+          <div class="project-info-block">
+            <span class="project-label">RESIDENTIAL</span>
+            <h3 class="project-vibe-title">The Statement Living Room</h3>
+            <p class="project-vibe">Onne, Port Harcourt</p>
+            <p class="project-summary">Adding personality through bold color accents and carefully curated furniture that tells a story of sophistication.</p>
+          </div>
+        </article>
+
+        <!-- Row 5: Split Reversed - Text Left, Image Right -->
+        <article class="monolith-row monolith-row-split monolith-row-reversed">
+          <div class="project-frame">
+            <div class="project-sliding-image">
+              <img src="assets/images/Minimalist Cozy Interior.png" alt="Elegant Urban Apartment">
+            </div>
+            <a href="projects.html" class="portal-btn">
+              <div class="portal-btn-circle">
+                <svg width="24" height="24" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <span class="portal-btn-text">VIEW PROJECT</span>
+            </a>
+          </div>
+          <div class="project-info-block">
+            <span class="project-label">URBAN</span>
+            <h3 class="project-vibe-title">Elegant Urban Apartment</h3>
+            <p class="project-vibe">Trans Amadi, Port Harcourt</p>
+            <p class="project-summary">Maximizing space in a compact urban footprint without compromising on style or comfort through smart storage solutions.</p>
+          </div>
+        </article>
+
+        <!-- Footer CTA -->
+        <div class="monolith-footer-cta">
+          <a href="projects.html" class="btn-portal-large">
+            <span class=" view-all-works">VIEW ALL WORKS</span>
+            <div class="btn-portal-circle-large">
+              <svg width="24" height="24" viewBox="0 0 20 20" fill="none">
+                <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Multi-Step Inquiry Form (Concierge) -->
+    <section class="concierge-inquiry">
+      <div class="inquiry-container">
+        <div class="inquiry-header">
+          <span class="section-label">START YOUR JOURNEY</span>
+          <h2 class="section-title">THE CONCIERGE INQUIRY</h2>
+          <p class="inquiry-intro">Let us understand your vision better. This takes less than 2 minutes.</p>
+        </div>
+        
+        <form class="inquiry-form" id="inquiryForm">
+          <!-- Progress Indicator -->
+          <div class="form-progress">
+            <div class="progress-step active" data-step="1">
+              <span class="step-number">1</span>
+              <span class="step-label">Space</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step" data-step="2">
+              <span class="step-number">2</span>
+              <span class="step-label">Timeline</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step" data-step="3">
+              <span class="step-number">3</span>
+              <span class="step-label">Vision</span>
             </div>
           </div>
-        </div>
-
-        <div class="project-item">
-          <div class="project-image">
-            <img
-              src="assets/images/familyhome.jpg"
-              alt="Family home dining area"
-            />
-          </div>
-          <div class="project-content">
-            <h3 class="project-title">DESIGN OF A COZY FAMILY HOUSE</h3>
-            <p class="project-description">
-              Warm and inviting family home featuring natural materials,
-              thoughtful spatial planning, and timeless design principles.
-            </p>
-            <div class="project-button-container">
-              <span class="btn-text">View Project</span>
-              <button class="btn-circle-outline">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path
-                    d="M4 10H16M16 10L10 4M16 10L10 16"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </button>
+          
+          <!-- Step 1: Space Type -->
+          <div class="form-step active" data-step="1">
+            <h3 class="step-question">What is your space?</h3>
+            <div class="option-grid">
+              <label class="option-card">
+                <input type="radio" name="space" value="residential">
+                <div class="option-content">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Residential</span>
+                </div>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="space" value="commercial">
+                <div class="option-content">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                    <path d="M8 14V17M16 14V17M12 14V17M4 6H20M4 6V21H20V6M6 6V3H8M6 3H4M8 3H16M8 3V6M16 3V6M16 3H18M16 3V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Commercial</span>
+                </div>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="space" value="retail">
+                <div class="option-content">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 2H21M6 6H18L19.35 20.35C19.4026 20.8694 19.3548 21.3937 19.2111 21.8943C19.0674 22.3948 18.8318 22.8615 18.52 23.265L16.29 26.03C15.8885 26.5174 15.3255 26.8463 14.7051 26.9522C14.0848 27.0581 13.4485 26.9346 12.914 26.602C12.3796 27.0581 11.7433 27.1816 11.123 27.0757C10.5026 26.9698 9.93956 26.6409 9.538 26.1535L7.308 23.388C6.99619 22.9845 6.76057 22.5178 6.61687 22.0173C6.47317 21.5167 6.42541 20.9924 6.478 20.473L7.138 6H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span>Retail</span>
+                </div>
+              </label>
+            </div>
+            <div class="step-nav">
+              <button type="button" class="btn-next" disabled>Continue</button>
             </div>
           </div>
-        </div>
+          
+          <!-- Step 2: Timeline -->
+          <div class="form-step" data-step="2">
+            <h3 class="step-question">What is your timeline?</h3>
+            <div class="option-grid">
+              <label class="option-card">
+                <input type="radio" name="timeline" value="immediate">
+                <div class="option-content">
+                  <span class="option-emoji">🚀</span>
+                  <span>Immediate</span>
+                  <span class="option-detail">Ready to start within 30 days</span>
+                </div>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="timeline" value="3-6-months">
+                <div class="option-content">
+                  <span class="option-emoji">📅</span>
+                  <span>3-6 Months</span>
+                  <span class="option-detail">Planning phase</span>
+                </div>
+              </label>
+              <label class="option-card">
+                <input type="radio" name="timeline" value="planning">
+                <div class="option-content">
+                  <span class="option-emoji">🎯</span>
+                  <span>Just Exploring</span>
+                  <span class="option-detail">Gathering ideas</span>
+                </div>
+              </label>
+            </div>
+            <div class="step-nav">
+              <button type="button" class="btn-back">Back</button>
+              <button type="button" class="btn-next" disabled>Continue</button>
+            </div>
+          </div>
+          
+          <!-- Step 3: Vision -->
+          <div class="form-step" data-step="3">
+            <h3 class="step-question">Share your vision</h3>
+            <div class="form-group">
+              <textarea name="vision" rows="4" placeholder="Tell us about your dream space, your style preferences, and what you hope to achieve..."></textarea>
+            </div>
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Email Address" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" name="phone" placeholder="Phone Number">
+            </div>
+            <div class="step-nav">
+              <button type="button" class="btn-back">Back</button>
+              <button type="submit" class="btn-submit">Request Consultation</button>
+            </div>
+          </div>
+          
+          <!-- Success State -->
+          <div class="form-success">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+              <circle cx="32" cy="32" r="30" stroke="#af8f6f" stroke-width="2"/>
+              <path d="M20 32L28 40L44 24" stroke="#af8f6f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3>Thank You</h3>
+            <p>Your inquiry has been received. A member of our concierge team will contact you within 24 hours.</p>
+          </div>
+          
+          <!-- Calendar Booking CTA -->
+          <div class="booking-cta">
+            <span class="cta-label">Prefer a quick call?</span>
+            <a href="https://calendly.com/abambas/discovery-call" class="btn-book-calendar" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M16 2V6M8 2V6M3 10H21M8 14H8.01M12 14H12.01M16 14H16.01M8 18H8.01M12 18H12.01M16 18H16.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <span>Book a 15-Minute Discovery Call</span>
+            </a>
+          </div>
+        </form>
       </div>
     </section>
 
@@ -750,9 +932,9 @@
                   required
                 ></textarea>
               </div>
-              <div class="form-button-container">
-                <span class="btn-text">Send a Request</span>
-                <button type="submit" class="btn-circle-solid">
+              <a href="#" class="btn-portal">
+                <span class="btn-text">START YOUR JOURNEY</span>
+                <div class="btn-portal-circle">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path
                       d="M4 10H16M16 10L10 4M16 10L10 16"
@@ -762,8 +944,8 @@
                       stroke-linejoin="round"
                     />
                   </svg>
-                </button>
-              </div>
+                </div>
+              </a>
             </form>
           </div>
           <div class="discussion-image">
@@ -779,11 +961,17 @@
     <footer class="footer">
       <div class="container">
         <div class="footer-layout">
-          <div class="footer-image">
+          <div class="footer-image custom-map-container">
+            <div class="custom-map-marker">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M21 10C21 17 12 23 12 23S3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.4259845285583!2d6.959053700000006!3d4.868076000000015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1069d1078c0950bf%3A0xb71192285397d580!2sAbambas!5e0!3m2!1sen!2sng!4v1766142856411!5m2!1sen!2sng"
-              width="600"
-              height="450"
+              width="100%"
+              height="100%"
               style="border: 0"
               allowfullscreen=""
               loading="lazy"
@@ -886,7 +1074,18 @@
                   placeholder="Enter your email address"
                   required
                 />
-                <button type="submit" class="btn-subscribe">Subscribe</button>
+                  <button type="submit" class="btn-subscribe">
+                    Subscribe
+                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                      <path
+                        d="M4 10H16M16 10L10 4M16 10L10 16"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
               </form>
             </div>
           </div>
