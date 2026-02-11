@@ -585,21 +585,21 @@ function initWorkAnimations() {
   gsap.to(".work-image", {
     scrollTrigger: {
       trigger: ".our-work",
-      start: "top 70%",
+      start: "top 65%",
     },
     opacity: 1,
     y: -8,
-    duration: 1,
+    duration: 0.8,
     ease: "power2.out",
   });
 
   gsap.to(".work-image img", {
     scrollTrigger: {
       trigger: ".our-work",
-      start: "top 70%",
+      start: "top 65%",
     },
     scale: 1,
-    duration: 1.5,
+    duration: 1.2,
     ease: "power2.out",
   });
 }
@@ -1841,7 +1841,7 @@ function initAbambasMethod() {
   phases.forEach((phase, index) => {
     ScrollTrigger.create({
       trigger: phase,
-      start: "top center",
+      start: "top 65%",
       end: "bottom center",
       onEnter: () => activatePhase(index + 1),
       onEnterBack: () => activatePhase(index + 1),
