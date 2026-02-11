@@ -10,10 +10,7 @@
 // SMOOTH SCROLL SYSTEM
 // ===================================
 
-/**
- * Lenis Smooth Scroll Initialization
- * Provides buttery smooth scrolling experience across the website
- */
+// Initialize Lenis smooth scroll globally
 const lenis = new Lenis({
   duration: 1.2,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -425,49 +422,52 @@ class MobileMenu {
 
 // ===================================
 // CATEGORY SECTION ANIMATIONS
+// Only run if category elements exist on the page
 // ===================================
-gsap.set(".category", {
-  y: 50,
-  clipPath: "inset(100% 0% 0% 0%)",
-});
+if (document.querySelector('.category')) {
+  gsap.set(".category", {
+    y: 50,
+    clipPath: "inset(100% 0% 0% 0%)",
+  });
 
-gsap.to(".category", {
-  y: 0,
-  clipPath: "inset(0% 0% 0% 0%)",
-  duration: 1.1,
-  ease: "power4.out",
-  stagger: 0.16,
-  scrollTrigger: {
-    trigger: ".categories",
-    start: "top 75%",
-  },
-});
+  gsap.to(".category", {
+    y: 0,
+    clipPath: "inset(0% 0% 0% 0%)",
+    duration: 1.1,
+    ease: "power4.out",
+    stagger: 0.16,
+    scrollTrigger: {
+      trigger: ".categories",
+      start: "top 75%",
+    },
+  });
 
-gsap.to(".category", {
-  scale: 1,
-  scrollTrigger: {
-    trigger: ".category",
-    start: "left center",
-    end: "right center",
-    scrub: true,
-  },
-});
+  gsap.to(".category", {
+    scale: 1,
+    scrollTrigger: {
+      trigger: ".category",
+      start: "left center",
+      end: "right center",
+      scrub: true,
+    },
+  });
 
-ScrollTrigger.matchMedia({
-  "(max-width: 1023px)": function () {
-    gsap.from(".category", {
-      y: 40,
-      opacity: 0,
-      duration: 0.9,
-      ease: "power3.out",
-      stagger: 0.15,
-      scrollTrigger: {
-        trigger: ".categories",
-        start: "top 85%",
-      },
-    });
-  },
-});
+  ScrollTrigger.matchMedia({
+    "(max-width: 1023px)": function () {
+      gsap.from(".category", {
+        y: 40,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        stagger: 0.15,
+        scrollTrigger: {
+          trigger: ".categories",
+          start: "top 85%",
+        },
+      });
+    },
+  });
+}
 // ===================================
 // SCROLL-TRIGGERED SECTION ANIMATIONS
 // ===================================

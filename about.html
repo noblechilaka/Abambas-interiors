@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Abambas - Interior Design Studio | Port Harcourt</title>
+    <title>About Abambas - Interior Design Studio | Port Harcourt</title>
     <meta
       name="description"
-      content="Professional interior design services in Port Harcourt. Residential, office, and commercial space design by Abambas."
+      content="Discover the story behind Abambas. Learn about our design philosophy, our creative vision, and the values that guide every project we create."
     />
     <meta
       property="og:image"
@@ -22,16 +22,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Carves&family=Montserrat:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/about.css" />
     <!-- JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   </head>
   <body>
+    <!-- Custom Luxury Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="custom-cursor-dot" id="customCursorDot"></div>
+
+    <!-- Film Grain Overlay -->
+    <div class="grain-overlay"></div>
+
     <!-- Hamburger positioned outside navigation -->
     <button
       class="hamburger"
@@ -84,7 +92,7 @@
         <div class="logo">ABAMBAS</div>
         <ul class="nav-menu">
           <li><a href="index.html">HOMEPAGE</a></li>
-          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="about.html" class="active">ABOUT</a></li>
           <li><a href="catalog.html">CATALOGUE</a></li>
           <li><a href="services.html">SERVICES</a></li>
           <li><a href="projects.html">PROJECTS</a></li>
@@ -102,19 +110,22 @@
         <nav class="mobile-nav">
           <ul class="mobile-nav-list">
             <li class="mobile-nav-item">
-              <a href="#home" class="mobile-nav-link">HOME</a>
+              <a href="index.html" class="mobile-nav-link">HOME</a>
             </li>
             <li class="mobile-nav-item">
-              <a href="#about" class="mobile-nav-link">ABOUT</a>
+              <a href="about.html" class="mobile-nav-link">ABOUT</a>
             </li>
             <li class="mobile-nav-item">
-              <a href="#services" class="mobile-nav-link">SERVICES</a>
-            </li>
-            <li class="mo bile-nav-item">
-              <a href="#work" class="mobile-nav-link">PROJECTS</a>
+              <a href="catalog.html" class="mobile-nav-link">CATALOGUE</a>
             </li>
             <li class="mobile-nav-item">
-              <a href="#contact" class="mobile-nav-link">CONTACT</a>
+              <a href="services.html" class="mobile-nav-link">SERVICES</a>
+            </li>
+            <li class="mobile-nav-item">
+              <a href="projects.html" class="mobile-nav-link">PROJECTS</a>
+            </li>
+            <li class="mobile-nav-item">
+              <a href="contacts.html" class="mobile-nav-link">CONTACT</a>
             </li>
           </ul>
         </nav>
@@ -181,14 +192,435 @@
         </div>
       </div>
     </div>
+
+    <!-- SECTION 1: HERO - The Narrative Hook -->
+    <section class="about-hero">
+      <div class="hero-video-container">
+        <video
+          class="hero-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="assets/images/Luxurious Modern Interior.webp"
+        >
+          <source
+            src="https://videos.pexels.com/video-files/3129671/3129671-hd_1920_1080_30fps.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div class="hero-video-overlay"></div>
+      </div>
+      <div class="hero-content-wrapper">
+        <div class="hero-mask-container">
+          <h1 class="about-hero-title">
+            <span class="hero-phrase">Spaces that speak</span>
+            <span class="hero-phrase">before you do.</span>
+          </h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: The Creative Director -->
+    <section class="creative-director">
+      <div class="container">
+        <div class="director-layout">
+          <div class="director-portrait-wrapper">
+            <div class="director-portrait">
+              <img
+                src="assets/images/Cozy Minimalist Bedroom.png"
+                alt="Creative Director - Editorial Portrait"
+              />
+            </div>
+          </div>
+          <div class="director-story">
+            <div class="director-signature">
+              <span class="signature-line"></span>
+            </div>
+            <h2 class="director-name">Alexandra M.</h2>
+            <div class="director-bio">
+              <p>
+                "I don't design spaces. I curate atmospheres. Every line, every
+                texture, every shadow is a deliberate choice—born from an
+                obsession with detail that borders on the unreasonable."
+              </p>
+              <p>
+                With over fifteen years immersed in the art of interior
+                architecture, my approach transcends trends. I believe a truly
+                exceptional space doesn't just look beautiful in a photograph—it
+                feels inevitable the moment you walk through the door.
+              </p>
+              <p>
+                From the grain of a hand-selected walnut cabinet to the precise
+                angle of afternoon light crossing a marble floor, these are the
+                details that whisper your story without saying a word.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: The Abambas Pillars -->
+    <section class="abambas-pillars">
+      <div class="container">
+        <div class="pillars-header">
+          <span class="section-label">OUR</span>
+          <h2 class="section-title">DESIGN DNA</h2>
+        </div>
+
+        <!-- Pillar 01: Organic Modernist -->
+        <article class="pillar monolith-row">
+          <div class="pillar-visual">
+            <img
+              src="assets/images/Modern Wooden Table.png"
+              alt="Raw materials - stone and wood"
+            />
+          </div>
+          <div class="pillar-content">
+            <span class="pillar-number">01</span>
+            <h3 class="pillar-title">The Organic Modernist</h3>
+            <p class="pillar-description">
+              We believe luxury lives in authenticity. Our designs embrace the
+              inherent beauty of raw materials—weathered stone, hand-turned
+              timber, natural fibers—that age gracefully and tell their own
+              stories over time. Every surface we select has a soul, a history,
+              a reason for being.
+            </p>
+            <a href="#" class="btn-secondary-cta floating-underline">
+              Read about our sourcing
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                <path
+                  d="M4 10H16M16 10L10 4M16 10L10 16"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Pillar 02: Quiet Luxury -->
+        <article class="pillar monolith-row monolith-row-reversed">
+          <div class="pillar-visual">
+            <img
+              src="assets/images/Minimalist Shelf Decor.png"
+              alt="Subtle, perfectly lit corner"
+            />
+          </div>
+          <div class="pillar-content">
+            <span class="pillar-number">02</span>
+            <h3 class="pillar-title">The Quiet Luxury</h3>
+            <p class="pillar-description">
+              True elegance doesn't announce itself. It's found in the weight of
+              a door, the whisper of silk against stone, the perfect proportion
+              that feels instinctively right. We create spaces where understated
+              refinement speaks volumes—where restraint becomes the ultimate
+              luxury.
+            </p>
+            <a href="#" class="btn-secondary-cta floating-underline">
+              Explore our portfolio
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                <path
+                  d="M4 10H16M16 10L10 4M16 10L10 16"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Pillar 03: Cultural Context -->
+        <article class="pillar monolith-row">
+          <div class="pillar-visual">
+            <img
+              src="assets/images/Modern Interior Design.png"
+              alt="Port Harcourt and Nigerian heritage"
+            />
+          </div>
+          <div class="pillar-content">
+            <span class="pillar-number">03</span>
+            <h3 class="pillar-title">The Cultural Context</h3>
+            <p class="pillar-description">
+              Rooted in Port Harcourt, informed by global perspectives. We weave
+              Nigerian heritage into contemporary luxury—honoring ancestral
+              craftsmanship while embracing modern innovation. Our spaces are
+              bridges between the timeless and the now, the local and the
+              universal.
+            </p>
+            <a href="#" class="btn-secondary-cta floating-underline">
+              Discover our story
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                <path
+                  d="M4 10H16M16 10L10 4M16 10L10 16"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Sensory Gallery -->
+    <section class="sensory-gallery">
+      <div class="gallery-header">
+        <span class="section-label">THE</span>
+        <h2 class="section-title">SENSORY GALLERY</h2>
+        <p class="gallery-subtitle">Textures that speak to touch</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img
+            src="assets/images/Modern Wooden Table.png"
+            alt="Dovetail joint detail"
+          />
+          <div class="gallery-overlay">
+            <span class="gallery-label">French Oak</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="assets/images/Minimalist Table Lamp.png"
+            alt="Hand-woven rug texture"
+          />
+          <div class="gallery-overlay">
+            <span class="gallery-label">Belgian Linen</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="assets/images/Elegant Armchair Design.png"
+            alt="Marble grain detail"
+          />
+          <div class="gallery-overlay">
+            <span class="gallery-label">Italian Travertine</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="assets/images/Modern Minimalist Shelf.png"
+            alt="Brass fixture detail"
+          />
+          <div class="gallery-overlay">
+            <span class="gallery-label">Hand-Finished Brass</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="assets/images/Modern Interior Design.png"
+            alt="Ceramic texture"
+          />
+          <div class="gallery-overlay">
+            <span class="gallery-label">Hand-Thrown Ceramic</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img
+            src="assets/images/Minimalist Cozy Interior.png"
+            alt="Velvet fabric texture"
+          />
+          <div class="gallery-overlay">
+            <span class="gallery-label">Belgian Velvet</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: Studio Values -->
+    <section class="studio-values">
+      <div class="container">
+        <div class="values-header">
+          <span class="section-label">HOW</span>
+          <h2 class="section-title">WE THINK</h2>
+        </div>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 2L2 7L12 12L22 7L12 2Z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M2 17L12 22L22 17"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M2 12L12 17L22 12"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <h3 class="value-title">Precision</h3>
+            <p class="value-description">
+              Architecture is the foundation. We measure twice, design once, and
+              execute with millimeter-perfect precision. Every joint, every
+              alignment, every proportion is calculated for harmony.
+            </p>
+            <a href="#" class="btn-tertiary-cta">
+              Learn more
+              <span class="btn-tertiary-circle">
+                <svg width="8" height="8" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M4 10H16M16 10L10 4M16 10L10 16"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <h3 class="value-title">Empathy</h3>
+            <p class="value-description">
+              We design for your lifestyle, not our portfolio. Before we draw a
+              single line, we immerse ourselves in understanding how you live,
+              work, and recharge. Great design begins with listening.
+            </p>
+            <a href="#" class="btn-tertiary-cta">
+              Our process
+              <span class="btn-tertiary-circle">
+                <svg width="8" height="8" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M4 10H16M16 10L10 4M16 10L10 16"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M12 6V12L16 14"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <h3 class="value-title">Timelessness</h3>
+            <p class="value-description">
+              Trends fade. Abambas remains. We create spaces that transcend
+              seasons—investing in quality over quantity, in legacy over
+              novelty. Our work is designed to be cherished for generations.
+            </p>
+            <a href="#" class="btn-tertiary-cta">
+              Our philosophy
+              <span class="btn-tertiary-circle">
+                <svg width="8" height="8" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M4 10H16M16 10L10 4M16 10L10 16"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: Footer Portal -->
+    <section class="footer-portal">
+      <div class="container">
+        <div class="portal-content">
+          <p class="portal-invitation">Let's build your legacy together.</p>
+          <a href="contacts.html" class="btn-portal-large magnetic-portal">
+            <span class="portal-text">Start Your Journey</span>
+            <div class="btn-portal-circle-large">
+              <svg width="24" height="24" viewBox="0 0 20 20" fill="none">
+                <path
+                  d="M4 10H16M16 10L10 4M16 10L10 16"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Footer -->
     <footer class="footer">
       <div class="container">
         <div class="footer-layout">
-          <div class="footer-image">
+          <div class="footer-image custom-map-container">
+            <div class="custom-map-marker">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M21 10C21 17 12 23 12 23S3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <circle
+                  cx="12"
+                  cy="10"
+                  r="3"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.4259845285583!2d6.959053700000006!3d4.868076000000015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1069d1078c0950bf%3A0xb71192285397d580!2sAbambas!5e0!3m2!1sen!2sng!4v1766142856411!5m2!1sen!2sng"
-              width="600"
-              height="450"
+              width="100%"
+              height="100%"
               style="border: 0"
               allowfullscreen=""
               loading="lazy"
@@ -197,13 +629,11 @@
           </div>
           <div class="footer-content">
             <h2 class="section-title">CONTACTS</h2>
-
             <div class="contact-info">
               <div class="contact-item">
                 <div class="contact-label">CALL US ON PHONE</div>
                 <a href="tel:09097192285" class="contact-value">09097192285</a>
               </div>
-
               <div class="contact-item">
                 <div class="contact-label">THE SHOWROOM IS LOCATED AT</div>
                 <p class="contact-value">
@@ -212,7 +642,6 @@
                 </p>
                 <p class="contact-meta">VX95+6J, Port Harcourt</p>
               </div>
-
               <div class="contact-item">
                 <div class="contact-label">FOLLOW US ON SOCIAL NETWORKS</div>
                 <div class="social-links">
@@ -276,7 +705,6 @@
             </div>
           </div>
         </div>
-
         <div class="newsletter">
           <div class="container">
             <div class="newsletter-content">
@@ -307,7 +735,6 @@
             </div>
           </div>
         </div>
-
         <div class="footer-bottom">
           <p>&copy; 2024 Abambas. All rights reserved.</p>
         </div>
@@ -316,5 +743,180 @@
 
     <script src="/js/script.js"></script>
     <script src="/js/animations.js"></script>
+    <script>
+      // About Page Specific Animations
+      document.addEventListener("DOMContentLoaded", function () {
+        // Hero Masked Reveal Animation
+        gsap.registerPlugin(ScrollTrigger);
+
+        const heroMask = document.querySelector(".hero-mask-container");
+        const heroPhrases = document.querySelectorAll(".hero-phrase");
+
+        if (heroMask && heroPhrases.length) {
+          gsap.set(heroMask, {
+            clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)",
+          });
+
+          gsap.to(heroMask, {
+            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+            duration: 1.8,
+            ease: "power3.out",
+            delay: 0.3,
+          });
+
+          gsap.fromTo(
+            heroPhrases,
+            { y: 100, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1,
+              stagger: 0.2,
+              ease: "power3.out",
+              delay: 0.5,
+            }
+          );
+        }
+
+        // Director Parallax Effect
+        const directorPortrait = document.querySelector(".director-portrait");
+        const directorStory = document.querySelector(".director-story");
+
+        if (directorPortrait && directorStory) {
+          gsap.to(directorPortrait, {
+            yPercent: 15,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".creative-director",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          });
+        }
+
+        // Pillar Alternating Reveal
+        const pillars = document.querySelectorAll(".pillar");
+        pillars.forEach((pillar) => {
+          const visual = pillar.querySelector(".pillar-visual");
+          const content = pillar.querySelector(".pillar-content");
+
+          if (visual) {
+            gsap.fromTo(
+              visual,
+              { y: 80, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                ease: "power3.out",
+                scrollTrigger: { trigger: pillar, start: "top 75%" },
+              }
+            );
+          }
+
+          if (content) {
+            gsap.fromTo(
+              content,
+              { y: 40, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                delay: 0.2,
+                ease: "power3.out",
+                scrollTrigger: { trigger: pillar, start: "top 75%" },
+              }
+            );
+          }
+        });
+
+        // Sensory Gallery Breathe Effect
+        const galleryItems = document.querySelectorAll(".gallery-item");
+        galleryItems.forEach((item) => {
+          item.addEventListener("mouseenter", () => {
+            gsap.to(item, { scale: 1.03, duration: 0.6, ease: "power2.out" });
+            gsap.to(item.querySelector(".gallery-overlay"), {
+              opacity: 1,
+              y: 0,
+              duration: 0.4,
+              ease: "power2.out",
+            });
+          });
+
+          item.addEventListener("mouseleave", () => {
+            gsap.to(item, { scale: 1, duration: 0.6, ease: "power2.out" });
+            gsap.to(item.querySelector(".gallery-overlay"), {
+              opacity: 0,
+              y: 10,
+              duration: 0.4,
+              ease: "power2.out",
+            });
+          });
+        });
+
+        // Values Cards Stagger
+        const valueCards = document.querySelectorAll(".value-card");
+        gsap.fromTo(
+          valueCards,
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power3.out",
+            scrollTrigger: { trigger: ".studio-values", start: "top 75%" },
+          }
+        );
+
+        // Footer Portal Magnetic Effect
+        const magneticPortal = document.querySelector(".magnetic-portal");
+        if (magneticPortal) {
+          const circle = magneticPortal.querySelector(
+            ".btn-portal-circle-large"
+          );
+          let isHovering = false;
+          let mouseX = 0;
+          let mouseY = 0;
+
+          document.addEventListener("mousemove", (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+          });
+
+          magneticPortal.addEventListener("mouseenter", () => {
+            isHovering = true;
+          });
+          magneticPortal.addEventListener("mouseleave", () => {
+            isHovering = false;
+            gsap.to(circle, { x: 0, y: 0, duration: 0.5, ease: "power2.out" });
+          });
+
+          function animateMagnetic() {
+            if (isHovering && circle) {
+              const rect = circle.getBoundingClientRect();
+              const circleX = rect.left + rect.width / 2;
+              const circleY = rect.top + rect.height / 2;
+              const dx = mouseX - circleX;
+              const dy = mouseY - circleY;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+
+              if (distance < 100) {
+                const pull = (100 - distance) / 100;
+                gsap.to(circle, {
+                  x: dx * pull * 0.3,
+                  y: dy * pull * 0.3,
+                  duration: 0.1,
+                  ease: "power2.out",
+                });
+              }
+            }
+            requestAnimationFrame(animateMagnetic);
+          }
+          animateMagnetic();
+        }
+      });
+    </script>
   </body>
 </html>

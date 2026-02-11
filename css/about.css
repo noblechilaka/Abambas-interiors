@@ -1,0 +1,769 @@
+/* ============================================
+   ABOUT PAGE - COMPREHENSIVE STYLES
+   ============================================ */
+
+/* ============================================
+   SECTION 1: HERO - The Narrative Hook
+   ============================================ */
+.about-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-video-container {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(84, 51, 16, 0.3) 0%,
+    rgba(84, 51, 16, 0.4) 50%,
+    rgba(84, 51, 16, 0.5) 100%
+  );
+}
+
+.hero-content-wrapper {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 40px;
+}
+
+.hero-mask-container {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.about-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 400;
+  color: var(--bg-primary);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 40px rgba(0, 0, 0, 0.3);
+}
+
+.hero-phrase {
+  display: block;
+}
+
+/* ============================================
+   SECTION 2: Creative Director
+   ============================================ */
+.creative-director {
+  padding: var(--spacing-xl) 0;
+  background: var(--bg-primary);
+}
+
+.director-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.director-portrait-wrapper {
+  position: relative;
+}
+
+.director-portrait {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.director-portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  opacity: 0.3;
+  transform: translate(20px, 20px);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.director-portrait:hover::after {
+  transform: translate(10px, 10px);
+  opacity: 0.5;
+}
+
+.director-portrait img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.8s ease;
+}
+
+.director-portrait:hover img {
+  transform: scale(1.02);
+}
+
+.director-signature {
+  margin-bottom: 20px;
+}
+
+.signature-line {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.director-name {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 40px;
+  letter-spacing: 0.02em;
+}
+
+.director-bio p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--text-secondary);
+  margin-bottom: 25px;
+  font-style: italic;
+}
+
+.director-bio p:first-child::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 15px;
+  background: var(--accent);
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+/* ============================================
+   SECTION 3: Abambas Pillars
+   ============================================ */
+.abambas-pillars {
+  padding: var(--spacing-xl) 0;
+  background: var(--bg-primary);
+}
+
+.pillars-header {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.pillars-header .section-label {
+  display: block;
+  text-align: center;
+}
+
+.pillar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 140px;
+}
+
+.pillar:last-child {
+  margin-bottom: 0;
+}
+
+.pillar.monolith-row-reversed {
+  direction: rtl;
+}
+
+.pillar.monolith-row-reversed > * {
+  direction: ltr;
+}
+
+.pillar-visual {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.pillar-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.pillar:hover .pillar-visual img {
+  transform: scale(1.05);
+}
+
+.pillar-content {
+  position: relative;
+}
+
+.pillar-number {
+  font-family: var(--font-heading);
+  font-size: 120px;
+  font-weight: 400;
+  color: var(--accent);
+  opacity: 0.08;
+  line-height: 1;
+  display: block;
+  margin-bottom: -30px;
+  margin-left: -10px;
+}
+
+.pillar-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 25px;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.pillar-description {
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--text-secondary);
+  margin-bottom: 35px;
+  max-width: 480px;
+}
+
+/* Floating Underline CTA */
+.floating-underline {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.floating-underline::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.4s ease;
+}
+
+.floating-underline:hover {
+  color: var(--accent);
+}
+
+.floating-underline:hover::after {
+  width: 100%;
+}
+
+.floating-underline svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.floating-underline:hover svg {
+  transform: translateX(4px);
+}
+
+/* ============================================
+   SECTION 4: Sensory Gallery
+   ============================================ */
+.sensory-gallery {
+  padding: var(--spacing-xl) 0;
+  background: var(--bg-primary);
+}
+
+.gallery-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.gallery-header .section-label {
+  display: block;
+  text-align: center;
+}
+
+.gallery-subtitle {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-top: -30px;
+  letter-spacing: 0.05em;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 1;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(84, 51, 16, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.gallery-label {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--bg-primary);
+  letter-spacing: 0.05em;
+  transform: translateY(10px);
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-item:hover .gallery-label {
+  transform: translateY(0);
+}
+
+/* ============================================
+   SECTION 5: Studio Values
+   ============================================ */
+.studio-values {
+  padding: var(--spacing-xl) 0;
+  background: rgba(248, 244, 225, 0.5);
+}
+
+.values-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.values-header .section-label {
+  display: block;
+  text-align: center;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+}
+
+.value-card {
+  text-align: center;
+  padding: 40px 30px;
+  background: var(--bg-primary);
+  border-radius: 8px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(84, 51, 16, 0.1);
+}
+
+.value-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  color: var(--accent);
+  transition: all 0.4s ease;
+}
+
+.value-card:hover .value-icon {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+
+.value-title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+}
+
+.value-description {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+}
+
+/* ============================================
+   SECTION 6: Footer Portal
+   ============================================ */
+.footer-portal {
+  padding: var(--spacing-xl) 0;
+  background: var(--bg-primary);
+}
+
+.portal-content {
+  text-align: center;
+}
+
+.portal-invitation {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 40px;
+  letter-spacing: 0.02em;
+}
+
+.btn-portal-large {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 48px;
+  background: transparent;
+  color: var(--text-primary);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-portal-large:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-portal-circle-large {
+  width: 48px;
+  height: 48px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+.btn-portal-large:hover .btn-portal-circle-large {
+  transform: translateX(6px);
+}
+
+.btn-portal-circle-large svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1200px) {
+  .director-layout {
+    gap: 60px;
+  }
+
+  .pillar {
+    gap: 60px;
+    margin-bottom: 100px;
+  }
+
+  .gallery-grid {
+    gap: 15px;
+  }
+
+  .values-grid {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .director-layout {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .director-portrait {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .director-bio {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .pillar {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 80px;
+  }
+
+  .pillar.monolith-row-reversed {
+    direction: ltr;
+  }
+
+  .pillar-visual {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .pillar-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .pillar-content .pillar-number {
+    font-size: 80px;
+    margin-bottom: -20px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .value-card:last-child {
+    grid-column: span 2;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .hero-content-wrapper {
+    padding: 0 25px;
+  }
+
+  .creative-director {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .director-layout {
+    gap: 40px;
+  }
+
+  .director-name {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+
+  .director-bio p {
+    font-size: 15px;
+  }
+
+  .abambas-pillars,
+  .sensory-gallery,
+  .studio-values,
+  .footer-portal {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .pillars-header,
+  .values-header,
+  .gallery-header {
+    margin-bottom: 60px;
+  }
+
+  .pillar {
+    margin-bottom: 60px;
+  }
+
+  .pillar-number {
+    font-size: 60px;
+  }
+
+  .pillar-title {
+    font-size: 1.5rem;
+  }
+
+  .pillar-description {
+    font-size: 15px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .gallery-item:nth-child(3) {
+    grid-column: span 2;
+    aspect-ratio: 2 / 1;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .value-card:last-child {
+    grid-column: auto;
+  }
+
+  .portal-invitation {
+    font-size: 1.5rem;
+  }
+
+  .btn-portal-large {
+    padding: 20px 36px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero-title {
+    font-size: 1.8rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .gallery-item,
+  .gallery-item:nth-child(3) {
+    aspect-ratio: 4 / 3;
+  }
+
+  .value-card {
+    padding: 30px 20px;
+  }
+
+  .value-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .value-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .value-title {
+    font-size: 20px;
+  }
+
+  .portal-invitation {
+    font-size: 1.3rem;
+  }
+}
+
+/* ============================================
+   LARGE DESKTOP ENHANCEMENTS
+   ============================================ */
+@media (min-width: 1440px) {
+  .director-layout {
+    gap: 140px;
+  }
+
+  .director-portrait {
+    max-width: 600px;
+  }
+
+  .director-name {
+    font-size: 2.8rem;
+  }
+
+  .director-bio p {
+    font-size: 17px;
+  }
+
+  .pillar {
+    gap: 100px;
+    margin-bottom: 160px;
+  }
+
+  .pillar-number {
+    font-size: 140px;
+  }
+
+  .pillar-title {
+    font-size: 2.5rem;
+  }
+
+  .pillar-description {
+    font-size: 17px;
+    max-width: 550px;
+  }
+
+  .gallery-grid {
+    gap: 30px;
+  }
+
+  .gallery-label {
+    font-size: 24px;
+  }
+
+  .values-grid {
+    gap: 80px;
+  }
+
+  .value-card {
+    padding: 50px 40px;
+  }
+
+  .value-title {
+    font-size: 26px;
+  }
+
+  .value-description {
+    font-size: 16px;
+  }
+}
