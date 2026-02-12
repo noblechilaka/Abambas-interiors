@@ -1,141 +1,127 @@
 /* ============================================
-   ABOUT PAGE - COMPREHENSIVE STYLES
+   ARCHITECTURAL MANIFESTO - ABOUT PAGE
+   Comprehensive Styles for the Typographic Manifesto
    ============================================ */
 
 /* ============================================
-   SECTION 1: HERO - The Narrative Hook
+   SECTION 1: THE HEADER - The Typographic Manifesto
    ============================================ */
-.about-hero {
-  position: relative;
+.manifesto-header {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-}
-
-.hero-video-container {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-
-.hero-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero-video-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(84, 51, 16, 0.3) 0%,
-    rgba(84, 51, 16, 0.4) 50%,
-    rgba(84, 51, 16, 0.5) 100%
-  );
-}
-
-.hero-content-wrapper {
+  background: var(--bg-primary);
+  padding: 120px 40px 80px;
   position: relative;
-  z-index: 2;
-  text-align: center;
-  padding: 0 40px;
 }
 
-.hero-mask-container {
+.manifesto-content {
+  text-align: center;
+  max-width: 900px;
+}
+
+.manifesto-mask {
   display: inline-block;
   overflow: hidden;
+  margin-bottom: 40px;
 }
 
-.about-hero-title {
+.manifesto-headline {
   font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(3rem, 8vw, 7rem);
   font-weight: 400;
-  color: var(--bg-primary);
-  line-height: 1.1;
+  color: var(--text-primary);
   letter-spacing: 0.02em;
-  text-shadow: 0 2px 40px rgba(0, 0, 0, 0.3);
+  line-height: 1.05;
 }
 
-.hero-phrase {
+.manifesto-line {
   display: block;
 }
 
+.manifesto-subhead {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 300;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+
 /* ============================================
-   SECTION 2: Creative Director
+   SECTION 2: THE VISIONARY (Monolith Split)
    ============================================ */
-.creative-director {
+.visionary-section {
   padding: var(--spacing-xl) 0;
   background: var(--bg-primary);
 }
 
-.director-layout {
+.visionary-layout {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 100px;
   align-items: center;
 }
 
-.director-portrait-wrapper {
+/* Monolith Portrait Frame */
+.visionary-portrait-wrapper {
   position: relative;
 }
 
-.director-portrait {
+.visionary-monolith-frame {
   position: relative;
   overflow: hidden;
   border-radius: 4px;
 }
 
-.director-portrait::after {
+.visionary-monolith-frame::before {
   content: "";
   position: absolute;
   inset: 0;
   border: 1px solid var(--accent);
   border-radius: 4px;
-  opacity: 0.3;
-  transform: translate(20px, 20px);
+  z-index: 2;
+  transform: translate(15px, 15px);
   transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
-.director-portrait:hover::after {
-  transform: translate(10px, 10px);
-  opacity: 0.5;
+.visionary-monolith-frame:hover::before {
+  transform: translate(8px, 8px);
+  opacity: 0.7;
 }
 
-.director-portrait img {
+.visionary-portrait {
   width: 100%;
   height: auto;
   display: block;
-  transition: transform 0.8s ease;
+  filter: grayscale(100%);
+  transition: filter 0.8s ease, transform 0.8s ease;
 }
 
-.director-portrait:hover img {
+.visionary-monolith-frame:hover .visionary-portrait {
+  filter: grayscale(50%);
   transform: scale(1.02);
 }
 
-.director-signature {
-  margin-bottom: 20px;
+/* Visionary Content */
+.visionary-content {
+  position: relative;
 }
 
-.signature-line {
-  display: block;
-  width: 60px;
-  height: 1px;
-  background: var(--accent);
-}
-
-.director-name {
+.visionary-title {
   font-family: var(--font-heading);
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   font-weight: 400;
   color: var(--text-primary);
   margin-bottom: 40px;
   letter-spacing: 0.02em;
+  line-height: 1.2;
 }
 
-.director-bio p {
+.founders-note p {
   font-size: 16px;
   line-height: 1.9;
   color: var(--text-secondary);
@@ -143,108 +129,19 @@
   font-style: italic;
 }
 
-.director-bio p:first-child::before {
+.founders-note p:first-child::before {
   content: "";
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   margin-right: 15px;
   background: var(--accent);
   border-radius: 50%;
   vertical-align: middle;
 }
 
-/* ============================================
-   SECTION 3: Abambas Pillars
-   ============================================ */
-.abambas-pillars {
-  padding: var(--spacing-xl) 0;
-  background: var(--bg-primary);
-}
-
-.pillars-header {
-  text-align: center;
-  margin-bottom: 100px;
-}
-
-.pillars-header .section-label {
-  display: block;
-  text-align: center;
-}
-
-.pillar {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-  margin-bottom: 140px;
-}
-
-.pillar:last-child {
-  margin-bottom: 0;
-}
-
-.pillar.monolith-row-reversed {
-  direction: rtl;
-}
-
-.pillar.monolith-row-reversed > * {
-  direction: ltr;
-}
-
-.pillar-visual {
-  position: relative;
-  overflow: hidden;
-  border-radius: 4px;
-}
-
-.pillar-visual img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.8s ease;
-}
-
-.pillar:hover .pillar-visual img {
-  transform: scale(1.05);
-}
-
-.pillar-content {
-  position: relative;
-}
-
-.pillar-number {
-  font-family: var(--font-heading);
-  font-size: 120px;
-  font-weight: 400;
-  color: var(--accent);
-  opacity: 0.08;
-  line-height: 1;
-  display: block;
-  margin-bottom: -30px;
-  margin-left: -10px;
-}
-
-.pillar-title {
-  font-family: var(--font-heading);
-  font-size: clamp(1.8rem, 2.5vw, 2.2rem);
-  font-weight: 400;
-  color: var(--text-primary);
-  margin-bottom: 25px;
-  letter-spacing: 0.02em;
-  line-height: 1.2;
-}
-
-.pillar-description {
-  font-size: 16px;
-  line-height: 1.9;
-  color: var(--text-secondary);
-  margin-bottom: 35px;
-  max-width: 480px;
-}
-
-/* Floating Underline CTA */
-.floating-underline {
+/* Underlined CTA */
+.cta-underlined {
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -256,10 +153,11 @@
   text-decoration: none;
   position: relative;
   padding-bottom: 4px;
+  margin-top: 20px;
   transition: color 0.3s ease;
 }
 
-.floating-underline::after {
+.cta-underlined::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -270,202 +168,355 @@
   transition: width 0.4s ease;
 }
 
-.floating-underline:hover {
+.cta-underlined:hover {
   color: var(--accent);
 }
 
-.floating-underline:hover::after {
+.cta-underlined:hover::after {
   width: 100%;
 }
 
-.floating-underline svg {
+.cta-underlined svg {
   width: 16px;
   height: 16px;
   transition: transform 0.3s ease;
 }
 
-.floating-underline:hover svg {
+.cta-underlined:hover svg {
   transform: translateX(4px);
 }
 
 /* ============================================
-   SECTION 4: Sensory Gallery
+   SECTION 3: THE ABAMBAS METHOD (Triple Grid)
    ============================================ */
-.sensory-gallery {
+.method-section {
   padding: var(--spacing-xl) 0;
-  background: var(--bg-primary);
+  background: rgba(248, 244, 225, 0.3);
 }
 
-.gallery-header {
+.method-header {
   text-align: center;
   margin-bottom: 80px;
 }
 
-.gallery-header .section-label {
+.method-header .section-label {
   display: block;
   text-align: center;
 }
 
-.gallery-subtitle {
-  font-family: var(--font-heading);
-  font-size: 18px;
-  font-weight: 400;
-  color: var(--text-secondary);
-  margin-top: -30px;
-  letter-spacing: 0.05em;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  aspect-ratio: 1;
-}
-
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.8s ease;
-}
-
-.gallery-item:hover img {
-  transform: scale(1.08);
-}
-
-.gallery-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(84, 51, 16, 0.6);
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.gallery-label {
-  font-family: var(--font-heading);
-  font-size: 20px;
-  font-weight: 400;
-  color: var(--bg-primary);
-  letter-spacing: 0.05em;
-  transform: translateY(10px);
-  transition: transform 0.4s ease;
-}
-
-.gallery-item:hover .gallery-overlay {
-  opacity: 1;
-}
-
-.gallery-item:hover .gallery-label {
-  transform: translateY(0);
-}
-
-/* ============================================
-   SECTION 5: Studio Values
-   ============================================ */
-.studio-values {
-  padding: var(--spacing-xl) 0;
-  background: rgba(248, 244, 225, 0.5);
-}
-
-.values-header {
-  text-align: center;
-  margin-bottom: 80px;
-}
-
-.values-header .section-label {
-  display: block;
-  text-align: center;
-}
-
-.values-grid {
+.method-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 60px;
 }
 
-.value-card {
+.method-column {
   text-align: center;
   padding: 40px 30px;
-  background: var(--bg-primary);
-  border-radius: 8px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
 }
 
-.value-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(84, 51, 16, 0.1);
-}
-
-.value-icon {
-  width: 72px;
-  height: 72px;
-  margin: 0 auto 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--accent);
-  border-radius: 50%;
-  color: var(--accent);
-  transition: all 0.4s ease;
-}
-
-.value-card:hover .value-icon {
-  background: var(--accent);
-  color: var(--bg-primary);
-}
-
-.value-title {
+.method-number {
   font-family: var(--font-heading);
-  font-size: 24px;
+  font-size: 100px;
+  font-weight: 400;
+  color: var(--accent);
+  opacity: 0.08;
+  line-height: 1;
+  display: block;
+  margin-bottom: -20px;
+}
+
+.method-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2vw, 1.6rem);
   font-weight: 400;
   color: var(--text-primary);
   margin-bottom: 20px;
   letter-spacing: 0.02em;
+  line-height: 1.2;
 }
 
-.value-description {
+.method-description {
   font-size: 15px;
   line-height: 1.8;
   color: var(--text-secondary);
   margin-bottom: 30px;
 }
 
+/* Micro-Circle CTA */
+.method-micro-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.micro-circle {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transform: scale(0);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.micro-circle::before {
+  content: "→";
+  font-size: 10px;
+}
+
+.method-micro-cta:hover {
+  color: var(--accent);
+}
+
+.method-micro-cta:hover .micro-circle {
+  transform: scale(1);
+}
+
 /* ============================================
-   SECTION 6: Footer Portal
+   SECTION 4: THE STUDIO (Reverse Monolith Split)
    ============================================ */
-.footer-portal {
+.studio-section {
   padding: var(--spacing-xl) 0;
   background: var(--bg-primary);
 }
 
-.portal-content {
-  text-align: center;
+.studio-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
 }
 
-.portal-invitation {
+/* Studio Content */
+.studio-content {
+  order: 1;
+}
+
+.studio-title {
   font-family: var(--font-heading);
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   font-weight: 400;
   color: var(--text-primary);
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   letter-spacing: 0.02em;
+  line-height: 1.2;
 }
 
-.btn-portal-large {
+.studio-description {
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+/* Studio Portal CTA */
+.studio-portal-cta {
   display: inline-flex;
   align-items: center;
   gap: 20px;
-  padding: 24px 48px;
+  padding: 20px 36px;
+  background: transparent;
+  color: var(--text-primary);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: all 0.4s ease;
+  margin-top: 20px;
+}
+
+.studio-portal-cta:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.portal-circle-large {
+  width: 48px;
+  height: 48px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s ease;
+}
+
+.studio-portal-cta:hover .portal-circle-large {
+  transform: translateX(6px);
+}
+
+.portal-circle-large svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Studio Monolith Frame */
+.studio-image-wrapper {
+  order: 2;
+}
+
+.studio-monolith-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.studio-monolith-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  z-index: 2;
+  transform: translate(-15px, -15px);
+  transition: transform 0.6s ease;
+}
+
+.studio-monolith-frame:hover::before {
+  transform: translate(-8px, -8px);
+}
+
+.studio-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.8s ease;
+}
+
+.studio-monolith-frame:hover .studio-image {
+  transform: scale(1.02);
+}
+
+/* ============================================
+   SECTION 5: THE SENSORY ARCHIVE (Texture Grid)
+   ============================================ */
+.sensory-section {
+  padding: var(--spacing-xl) 0;
+  background: var(--bg-primary);
+}
+
+.sensory-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.sensory-header .section-label {
+  display: block;
+  text-align: center;
+}
+
+/* Texture Grid */
+.texture-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* Monolith Texture Frame */
+.texture-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.texture-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  z-index: 2;
+  opacity: 0.3;
+  transition: opacity 0.4s ease;
+}
+
+.texture-frame:hover::before {
+  opacity: 0.6;
+}
+
+.texture-image {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+  transition: transform 1s ease;
+}
+
+.texture-frame:hover .texture-image {
+  transform: scale(1.08);
+}
+
+/* Texture Overlay */
+.texture-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px 20px;
+  background: linear-gradient(to top, rgba(84, 51, 16, 0.9), transparent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 3;
+}
+
+.texture-frame:hover .texture-overlay {
+  opacity: 1;
+}
+
+.texture-name {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--bg-primary);
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   SECTION 6: THE CONNECTION (Footer Portal)
+   ============================================ */
+.connection-section {
+  padding: var(--spacing-xl) 0;
+  background: rgba(248, 244, 225, 0.5);
+}
+
+.connection-content {
+  text-align: center;
+}
+
+.connection-invitation {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 50px;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+/* Connection Portal CTA */
+.connection-portal-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+  padding: 28px 56px;
   background: transparent;
   color: var(--text-primary);
   text-decoration: none;
@@ -479,229 +530,416 @@
   overflow: hidden;
 }
 
-.btn-portal-large:hover {
+.connection-portal-cta:hover {
   border-color: var(--accent);
   color: var(--accent);
 }
 
-.btn-portal-circle-large {
-  width: 48px;
-  height: 48px;
+.portal-circle-huge {
+  width: 64px;
+  height: 64px;
   border: 1px solid currentColor;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.4s ease;
+  transition: transform 0.4s ease;
 }
 
-.btn-portal-large:hover .btn-portal-circle-large {
-  transform: translateX(6px);
+.connection-portal-cta:hover .portal-circle-huge {
+  transform: translateX(8px);
 }
 
-.btn-portal-circle-large svg {
-  width: 20px;
-  height: 20px;
+.portal-circle-huge svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* ============================================
+   FOOTER SECTION
+   ============================================ */
+.footer {
+  padding: var(--spacing-xl) 0 40px;
+  background: var(--bg-primary);
+}
+
+.footer-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  margin-bottom: 60px;
+}
+
+.footer-image {
+  height: 500px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.footer-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+}
+
+.footer-content {
+  padding-top: 0;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.contact-item {
+  opacity: 0;
+}
+
+.contact-label {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.contact-value {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text-primary);
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s ease;
+  line-height: 1.4;
+}
+
+.contact-value:hover {
+  color: var(--accent);
+}
+
+.contact-meta {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.social-icon {
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--border-brown);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: transform 0.15s ease, border-color 0.3s ease, color 0.3s ease;
+  transform-origin: center;
+}
+
+.social-icon:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: scale(1.05);
+}
+
+.social-icon:active {
+  transform: scale(0.95);
+}
+
+.newsletter {
+  padding: 60px 0;
+  border-top: 1px solid var(--border);
+  background: rgba(248, 244, 225, 0.5);
+}
+
+.newsletter-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.newsletter-title {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 15px;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+.newsletter-text {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 15px 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--text-primary);
+  border-radius: 0;
+  transition: border-color 0.3s ease;
+}
+
+.newsletter-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.btn-subscribe {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 30px;
+  background: var(--accent);
+  color: var(--bg-primary);
+  border: 1px solid var(--accent);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 0;
+}
+
+.btn-subscribe:hover {
+  background: transparent;
+  color: var(--accent);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-bottom p {
+  font-size: 13px;
+  color: var(--text-muted);
 }
 
 /* ============================================
    RESPONSIVE DESIGN
    ============================================ */
-@media (max-width: 1200px) {
-  .director-layout {
-    gap: 60px;
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+  .visionary-layout {
+    gap: 140px;
   }
 
-  .pillar {
-    gap: 60px;
-    margin-bottom: 100px;
+  .method-grid {
+    gap: 80px;
   }
 
-  .gallery-grid {
-    gap: 15px;
+  .method-column {
+    padding: 50px 40px;
   }
 
-  .values-grid {
+  .studio-layout {
+    gap: 140px;
+  }
+
+  .texture-grid {
     gap: 40px;
   }
 }
 
+/* Desktop */
+@media (max-width: 1200px) {
+  .visionary-layout {
+    gap: 80px;
+  }
+
+  .studio-layout {
+    gap: 80px;
+  }
+
+  .texture-grid {
+    gap: 20px;
+  }
+}
+
+/* Tablet */
 @media (max-width: 1024px) {
-  .director-layout {
+  .visionary-layout {
     grid-template-columns: 1fr;
     gap: 60px;
   }
 
-  .director-portrait {
+  .visionary-portrait-wrapper {
     max-width: 500px;
     margin: 0 auto;
   }
 
-  .director-bio {
+  .visionary-content {
     max-width: 600px;
     margin: 0 auto;
   }
 
-  .pillar {
+  .method-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+  }
+
+  .method-column:last-child {
+    grid-column: span 2;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .studio-layout {
     grid-template-columns: 1fr;
-    gap: 40px;
-    margin-bottom: 80px;
+    gap: 60px;
   }
 
-  .pillar.monolith-row-reversed {
-    direction: ltr;
-  }
-
-  .pillar-visual {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .pillar-content {
+  .studio-content {
+    order: 1;
     max-width: 600px;
     margin: 0 auto;
     text-align: left;
   }
 
-  .pillar-content .pillar-number {
-    font-size: 80px;
-    margin-bottom: -20px;
-  }
-
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .values-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .value-card:last-child {
-    grid-column: span 2;
-    max-width: 400px;
+  .studio-image-wrapper {
+    order: 2;
+    max-width: 600px;
     margin: 0 auto;
+  }
+
+  .texture-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-layout {
+    grid-template-columns: 1fr;
+    gap: 60px;
   }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
-  .about-hero-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
+  .manifesto-header {
+    padding: 100px 25px 60px;
   }
 
-  .hero-content-wrapper {
-    padding: 0 25px;
+  .manifesto-headline {
+    font-size: clamp(2rem, 6vw, 3.5rem);
   }
 
-  .creative-director {
+  .manifesto-subhead {
+    font-size: 15px;
+  }
+
+  .visionary-section,
+  .method-section,
+  .studio-section,
+  .sensory-section,
+  .connection-section {
     padding: var(--spacing-lg) 0;
   }
 
-  .director-layout {
+  .method-grid {
+    grid-template-columns: 1fr;
     gap: 40px;
   }
 
-  .director-name {
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-  }
-
-  .director-bio p {
-    font-size: 15px;
-  }
-
-  .abambas-pillars,
-  .sensory-gallery,
-  .studio-values,
-  .footer-portal {
-    padding: var(--spacing-lg) 0;
-  }
-
-  .pillars-header,
-  .values-header,
-  .gallery-header {
-    margin-bottom: 60px;
-  }
-
-  .pillar {
-    margin-bottom: 60px;
-  }
-
-  .pillar-number {
-    font-size: 60px;
-  }
-
-  .pillar-title {
-    font-size: 1.5rem;
-  }
-
-  .pillar-description {
-    font-size: 15px;
-  }
-
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-
-  .gallery-item:nth-child(3) {
-    grid-column: span 2;
-    aspect-ratio: 2 / 1;
-  }
-
-  .values-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .value-card:last-child {
+  .method-column:last-child {
     grid-column: auto;
   }
 
-  .portal-invitation {
-    font-size: 1.5rem;
+  .method-number {
+    font-size: 80px;
   }
 
-  .btn-portal-large {
-    padding: 20px 36px;
+  .texture-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .texture-image {
+    aspect-ratio: 3 / 4;
+  }
+
+  .connection-portal-cta {
+    padding: 24px 40px;
     font-size: 11px;
+  }
+
+  .portal-circle-huge {
+    width: 56px;
+    height: 56px;
   }
 }
 
+/* Small Mobile */
 @media (max-width: 480px) {
-  .about-hero-title {
+  .manifesto-header {
+    padding: 80px 20px 50px;
+  }
+
+  .manifesto-headline {
     font-size: 1.8rem;
   }
 
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
+  .manifesto-subhead {
+    font-size: 14px;
   }
 
-  .gallery-item,
-  .gallery-item:nth-child(3) {
-    aspect-ratio: 4 / 3;
+  .texture-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
   }
 
-  .value-card {
-    padding: 30px 20px;
+  .texture-image {
+    aspect-ratio: 1 / 1;
   }
 
-  .value-icon {
-    width: 60px;
-    height: 60px;
+  .texture-overlay {
+    padding: 15px 10px;
   }
 
-  .value-icon svg {
-    width: 28px;
-    height: 28px;
+  .texture-name {
+    font-size: 12px;
   }
 
-  .value-title {
-    font-size: 20px;
+  .studio-portal-cta {
+    padding: 16px 28px;
+    font-size: 11px;
   }
 
-  .portal-invitation {
+  .connection-invitation {
     font-size: 1.3rem;
+  }
+
+  .connection-portal-cta {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 30px;
   }
 }
 
@@ -709,61 +947,40 @@
    LARGE DESKTOP ENHANCEMENTS
    ============================================ */
 @media (min-width: 1440px) {
-  .director-layout {
-    gap: 140px;
+  .manifesto-content {
+    max-width: 1100px;
   }
 
-  .director-portrait {
-    max-width: 600px;
+  .manifesto-headline {
+    font-size: clamp(4rem, 9vw, 8rem);
   }
 
-  .director-name {
-    font-size: 2.8rem;
+  .visionary-layout {
+    gap: 160px;
   }
 
-  .director-bio p {
-    font-size: 17px;
-  }
-
-  .pillar {
+  .method-grid {
     gap: 100px;
-    margin-bottom: 160px;
   }
 
-  .pillar-number {
-    font-size: 140px;
+  .method-column {
+    padding: 60px 50px;
   }
 
-  .pillar-title {
-    font-size: 2.5rem;
+  .method-number {
+    font-size: 120px;
   }
 
-  .pillar-description {
-    font-size: 17px;
-    max-width: 550px;
+  .studio-layout {
+    gap: 160px;
   }
 
-  .gallery-grid {
-    gap: 30px;
+  .texture-grid {
+    gap: 50px;
   }
 
-  .gallery-label {
-    font-size: 24px;
-  }
-
-  .values-grid {
-    gap: 80px;
-  }
-
-  .value-card {
-    padding: 50px 40px;
-  }
-
-  .value-title {
-    font-size: 26px;
-  }
-
-  .value-description {
-    font-size: 16px;
+  .texture-image {
+    aspect-ratio: 3 / 4.5;
   }
 }
+

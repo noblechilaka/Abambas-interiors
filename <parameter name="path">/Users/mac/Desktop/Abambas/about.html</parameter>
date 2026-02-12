@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+<parameter name="content"><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Abambas - Architectural Manifesto | Port Harcourt</title>
+    <title>About Abambas - Interior Design Studio | Port Harcourt</title>
     <meta
       name="description"
-      content="Discover the philosophy of space at Abambas. We compose environments that resonate with the human spirit through architectural rigor, organic texture, and cultural soul."
+      content="Discover the story behind Abambas. Learn about our design philosophy, our creative vision, and the values that guide every project we create."
     />
     <meta
       property="og:image"
@@ -101,7 +101,6 @@
         <div class="nav-phone">
           <a href="tel:+2348034550910">+(234) 909 719 2285</a>
         </div>
-      </div>
     </nav>
 
     <!-- Mobile Menu Overlay -->
@@ -134,14 +133,12 @@
             <div class="mobile-contact-item">
               <span class="mobile-contact-label">PHONE</span>
               <a href="tel:+2348034550910" class="mobile-contact-value"
-                >+(234) 909 719 2285</a
-              >
+                >+(234) 909 719 2285</a>
             </div>
             <div class="mobile-contact-item">
               <span class="mobile-contact-label">LOCATION</span>
               <p class="mobile-contact-value">Port Harcourt, Nigeria</p>
             </div>
-          </div>
           <div class="mobile-menu-divider"></div>
           <div class="mobile-social">
             <a href="#" class="mobile-social-link" aria-label="Facebook">
@@ -189,60 +186,49 @@
               </svg>
             </a>
           </div>
-        </div>
       </div>
-    </div>
 
     <!-- SECTION 1: THE HEADER - The Typographic Manifesto -->
     <section class="manifesto-header">
-      <div class="manifesto-content">
-        <div class="manifesto-mask">
-          <h1 class="manifesto-headline">
-            <span class="manifesto-line">THE PHILOSOPHY</span>
-            <span class="manifesto-line">OF SPACE</span>
-          </h1>
+      <div class="manifesto-mask">
+        <div class="manifesto-content">
+          <h1 class="manifesto-headline">THE PHILOSOPHY OF SPACE</h1>
+          <p class="manifesto-subheadline">
+            We don't just furnish rooms; we compose environments that resonate
+            with the human spirit.
+          </p>
         </div>
-        <p class="manifesto-subhead">
-          We don't just furnish rooms; we compose environments that resonate
-          with the human spirit.
-        </p>
-      </div>
     </section>
 
-    <!-- SECTION 2: THE VISIONARY (Monolith Split) -->
+    <!-- SECTION 2: The Visionary (Monolith Split) -->
     <section class="visionary-section">
       <div class="container">
         <div class="visionary-layout">
-          <!-- Left: Monolith Portrait Frame -->
           <div class="visionary-portrait-wrapper">
-            <div class="visionary-monolith-frame">
+            <div class="monolith-frame">
               <img
                 src="assets/images/Cozy Minimalist Bedroom.png"
                 alt="Creative Director - Editorial Portrait"
                 class="visionary-portrait"
               />
             </div>
-          </div>
-          <!-- Right: Founder's Note -->
-          <div class="visionary-content">
-            <span class="section-label">THE VISIONARY</span>
-            <h2 class="visionary-title">The Founder's Note</h2>
-            <div class="founders-note">
+          <div class="founders-note">
+            <h2 class="founders-note-title">THE FOUNDER'S NOTE</h2>
+            <div class="founders-note-content">
               <p>
-                "Architecture is frozen music. Every line we draw, every
-                material we select, every shadow we invite—it's all a
-                composition written in space and light."
+                "Every space tells a story. Ours begins with a singular belief:
+                that architecture is not merely about walls and furniture, but
+                about the quiet moments between—one's morning coffee catching
+                the first light, the soft glow of evening shadows, the feeling
+                of walking into a room that feels like it was always meant to
+                be yours."
               </p>
               <p>
-                I started Abambas with a singular belief: that extraordinary
-                spaces aren't created by following trends, but by understanding
-                the quiet dialogue between architecture and human experience.
-              </p>
-              <p>
-                From our studio in Port Harcourt, we craft environments that
-                honor the past while embracing the future, weaving Nigerian
-                heritage into contemporary luxury with threads of authentic
-                craftsmanship.
+                Born from the vibrant energy of Port Harcourt and refined by
+                global perspectives, Abambas exists at the intersection of
+                cultural heritage and contemporary luxury. We don't follow
+                trends; we create timeless spaces that breathe, evolve, and
+                grow with those who inhabit them.
               </p>
             </div>
             <a href="#" class="cta-underlined">
@@ -258,85 +244,104 @@
               </svg>
             </a>
           </div>
-        </div>
       </div>
     </section>
 
-    <!-- SECTION 3: THE ABAMBAS METHOD (Triple Grid) -->
+    <!-- SECTION 3: The Abambas Method (Triple Grid) -->
     <section class="method-section">
       <div class="container">
-        <div class="method-header">
-          <span class="section-label">THE METHOD</span>
-          <h2 class="section-title">Our Core Values</h2>
-        </div>
         <div class="method-grid">
-          <!-- Column 1: Architectural Rigor -->
-          <div class="method-column">
-            <div class="method-number">01</div>
-            <h3 class="method-heading">Architectural Rigor</h3>
+          <article class="method-column">
+            <span class="method-number">01</span>
+            <h3 class="method-title">ARCHITECTURAL RIGOR</h3>
             <p class="method-description">
-              Precision is our foundation. Every dimension is calculated, every
-              proportion weighted, every joint perfected. We believe that
-              true luxury lives in the invisible—the mathematics behind the
-              poetry of space.
+              Precision in every line, intentionality in every angle. Our
+              approach marries mathematical harmony with human-scale comfort,
+              creating spaces that feel both mathematically inevitable and
+              intimately personal.
             </p>
-            <a href="#" class="method-micro-cta">
-              <span class="micro-circle"></span>
-              <span class="micro-text">Learn More</span>
+            <a href="#" class="method-cta micro-circle-cta">
+              <span class="micro-circle">
+                <svg width="12" height="12" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M4 10H16M16 10L10 4M16 10L10 16"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
             </a>
-          </div>
-          <!-- Column 2: Organic Texture -->
-          <div class="method-column">
-            <div class="method-number">02</div>
-            <h3 class="method-heading">Organic Texture</h3>
+          </article>
+          <article class="method-column">
+            <span class="method-number">02</span>
+            <h3 class="method-title">ORGANIC TEXTURE</h3>
             <p class="method-description">
-              Materials speak if we listen. We source rare stones, hand-turned
-              timbers, and natural fibers that carry their own stories. Each
-              surface is a tactile conversation between the past and present.
+              Natural materials speak a language older than design itself. We
+              select each surface—weathered stone, hand-turned timber,
+              natural fibers—with reverence for their inherent character and
+              the stories they tell over time.
             </p>
-            <a href="#" class="method-micro-cta">
-              <span class="micro-circle"></span>
-              <span class="micro-text">Explore Materials</span>
+            <a href="#" class="method-cta micro-circle-cta">
+              <span class="micro-circle">
+                <svg width="12" height="12" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M4 10H16M16 10L10 4M16 10L10 16"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
             </a>
-          </div>
-          <!-- Column 3: Cultural Soul -->
-          <div class="method-column">
-            <div class="method-number">03</div>
-            <h3 class="method-heading">Cultural Soul</h3>
+          </article>
+          <article class="method-column">
+            <span class="method-number">03</span>
+            <h3 class="method-title">CULTURAL SOUL</h3>
             <p class="method-description">
-              Rooted in Port Harcourt, informed by the world. We weave Nigerian
-              craftsmanship into contemporary design—honoring ancestral
-              techniques while embracing modern innovation and global perspectives.
+              Rooted in the spirit of Port Harcourt, informed by the world.
+              We weave Nigerian heritage into contemporary luxury—honoring
+              ancestral craftsmanship while embracing modern innovation and
+              global perspectives.
             </p>
-            <a href="#" class="method-micro-cta">
-              <span class="micro-circle"></span>
-              <span class="micro-text">Our Heritage</span>
+            <a href="#" class="method-cta micro-circle-cta">
+              <span class="micro-circle">
+                <svg width="12" height="12" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M4 10H16M16 10L10 4M16 10L10 16"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
             </a>
-          </div>
+          </article>
         </div>
-      </div>
     </section>
 
-    <!-- SECTION 4: THE STUDIO (Reverse Monolith Split) -->
+    <!-- SECTION 4: The Studio (Reverse Monolith Split) -->
     <section class="studio-section">
       <div class="container">
         <div class="studio-layout">
-          <!-- Left: Collaborative Process Text -->
           <div class="studio-content">
-            <span class="section-label">THE STUDIO</span>
-            <h2 class="studio-title">Our Collaborative Process</h2>
+            <h2 class="studio-title">OUR COLLABORATIVE PROCESS</h2>
             <p class="studio-description">
-              We believe great design emerges from dialogue. Every project begins
-              with listening—understanding how you live, work, and dream in your
-              space.
+              Every project begins with conversation. We take time to understand
+              not just what you want, but how you live, work, and recharge. This
+              deep listening becomes the foundation for spaces that feel
+              authentically yours—from the initial sketch to the final detail.
             </p>
             <p class="studio-description">
-              From initial concept to final installation, our team guides you
-              through a curated journey of discovery. Sketches become drawings,
-              drawings become models, models become reality—each step revealing
-              new possibilities.
+              Our studio operates as a creative partnership, where your vision
+              meets our expertise. Together, we navigate the journey from
+              concept to completion, ensuring each decision aligns with your
+              aspirations and our standards of excellence.
             </p>
-            <a href="projects.html" class="studio-portal-cta">
+            <a href="projects.html" class="studio-cta portal-cta">
               <span class="portal-text">View Our Process</span>
               <span class="portal-circle-large">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -351,86 +356,66 @@
               </span>
             </a>
           </div>
-          <!-- Right: Studio Environment Image -->
           <div class="studio-image-wrapper">
-            <div class="studio-monolith-frame">
+            <div class="monolith-frame studio-frame">
               <img
                 src="assets/images/Modern Interior Design.png"
                 alt="Studio environment - sketches and materials"
                 class="studio-image"
               />
             </div>
-          </div>
         </div>
-      </div>
     </section>
 
-    <!-- SECTION 5: THE SENSORY ARCHIVE (Texture Grid) -->
-    <section class="sensory-section">
+    <!-- SECTION 5: The Sensory Archive (Texture Grid) -->
+    <section class="sensory-archive-section">
       <div class="container">
         <div class="sensory-header">
-          <span class="section-label">THE SENSORY ARCHIVE</span>
-          <h2 class="section-title">Materials That Speak</h2>
+          <span class="section-label">THE</span>
+          <h2 class="section-title">SENSORY ARCHIVE</h2>
         </div>
         <div class="texture-grid">
-          <!-- Texture 1: Marble -->
           <div class="texture-frame">
             <img
               src="assets/images/Modern Wooden Table.png"
-              alt="Italian Travertine Marble"
+              alt="French Oak wood grain"
               class="texture-image"
             />
-            <div class="texture-overlay">
-              <span class="texture-name">Italian Travertine</span>
-            </div>
-          </div>
-          <!-- Texture 2: Walnut -->
+            <div class="texture-label">FRENCH OAK</div>
           <div class="texture-frame">
             <img
               src="assets/images/Minimalist Shelf Decor.png"
-              alt="American Black Walnut"
+              alt="Italian Travertine marble"
               class="texture-image"
             />
-            <div class="texture-overlay">
-              <span class="texture-name">American Walnut</span>
-            </div>
-          </div>
-          <!-- Texture 3: Velvet -->
+            <div class="texture-label">ITALIAN TRAVERTINE</div>
+          <div class="texture-frame">
+            <img
+              src="assets/images/Minimalist Cozy Interior.png"
+              alt="Belgian Velvet fabric"
+              class="texture-image"
+            />
+            <div class="texture-label">BELGIAN VELVET</div>
           <div class="texture-frame">
             <img
               src="assets/images/Elegant Armchair Design.png"
-              alt="Belgian Velvet"
+              alt="Hand-finished brass detail"
               class="texture-image"
             />
-            <div class="texture-overlay">
-              <span class="texture-name">Belgian Velvet</span>
-            </div>
-          </div>
-          <!-- Texture 4: Brass -->
-          <div class="texture-frame">
-            <img
-              src="assets/images/Minimalist Table Lamp.png"
-              alt="Hand-Finished Brass"
-              class="texture-image"
-            />
-            <div class="texture-overlay">
-              <span class="texture-name">Hand-Finished Brass</span>
-            </div>
-          </div>
+            <div class="texture-label">HAND-FINISHED BRASS</div>
         </div>
-      </div>
     </section>
 
-    <!-- SECTION 6: THE FOOTER - The Connection -->
-    <section class="connection-section">
+    <!-- SECTION 6: The Footer - The Connection -->
+    <section class="connection-footer">
       <div class="container">
         <div class="connection-content">
           <p class="connection-invitation">
             Your vision deserves an architect of interiors.
           </p>
-          <a href="contacts.html" class="connection-portal-cta">
-            <span class="portal-text">START A CONVERSATION</span>
-            <span class="portal-circle-huge">
+          <a href="contacts.html" class="connection-cta portal-cta-large">
+            <span class="portal-text">Start a Conversation</span>
+            <span class="portal-circle-large">
               <svg width="24" height="24" viewBox="0 0 20 20" fill="none">
                 <path
                   d="M4 10H16M16 10L10 4M16 10L10 16"
@@ -443,7 +428,6 @@
             </span>
           </a>
         </div>
-      </div>
     </section>
 
     <!-- Main Footer -->
@@ -555,9 +539,7 @@
                     </svg>
                   </a>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
         <div class="newsletter">
           <div class="container">
@@ -587,79 +569,73 @@
                 </button>
               </form>
             </div>
-          </div>
         </div>
         <div class="footer-bottom">
           <p>&copy; 2024 Abambas. All rights reserved.</p>
         </div>
-      </div>
     </footer>
 
     <script src="/js/script.js"></script>
     <script src="/js/animations.js"></script>
     <script>
-      // Architectural Manifesto About Page Specific Animations
+      // Architectural Manifesto - About Page Specific Animations
       document.addEventListener("DOMContentLoaded", function () {
         gsap.registerPlugin(ScrollTrigger);
 
-        // ============================================
-        // SECTION 1: MANIFESTO HEADER - Slow Masked Reveal
-        // ============================================
-        
+        // 1. Manifesto Header - Slow Masked Reveal
         const manifestoMask = document.querySelector(".manifesto-mask");
-        const manifestoLines = document.querySelectorAll(".manifesto-line");
-        const manifestoSubhead = document.querySelector(".manifesto-subhead");
+        const manifestoContent = document.querySelector(".manifesto-content");
+        const manifestoHeadline = document.querySelector(".manifesto-headline");
+        const manifestoSubheadline = document.querySelector(".manifesto-subheadline");
 
         if (manifestoMask) {
-          // Initial clip-path state (hidden)
+          // Initial masked state
           gsap.set(manifestoMask, {
-            clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)",
+            clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
           });
 
-          // Mask reveal animation
+          // Reveal animation
           gsap.to(manifestoMask, {
-            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
             duration: 2,
             ease: "power4.out",
             delay: 0.3,
           });
+        }
 
-          // Lines rise from bottom
+        if (manifestoContent) {
+          gsap.set(manifestoContent, { opacity: 0, y: 80 });
+          gsap.to(manifestoContent, {
+            opacity: 1,
+            y: 0,
+            duration: 1.5,
+            ease: "power3.out",
+            delay: 1,
+          });
+        }
+
+        // Stagger reveal headline and subheadline
+        if (manifestoHeadline && manifestoSubheadline) {
           gsap.fromTo(
-            manifestoLines,
-            { y: 150, opacity: 0 },
+            [manifestoHeadline, manifestoSubheadline],
+            { y: 100, opacity: 0 },
             {
               y: 0,
               opacity: 1,
-              duration: 1.5,
+              duration: 1.2,
               stagger: 0.2,
               ease: "power3.out",
               delay: 0.8,
             }
           );
-
-          // Subheadline fades in after
-          gsap.fromTo(
-            manifestoSubhead,
-            { y: 50, opacity: 0 },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 1,
-              ease: "power3.out",
-              delay: 1.5,
-            }
-          );
         }
 
-        // ============================================
-        // SECTION 2: THE VISIONARY - Parallax Effect
-        // ============================================
-
+        // 2. Visionary Section - Parallax Effect
         const visionaryPortrait = document.querySelector(".visionary-portrait");
-        const visionaryContent = document.querySelector(".visionary-content");
+        const foundersNote = document.querySelector(".founders-note");
 
-        if (visionaryPortrait) {
+        if (visionaryPortrait && foundersNote) {
+          // Image slides up faster than text (parallax)
           gsap.to(visionaryPortrait, {
             yPercent: 20,
             ease: "none",
@@ -670,12 +646,29 @@
               scrub: true,
             },
           });
+
+          // Text moves slower
+          gsap.to(foundersNote, {
+            yPercent: -10,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".visionary-section",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          });
         }
 
-        // Content reveal animation
-        if (visionaryContent) {
+        // 3. Visionary Section - Reveal Animation
+        const visionaryPortraitWrapper = document.querySelector(
+          ".visionary-portrait-wrapper"
+        );
+        const foundersNoteContent = document.querySelector(".founders-note");
+
+        if (visionaryPortraitWrapper) {
           gsap.fromTo(
-            visionaryContent,
+            visionaryPortraitWrapper,
             { y: 60, opacity: 0 },
             {
               y: 0,
@@ -690,90 +683,55 @@
           );
         }
 
-        // ============================================
-        // SECTION 3: THE METHOD - Staggered Grid Reveal
-        // ============================================
+        if (foundersNoteContent) {
+          gsap.fromTo(
+            foundersNoteContent,
+            { y: 40, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1,
+              delay: 0.2,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: ".visionary-section",
+                start: "top 70%",
+              },
+            }
+          );
+        }
 
+        // 4. Method Section - Triple Grid Reveal
         const methodColumns = document.querySelectorAll(".method-column");
 
         methodColumns.forEach((column, index) => {
-          const number = column.querySelector(".method-number");
-          const heading = column.querySelector(".method-heading");
-          const description = column.querySelector(".method-description");
-          const microCta = column.querySelector(".method-micro-cta");
+          const methodNumber = column.querySelector(".method-number");
+          const methodTitle = column.querySelector(".method-title");
+          const methodDesc = column.querySelector(".method-description");
+          const methodCta = column.querySelector(".method-cta");
 
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: column,
-              start: "top 75%",
-            },
-          });
-
-          tl.fromTo(
-            number,
+          gsap.fromTo(
+            [methodNumber, methodTitle, methodDesc, methodCta],
             { y: 40, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }
-          ).fromTo(
-            heading,
-            { y: 30, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" },
-            "-=0.3"
-          ).fromTo(
-            description,
-            { y: 20, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" },
-            "-=0.3"
-          ).fromTo(
-            microCta,
-            { opacity: 0 },
-            { opacity: 1, duration: 0.4, ease: "power3.out" },
-            "-=0.2"
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.8,
+              stagger: 0.1,
+              delay: index * 0.1,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: column,
+                start: "top 75%",
+              },
+            }
           );
         });
 
-        // Micro-circle CTA hover expansion
-        const microCtas = document.querySelectorAll(".method-micro-cta");
-        microCtas.forEach((cta) => {
-          const circle = cta.querySelector(".micro-circle");
-          
-          cta.addEventListener("mouseenter", () => {
-            gsap.to(circle, {
-              scale: 1,
-              duration: 0.4,
-              ease: "power3.out",
-            });
-          });
-
-          cta.addEventListener("mouseleave", () => {
-            gsap.to(circle, {
-              scale: 0,
-              duration: 0.3,
-              ease: "power3.in",
-            });
-          });
-        });
-
-        // ============================================
-        // SECTION 4: THE STUDIO - Reverse Monolith
-        // ============================================
-
-        const studioImage = document.querySelector(".studio-image");
+        // 5. Studio Section - Reverse Monolith Reveal
         const studioContent = document.querySelector(".studio-content");
+        const studioImageWrapper = document.querySelector(".studio-image-wrapper");
 
-        if (studioImage) {
-          gsap.to(studioImage, {
-            yPercent: 15,
-            ease: "none",
-            scrollTrigger: {
-              trigger: ".studio-section",
-              start: "top bottom",
-              end: "bottom top",
-              scrub: true,
-            },
-          });
-        }
-
-        // Studio content reveal
         if (studioContent) {
           gsap.fromTo(
             studioContent,
@@ -791,10 +749,150 @@
           );
         }
 
-        // Portal CTA magnetic effect
-        const studioPortal = document.querySelector(".studio-portal-cta");
-        if (studioPortal) {
-          const circle = studioPortal.querySelector(".portal-circle-large");
+        if (studioImageWrapper) {
+          gsap.fromTo(
+            studioImageWrapper,
+            { y: 60, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1,
+              delay: 0.2,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: ".studio-section",
+                start: "top 70%",
+              },
+            }
+          );
+        }
+
+        // 6. Sensory Archive - Slow Scale Hover Effect
+        const textureFrames = document.querySelectorAll(".texture-frame");
+
+        textureFrames.forEach((frame) => {
+          const textureImage = frame.querySelector(".texture-image");
+
+          frame.addEventListener("mouseenter", () => {
+            gsap.to(textureImage, {
+              scale: 1.12,
+              duration: 1.2,
+              ease: "power2.out",
+            });
+          });
+
+          frame.addEventListener("mouseleave", () => {
+            gsap.to(textureImage, {
+              scale: 1,
+              duration: 1,
+              ease: "power2.out",
+            });
+          });
+        });
+
+        // Sensory Archive Grid Reveal
+        const textureGrid = document.querySelector(".texture-grid");
+
+        if (textureGrid) {
+          gsap.fromTo(
+            textureFrames,
+            { y: 50, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.8,
+              stagger: 0.15,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: ".sensory-archive-section",
+                start: "top 70%",
+              },
+            }
+          );
+        }
+
+        // 7. Connection Footer - Portal Reveal
+        const connectionContent = document.querySelector(".connection-content");
+
+        if (connectionContent) {
+          gsap.fromTo(
+            connectionContent,
+            { y: 40, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: ".connection-footer",
+                start: "top 75%",
+              },
+            }
+          );
+        }
+
+        // Micro-Circle CTA Expand Animation
+        const microCircleCtas = document.querySelectorAll(".micro-circle-cta");
+
+        microCircleCtas.forEach((cta) => {
+          const circle = cta.querySelector(".micro-circle");
+
+          cta.addEventListener("mouseenter", () => {
+            gsap.to(circle, {
+              width: 36,
+              height: 36,
+              duration: 0.4,
+              ease: "power2.out",
+            });
+            gsap.to(circle.querySelector("svg"), {
+              scale: 1.2,
+              duration: 0.4,
+              ease: "power2.out",
+            });
+          });
+
+          cta.addEventListener("mouseleave", () => {
+            gsap.to(circle, {
+              width: 28,
+              height: 28,
+              duration: 0.4,
+              ease: "power2.out",
+            });
+            gsap.to(circle.querySelector("svg"), {
+              scale: 1,
+              duration: 0.4,
+              ease: "power2.out",
+            });
+          });
+        });
+
+        // Portal CTA Hover Effect
+        const portalCtas = document.querySelectorAll(".portal-cta, .portal-cta-large");
+
+        portalCtas.forEach((cta) => {
+          const circle = cta.querySelector(".portal-circle-large");
+
+          cta.addEventListener("mouseenter", () => {
+            gsap.to(circle, {
+              x: 8,
+              duration: 0.4,
+              ease: "power2.out",
+            });
+          });
+
+          cta.addEventListener("mouseleave", () => {
+            gsap.to(circle, {
+              x: 0,
+              duration: 0.4,
+              ease: "power2.out",
+            });
+          });
+        });
+
+        // Magnetic Portal for Connection Footer
+        const magneticPortal = document.querySelector(".connection-cta");
+        if (magneticPortal) {
+          const circle = magneticPortal.querySelector(".portal-circle-large");
           let isHovering = false;
           let mouseX = 0;
           let mouseY = 0;
@@ -804,16 +902,15 @@
             mouseY = e.clientY;
           });
 
-          studioPortal.addEventListener("mouseenter", () => {
+          magneticPortal.addEventListener("mouseenter", () => {
             isHovering = true;
           });
-
-          studioPortal.addEventListener("mouseleave", () => {
+          magneticPortal.addEventListener("mouseleave", () => {
             isHovering = false;
             gsap.to(circle, { x: 0, y: 0, duration: 0.5, ease: "power2.out" });
           });
 
-          function animateStudioPortal() {
+          function animateMagnetic() {
             if (isHovering && circle) {
               const rect = circle.getBoundingClientRect();
               const circleX = rect.left + rect.width / 2;
@@ -832,136 +929,11 @@
                 });
               }
             }
-            requestAnimationFrame(animateStudioPortal);
+            requestAnimationFrame(animateMagnetic);
           }
-          animateStudioPortal();
-        }
-
-        // ============================================
-        // SECTION 5: SENSORY ARCHIVE - Slow Scale-In
-        // ============================================
-
-        const textureFrames = document.querySelectorAll(".texture-frame");
-
-        textureFrames.forEach((frame) => {
-          const image = frame.querySelector(".texture-image");
-          const overlay = frame.querySelector(".texture-overlay");
-
-          // Slow scale-in on hover
-          frame.addEventListener("mouseenter", () => {
-            gsap.to(image, {
-              scale: 1.1,
-              duration: 1.2,
-              ease: "power2.out",
-            });
-            gsap.to(overlay, {
-              opacity: 1,
-              duration: 0.5,
-              ease: "power2.out",
-            });
-          });
-
-          frame.addEventListener("mouseleave", () => {
-            gsap.to(image, {
-              scale: 1,
-              duration: 0.8,
-              ease: "power2.out",
-            });
-            gsap.to(overlay, {
-              opacity: 0,
-              duration: 0.5,
-              ease: "power2.out",
-            });
-          });
-        });
-
-        // Texture grid staggered reveal
-        gsap.fromTo(
-          textureFrames,
-          { y: 60, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: ".texture-grid",
-              start: "top 75%",
-            },
-          }
-        );
-
-        // ============================================
-        // SECTION 6: CONNECTION - Portal Reveal
-        // ============================================
-
-        const connectionContent = document.querySelector(".connection-content");
-        
-        if (connectionContent) {
-          gsap.fromTo(
-            connectionContent,
-            { y: 40, opacity: 0 },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 1,
-              ease: "power3.out",
-              scrollTrigger: {
-                trigger: ".connection-section",
-                start: "top 70%",
-              },
-            }
-          );
-        }
-
-        // Connection portal magnetic effect
-        const connectionPortal = document.querySelector(".connection-portal-cta");
-        if (connectionPortal) {
-          const circle = connectionPortal.querySelector(".portal-circle-huge");
-          let isHovering = false;
-          let mouseX = 0;
-          let mouseY = 0;
-
-          document.addEventListener("mousemove", (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-          });
-
-          connectionPortal.addEventListener("mouseenter", () => {
-            isHovering = true;
-          });
-
-          connectionPortal.addEventListener("mouseleave", () => {
-            isHovering = false;
-            gsap.to(circle, { x: 0, y: 0, duration: 0.5, ease: "power2.out" });
-          });
-
-          function animateConnectionPortal() {
-            if (isHovering && circle) {
-              const rect = circle.getBoundingClientRect();
-              const circleX = rect.left + rect.width / 2;
-              const circleY = rect.top + rect.height / 2;
-              const dx = mouseX - circleX;
-              const dy = mouseY - circleY;
-              const distance = Math.sqrt(dx * dx + dy * dy);
-
-              if (distance < 120) {
-                const pull = (120 - distance) / 120;
-                gsap.to(circle, {
-                  x: dx * pull * 0.3,
-                  y: dy * pull * 0.3,
-                  duration: 0.1,
-                  ease: "power2.out",
-                });
-              }
-            }
-            requestAnimationFrame(animateConnectionPortal);
-          }
-          animateConnectionPortal();
+          animateMagnetic();
         }
       });
     </script>
   </body>
-</html>
-
+</html></parameter>

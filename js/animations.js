@@ -424,7 +424,7 @@ class MobileMenu {
 // CATEGORY SECTION ANIMATIONS
 // Only run if category elements exist on the page
 // ===================================
-if (document.querySelector('.category')) {
+if (document.querySelector(".category")) {
   gsap.set(".category", {
     y: 50,
     clipPath: "inset(100% 0% 0% 0%)",
@@ -481,7 +481,7 @@ function initAboutAnimations() {
   gsap.to(".about-content", {
     scrollTrigger: {
       trigger: ".about",
-      start: "top 80%",
+      start: "top 75%",
     },
     opacity: 1,
     y: -8,
@@ -512,7 +512,7 @@ function initAboutAnimations() {
   gsap.to(".about-image", {
     scrollTrigger: {
       trigger: ".about",
-      start: "top 80%",
+      start: "top 75%",
     },
     opacity: 1,
     y: -8,
@@ -525,7 +525,7 @@ function initAboutAnimations() {
   gsap.to(".about-image img", {
     scrollTrigger: {
       trigger: ".about",
-      start: "top 80%",
+      start: "top 75%",
     },
     scale: 1,
     duration: 1.5,
@@ -614,7 +614,7 @@ function initProcessAnimations() {
     gsap.to(item, {
       scrollTrigger: {
         trigger: item,
-        start: "top 80%",
+        start: "top 75%",
       },
       opacity: 1,
       y: -8,
@@ -688,7 +688,7 @@ function initProductCategoriesAnimations() {
     opacity: 1,
     y: -8,
     duration: 0.8,
-    delay: 0.2,
+    delay: 0.1,
     ease: "power2.out",
   });
 
@@ -1323,6 +1323,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initialize multi-step inquiry form
   new MultiStepForm("inquiryForm");
 
+  // Initialize monolith catalog animations
+  initMonolithCatalogAnimations();
+
   // Handle reduced motion preference
   initReducedMotion();
 });
@@ -1944,15 +1947,808 @@ function initExampleModals() {
   }
 }
 
-// Export for use in other files if needed
-window.AnimationSystem = {
-  MobileMenu,
-  CinematicCarousel,
-  initAnimations,
-  initMobileMenu,
-  LuxuryCursor,
-  initTextReveals,
-  initReducedMotion,
-  initAbambasMethod,
-  initExampleModals,
+// ===================================
+// CATALOG PAGE ANIMATIONS
+// ===================================
+
+/**
+ * Catalog Hero Ken Burns Animation
+ * Slow zoom-in effect on the hero product image
+ */
+function initCatalogHeroAnimations() {
+  // Ken Burns effect on hero image
+  gsap.to(".hero-product-image", {
+    scale: 1.1,
+    duration: 20,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".catalog-hero",
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+    },
+  });
+
+  // Headline mask reveal animation
+  gsap.to(".hero-headline", {
+    opacity: 1,
+    y: 0,
+    duration: 1.5,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".catalog-hero",
+      start: "top 75%",
+    },
+  });
+
+  // Background color shift
+  gsap.to(".catalog-hero", {
+    background: "linear-gradient(135deg, #e8e3dd 0%, #d4ccc3 100%)",
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".catalog-hero",
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+    },
+  });
+}
+
+/**
+ * Catalog Filter Navigation Animations
+ * Staggered reveal of filter buttons
+ */
+function initCatalogFilterAnimations() {
+  gsap.to(".filter-btn", {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    stagger: 0.1,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".catalog-filter",
+      start: "top 85%",
+    },
+  });
+}
+
+/**
+ * Catalog Grid Animations
+ * Staggered reveal of product items
+ */
+function initCatalogGridAnimations() {
+  gsap.to(".product-item", {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    stagger: 0.15,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".catalog-grid",
+      start: "top 75%",
+    },
+  });
+}
+
+/**
+ * Materiality Section Parallax
+ * Horizontal parallax movement of texture layers
+ */
+function initMaterialityParallax() {
+  const textureLayers = document.querySelectorAll(".texture-layer");
+
+  textureLayers.forEach((layer, index) => {
+    const speed = parseFloat(layer.getAttribute("data-speed")) || 0.5;
+
+    gsap.to(layer, {
+      x: () => (index % 2 === 0 ? -100 : 100) * speed,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".materiality-section",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+  });
+}
+
+/**
+ * Product Portal Interactions
+ * Hover effects for portal CTAs
+ */
+function initProductPortalInteractions() {
+  const productImages = document.querySelectorAll(".product-image");
+
+  productImages.forEach((image) => {
+    const portal = image.querySelector(".product-portal");
+
+    image.addEventListener("mouseenter", () => {
+      gsap.to(portal, {
+        scale: 1,
+        duration: 0.4,
+        ease: "power3.out",
+      });
+
+      gsap.to(image.querySelector("img"), {
+        scale: 1.02,
+        filter: "grayscale(20%) brightness(0.9)",
+        duration: 0.4,
+        ease: "power2.out",
+      });
+    });
+
+    image.addEventListener("mouseleave", () => {
+      gsap.to(portal, {
+        scale: 0,
+        duration: 0.4,
+        ease: "power3.out",
+      });
+
+      gsap.to(image.querySelector("img"), {
+        scale: 1,
+        filter: "grayscale(0%) brightness(1)",
+        duration: 0.4,
+        ease: "power2.out",
+      });
+    });
+
+    // Click to open panel
+    image.addEventListener("click", () => {
+      openProductPanel(image);
+    });
+  });
+}
+
+/**
+ * Category Filtering System
+ * Filter products based on selected category
+ */
+function initCategoryFiltering() {
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  const productItems = document.querySelectorAll(".product-item");
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      // Update active state
+      filterBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const category = btn.getAttribute("data-category");
+
+      // Filter products with staggered animation
+      productItems.forEach((item, index) => {
+        const itemCategory = item.getAttribute("data-category");
+
+        if (category === "all" || itemCategory === category) {
+          // Show item
+          gsap.to(item, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.6,
+            delay: index * 0.05,
+            ease: "power3.out",
+            onStart: () => (item.style.display = "block"),
+          });
+        } else {
+          // Hide item
+          gsap.to(item, {
+            opacity: 0,
+            scale: 0.95,
+            duration: 0.4,
+            ease: "power3.in",
+            onComplete: () => (item.style.display = "none"),
+          });
+        }
+      });
+    });
+  });
+}
+
+/**
+ * Product Panel Functionality
+ * Open/close slide-over panel
+ */
+function openProductPanel(productImage) {
+  const panel = document.getElementById("productPanel");
+  const productItem = productImage.closest(".product-item");
+
+  // Update panel content with product data
+  const title = productItem.querySelector(".product-name").textContent;
+  const material = productItem.querySelector(".product-material").textContent;
+  const price = productItem.querySelector(".product-price").textContent;
+  const imageSrc = productImage.querySelector("img").src;
+
+  panel.querySelector(".panel-title").textContent = title;
+  panel.querySelector(".panel-material").textContent = material;
+  panel.querySelector(".panel-price").textContent = price;
+  panel.querySelector(".panel-main-image").src = imageSrc;
+
+  // Open panel
+  gsap.to(panel, {
+    x: 0,
+    duration: 0.6,
+    ease: "power3.out",
+  });
+
+  panel.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+/**
+ * Panel Close Functionality
+ * Close slide-over panel
+ */
+function initPanelCloseFunctionality() {
+  const panel = document.getElementById("productPanel");
+  const closeBtn = panel.querySelector(".panel-close");
+
+  const closePanel = () => {
+    gsap.to(panel, {
+      x: "100%",
+      duration: 0.6,
+      ease: "power3.in",
+      onComplete: () => {
+        panel.classList.remove("active");
+        document.body.style.overflow = "";
+      },
+    });
+  };
+
+  closeBtn.addEventListener("click", closePanel);
+
+  // Close on backdrop click
+  panel.addEventListener("click", (e) => {
+    if (e.target === panel) {
+      closePanel();
+    }
+  });
+
+  // Close on escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && panel.classList.contains("active")) {
+      closePanel();
+    }
+  });
+}
+
+/**
+ * Bespoke Invitation Animations
+ * Reveal animation for the footer invitation section
+ */
+function initBespokeInvitationAnimations() {
+  gsap.to(".invitation-title", {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".bespoke-invitation",
+      start: "top 75%",
+    },
+  });
+
+  gsap.to(".invitation-text", {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    delay: 0.1,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".bespoke-invitation",
+      start: "top 75%",
+    },
+  });
+
+  gsap.to(".invitation-content .btn-portal-large", {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    delay: 0.2,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".bespoke-invitation",
+      start: "top 75%",
+    },
+  });
+}
+
+// ===================================
+// ARCHITECTURAL MONOLITH CATALOG ANIMATIONS
+// Sophisticated product showcase with clean verticality
+// ===================================
+
+/**
+ * Catalog Header Typographic Reveal
+ * Masked reveal animation for the header title and subtitle
+ */
+function initMonolithHeaderAnimations() {
+  // Mask reveal animation for title
+  const titleLine = document.querySelector(".title-line");
+  if (titleLine) {
+    gsap.to(titleLine, {
+      opacity: 1,
+      y: 0,
+      duration: 1.5,
+      ease: "power4.out",
+      delay: 0.3,
+    });
+  }
+
+  // Subtitle reveal with delay
+  const subtitle = document.querySelector(".catalog-subtitle");
+  if (subtitle) {
+    gsap.to(subtitle, {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power3.out",
+      delay: 1,
+      onComplete: () => {
+        subtitle.classList.add("active");
+      },
+    });
+  }
+}
+
+/**
+ * Category Navigation Selection Animation
+ * Fade and slide for category selection without line movement
+ */
+function initMonolithNavAnimations() {
+  const navBtns = document.querySelectorAll(".catalog-nav-btn");
+
+  navBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      // Remove active from all
+      navBtns.forEach((b) => b.classList.remove("active"));
+
+      // Add active to clicked
+      btn.classList.add("active");
+
+      // Fade and slide effect
+      gsap.fromTo(
+        btn,
+        {
+          opacity: 0.5,
+          y: -5,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.4,
+          ease: "power3.out",
+        }
+      );
+    });
+  });
+}
+
+/**
+ * Monolith Row Scroll Reveal Animation
+ * Text fades in first, image slides up 0.2s later
+ * 0.5s stagger between rows
+ */
+function initMonolithRowReveals() {
+  const rows = document.querySelectorAll(".monolith-row");
+
+  rows.forEach((row, index) => {
+    const textContent = row.querySelector(".monolith-text-content");
+    const imageFrame = row.querySelector(".monolith-image-frame");
+    const pairItems = row.querySelectorAll(".monolith-pair-item");
+
+    // Create scroll trigger for the row
+    ScrollTrigger.create({
+      trigger: row,
+      start: "top 75%",
+      once: true,
+      onEnter: () => {
+        // Mark row as visible for CSS transitions
+        row.classList.add("visible");
+
+        // Text fades in first
+        if (textContent) {
+          gsap.fromTo(
+            textContent,
+            {
+              opacity: 0,
+              y: 30,
+            },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.6,
+              ease: "power3.out",
+              delay: 0.1,
+            }
+          );
+        }
+
+        // Image slides up 0.2s later
+        if (imageFrame) {
+          gsap.fromTo(
+            imageFrame,
+            {
+              opacity: 0,
+              y: 40,
+            },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.6,
+              ease: "power3.out",
+              delay: 0.2,
+            }
+          );
+        }
+
+        // Pair items with stagger
+        if (pairItems.length > 0) {
+          pairItems.forEach((item, itemIndex) => {
+            gsap.fromTo(
+              item,
+              {
+                opacity: 0,
+                y: 40,
+              },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                ease: "power3.out",
+                delay: 0.1 + itemIndex * 0.12,
+                onStart: () => {
+                  item.classList.add("visible");
+                },
+              }
+            );
+          });
+        }
+      },
+    });
+  });
+}
+
+/**
+ * Portal Hover Expansion Animation
+ * Circle expands from center when hovering over product image
+ */
+function initMonolithPortalHover() {
+  const imageFrames = document.querySelectorAll(".monolith-image-frame");
+
+  imageFrames.forEach((frame) => {
+    const portalBtn = frame.querySelector(".portal-btn");
+    const portalCircle = frame.querySelector(".portal-btn-circle");
+
+    if (!portalBtn || !portalCircle) return;
+
+    // Mouse enter - expand portal
+    frame.addEventListener("mouseenter", () => {
+      gsap.to(portalBtn, {
+        opacity: 1,
+        visibility: "visible",
+        scale: 1,
+        duration: 0.5,
+        ease: "back.out(1.7)",
+      });
+    });
+
+    // Mouse leave - collapse portal
+    frame.addEventListener("mouseleave", () => {
+      gsap.to(portalBtn, {
+        opacity: 0,
+        visibility: "hidden",
+        scale: 0.8,
+        duration: 0.3,
+        ease: "power3.in",
+      });
+    });
+
+    // Click to open panel
+    frame.addEventListener("click", () => {
+      openMonolithProductPanel(frame);
+    });
+  });
+}
+
+/**
+ * CTA Button Hover Animation
+ * Arrow slides and circle fills on hover
+ */
+function initMonolithCTAAnimations() {
+  const ctaButtons = document.querySelectorAll(".monolith-cta");
+
+  ctaButtons.forEach((cta) => {
+    const circle = cta.querySelector(".cta-circle");
+    const arrow = cta.querySelector(".cta-circle svg");
+
+    if (!circle || !arrow) return;
+
+    cta.addEventListener("mouseenter", () => {
+      gsap.to(cta, {
+        x: 10,
+        duration: 0.3,
+        ease: "power3.out",
+      });
+
+      gsap.to(circle, {
+        backgroundColor: "var(--accent)",
+        color: "var(--bg-primary)",
+        duration: 0.3,
+        ease: "power3.out",
+      });
+
+      gsap.to(arrow, {
+        x: 4,
+        duration: 0.3,
+        ease: "power3.out",
+      });
+    });
+
+    cta.addEventListener("mouseleave", () => {
+      gsap.to(cta, {
+        x: 0,
+        duration: 0.3,
+        ease: "power3.out",
+      });
+
+      gsap.to(circle, {
+        backgroundColor: "transparent",
+        color: "var(--accent)",
+        duration: 0.3,
+        ease: "power3.out",
+      });
+
+      gsap.to(arrow, {
+        x: 0,
+        duration: 0.3,
+        ease: "power3.out",
+      });
+    });
+  });
+}
+
+/**
+ * Product Panel Functionality
+ * Slide-over panel with smooth transitions
+ */
+function openMonolithProductPanel(imageFrame) {
+  const panel = document.getElementById("productPanel");
+  if (!panel) return;
+
+  // Get product info from the clicked frame
+  const row = imageFrame.closest(".monolith-row");
+  if (!row) return;
+
+  const name = row.querySelector(".monolith-product-name")?.textContent || "";
+  const specs = row.querySelector(".monolith-specs")?.textContent || "";
+  const material = row.querySelector(".monolith-material")?.textContent || "";
+  const imageSrc = imageFrame.querySelector("img")?.src || "";
+
+  // Update panel content
+  const titleEl = panel.querySelector(".panel-title");
+  const specsEl = panel.querySelector(".panel-material");
+  const imageEl = panel.querySelector(".panel-main-image");
+
+  if (titleEl) titleEl.textContent = name;
+  if (specsEl) specsEl.textContent = material;
+  if (imageEl) imageEl.src = imageSrc;
+
+  // Open panel
+  panel.classList.add("active");
+  document.body.style.overflow = "hidden";
+
+  // Animate in
+  gsap.fromTo(
+    panel,
+    {
+      x: "100%",
+    },
+    {
+      x: 0,
+      duration: 0.6,
+      ease: "power3.out",
+    }
+  );
+}
+
+/**
+ * Close Product Panel
+ */
+function initMonolithPanelClose() {
+  const panel = document.getElementById("productPanel");
+  if (!panel) return;
+
+  const closeBtn = panel.querySelector(".panel-close");
+
+  const closePanel = () => {
+    gsap.to(panel, {
+      x: "100%",
+      duration: 0.5,
+      ease: "power3.in",
+      onComplete: () => {
+        panel.classList.remove("active");
+        document.body.style.overflow = "";
+      },
+    });
+  };
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closePanel);
+  }
+
+  // Close on backdrop click
+  panel.addEventListener("click", (e) => {
+    if (e.target === panel) {
+      closePanel();
+    }
+  });
+
+  // Close on escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && panel.classList.contains("active")) {
+      closePanel();
+    }
+  });
+}
+
+/**
+ * Category Filtering for Monolith Catalog
+ * Fade and slide rows when filtering
+ */
+function initMonolithCategoryFilter() {
+  const filterBtns = document.querySelectorAll(".catalog-nav-btn");
+  const rows = document.querySelectorAll(".monolith-row");
+
+  if (filterBtns.length === 0 || rows.length === 0) return;
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      // Update active state
+      filterBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const category = btn.getAttribute("data-category");
+
+      // Filter rows with animation
+      rows.forEach((row, index) => {
+        const rowCategory = row.getAttribute("data-category");
+        const shouldShow = category === "all" || rowCategory === category;
+
+        if (shouldShow) {
+          // Show row
+          gsap.to(row, {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            delay: index * 0.1,
+            ease: "power3.out",
+            onStart: () => {
+              row.style.display = "";
+              row.style.pointerEvents = "";
+            },
+          });
+        } else {
+          // Hide row
+          gsap.to(row, {
+            opacity: 0,
+            y: -30,
+            duration: 0.4,
+            ease: "power3.in",
+            onComplete: () => {
+              row.style.display = "none";
+              row.style.pointerEvents = "none";
+            },
+          });
+        }
+      });
+    });
+  });
+}
+
+/**
+ * Bespoke Invitation Reveal
+ */
+function initMonolithBespokeInvitation() {
+  const invitation = document.querySelector(".bespoke-invitation");
+  if (!invitation) return;
+
+  ScrollTrigger.create({
+    trigger: invitation,
+    start: "top 75%",
+    once: true,
+    onEnter: () => {
+      gsap.fromTo(
+        ".invitation-title",
+        {
+          opacity: 0,
+          y: 30,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        }
+      );
+
+      gsap.fromTo(
+        ".invitation-text",
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: 0.1,
+          ease: "power3.out",
+        }
+      );
+
+      gsap.fromTo(
+        ".invitation-content .btn-portal-large",
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: 0.2,
+          ease: "power3.out",
+        }
+      );
+    },
+  });
+}
+
+/**
+ * Initialize All Monolith Catalog Animations
+ */
+function initMonolithCatalogAnimations() {
+  // Only run if monolith elements exist
+  if (!document.querySelector(".monolith-catalog")) return;
+
+  // Header animations
+  initMonolithHeaderAnimations();
+
+  // Navigation animations
+  initMonolithNavAnimations();
+
+  // Row reveals
+  initMonolithRowReveals();
+
+  // Portal hover
+  initMonolithPortalHover();
+
+  // CTA animations
+  initMonolithCTAAnimations();
+
+  // Panel close
+  initMonolithPanelClose();
+
+  // Category filter
+  initMonolithCategoryFilter();
+
+  // Bespoke invitation
+  initMonolithBespokeInvitation();
+
+  console.log("Monolith catalog animations initialized");
+}
+
+// Export Monolith Catalog Animations
+window.MonolithCatalogAnimations = {
+  initMonolithHeaderAnimations,
+  initMonolithNavAnimations,
+  initMonolithRowReveals,
+  initMonolithPortalHover,
+  initMonolithCTAAnimations,
+  initMonolithCategoryFilter,
+  initMonolithPanelClose,
+  initMonolithBespokeInvitation,
+  initMonolithCatalogAnimations,
 };
