@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Abambas - Interior Design Studio | Port Harcourt</title>
+    <title>Services | Abambas - Interior Design Studio</title>
     <meta
       name="description"
-      content="Professional interior design services in Port Harcourt. Residential, office, and commercial space design by Abambas."
+      content="Premium interior design services in Port Harcourt. From full-service design to strategic consultation, Abambas delivers architectural excellence."
     />
     <meta
       property="og:image"
@@ -22,16 +22,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Carves&family=Montserrat:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Carves&family=DM+Serif+Display&family=Montserrat:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/styles.css" />
-    <!-- JavaScript Libraries -->
+    <link rel="stylesheet" href="/css/services.css" />
+
+    <!-- GSAP Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   </head>
   <body>
+    <!-- Custom Luxury Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="custom-cursor-dot" id="customCursorDot"></div>
+
+    <!-- Film Grain Overlay -->
+    <div class="grain-overlay"></div>
+
     <!-- Hamburger positioned outside navigation -->
     <button
       class="hamburger"
@@ -86,7 +95,7 @@
           <li><a href="index.html">HOMEPAGE</a></li>
           <li><a href="about.html">ABOUT</a></li>
           <li><a href="catalog.html">CATALOGUE</a></li>
-          <li><a href="services.html">SERVICES</a></li>
+          <li><a href="services.html" class="active">SERVICES</a></li>
           <li><a href="projects.html">PROJECTS</a></li>
           <li><a href="contacts.html">CONTACT</a></li>
         </ul>
@@ -102,19 +111,19 @@
         <nav class="mobile-nav">
           <ul class="mobile-nav-list">
             <li class="mobile-nav-item">
-              <a href="#home" class="mobile-nav-link">HOME</a>
+              <a href="index.html" class="mobile-nav-link">HOME</a>
             </li>
             <li class="mobile-nav-item">
-              <a href="#about" class="mobile-nav-link">ABOUT</a>
+              <a href="about.html" class="mobile-nav-link">ABOUT</a>
             </li>
             <li class="mobile-nav-item">
-              <a href="#services" class="mobile-nav-link">SERVICES</a>
-            </li>
-            <li class="mo bile-nav-item">
-              <a href="#work" class="mobile-nav-link">PROJECTS</a>
+              <a href="services.html" class="mobile-nav-link">SERVICES</a>
             </li>
             <li class="mobile-nav-item">
-              <a href="#contact" class="mobile-nav-link">CONTACT</a>
+              <a href="projects.html" class="mobile-nav-link">PROJECTS</a>
+            </li>
+            <li class="mobile-nav-item">
+              <a href="contacts.html" class="mobile-nav-link">CONTACT</a>
             </li>
           </ul>
         </nav>
@@ -181,140 +190,804 @@
         </div>
       </div>
     </div>
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-layout">
-          <div class="footer-image">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.4259845285583!2d6.959053700000006!3d4.868076000000015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1069d1078c0950bf%3A0xb71192285397d580!2sAbambas!5e0!3m2!1sen!2sng!4v1766142856411!5m2!1sen!2sng"
-              width="600"
-              height="450"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-          <div class="footer-content">
-            <h2 class="section-title">CONTACTS</h2>
 
-            <div class="contact-info">
-              <div class="contact-item">
-                <div class="contact-label">CALL US ON PHONE</div>
-                <a href="tel:09097192285" class="contact-value">09097192285</a>
-              </div>
-
-              <div class="contact-item">
-                <div class="contact-label">THE SHOWROOM IS LOCATED AT</div>
-                <p class="contact-value">
-                  Along Mgbuoba Road, After Mount Harmond Hospital, Port
-                  Harcourt
-                </p>
-                <p class="contact-meta">VX95+6J, Port Harcourt</p>
-              </div>
-
-              <div class="contact-item">
-                <div class="contact-label">FOLLOW US ON SOCIAL NETWORKS</div>
-                <div class="social-links">
-                  <a href="#" aria-label="Facebook" class="social-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </a>
-                  <a href="#" aria-label="Instagram" class="social-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <rect
-                        x="2"
-                        y="2"
-                        width="20"
-                        height="20"
-                        rx="5"
-                        ry="5"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <line
-                        x1="17.5"
-                        y1="6.5"
-                        x2="17.51"
-                        y2="6.5"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </a>
-                  <a href="#" aria-label="Twitter" class="social-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+    <!-- ============================================
+         SECTION 1: HEADER - TYPOGRAPHIC AUTHORITY
+         The Masked Reveal Animation
+    ============================================ -->
+    <section class="services-header">
+      <div class="services-header-container">
+        <!-- Masked Title Container -->
+        <div class="header-mask-container">
+          <h1 class="header-title">
+            <span class="title-line-mask">
+              <span class="title-line-inner">THE SCOPE OF</span>
+            </span>
+            <span class="title-line-mask">
+              <span class="title-line-inner">INFLUENCE</span>
+            </span>
+          </h1>
         </div>
 
-        <div class="newsletter">
-          <div class="container">
-            <div class="newsletter-content">
-              <h2 class="newsletter-title">Stay Updated</h2>
-              <p class="newsletter-text">
-                Subscribe to our newsletter for the latest design trends,
-                project updates, and exclusive insights.
-              </p>
-              <form class="newsletter-form">
-                <input
-                  type="email"
-                  placeholder="Enter your email address"
-                  required
-                />
-                <button type="submit" class="btn-subscribe">
-                  Subscribe
-                  <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+        <!-- Sub-statement -->
+        <p class="header-substatement">
+          FROM ARCHITECTURAL CONCEPT TO THE FINAL STYLING
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 2: SERVICE 01 - FULL-SERVICE DESIGN
+         The Monolith Split (White Glove Offering)
+    ============================================ -->
+    <section class="service-section service-full-design" id="full-service">
+      <div class="service-container">
+        <div class="service-split">
+          <!-- Left: Tall Vertical Image -->
+          <div class="service-image-wrapper parallax-wrapper">
+            <img
+              src="assets/images/Modern Minimalist Living Room.png"
+              alt="Complete wide-angle interior shot showing full-service design result"
+              class="parallax-image"
+            />
+          </div>
+
+          <!-- Right: Text Content -->
+          <div class="service-content">
+            <span class="service-number">01</span>
+            <h2 class="service-title">FULL INTERIOR ARCHITECTURE</h2>
+            <ul class="service-list">
+              <li>
+                <span class="list-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <path
-                      d="M4 10H16M16 10L10 4M16 10L10 16"
+                      d="M5 13l4 4L19 7"
                       stroke="currentColor"
-                      stroke-width="1.5"
+                      stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     />
                   </svg>
-                </button>
-              </form>
-            </div>
+                </span>
+                <span>Concept Development & Mood Boards</span>
+              </li>
+              <li>
+                <span class="list-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M5 13l4 4L19 7"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                <span>3D Rendering & Visualization</span>
+              </li>
+              <li>
+                <span class="list-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M5 13l4 4L19 7"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                <span>Procurement & Sourcing</span>
+              </li>
+              <li>
+                <span class="list-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M5 13l4 4L19 7"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                <span>Site Supervision & Project Management</span>
+              </li>
+            </ul>
+
+            <!-- Portal CTA -->
+            <a href="contacts.html" class="service-cta portal-magnetic">
+              <span class="cta-text">INQUIRE FOR FULL SERVICE</span>
+              <span class="cta-circle">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M4 10H16M16 10L10 4M16 10L10 16"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="footer-bottom">
-          <p>&copy; 2024 Abambas. All rights reserved.</p>
+    <!-- ============================================
+         SECTION 3: SERVICE 02 - DESIGN CONSULTATION
+         The Reverse Split (Abambas Eye)
+    ============================================ -->
+    <section class="service-section service-consultation" id="consultation">
+      <div class="service-container">
+        <div class="service-split service-split-reversed">
+          <!-- Left: Text Content -->
+          <div class="service-content">
+            <span class="service-number">02</span>
+            <h2 class="service-title">STRATEGIC CONSULTATION</h2>
+            <p class="service-description">
+              For the client who possesses the vision but requires the Abambas
+              eye to refine and execute with precision.
+            </p>
+
+            <div class="consultation-features">
+              <div class="feature-item">
+                <h3 class="feature-title">Visionary Planning</h3>
+                <p class="feature-text">
+                  Expert spatial analysis and concept refinement to maximize
+                  your space's potential.
+                </p>
+              </div>
+              <div class="feature-item">
+                <h3 class="feature-title">Material Selection</h3>
+                <p class="feature-text">
+                  Curated palette guidance for finishes, textures, and
+                  architectural elements.
+                </p>
+              </div>
+            </div>
+
+            <!-- Portal CTA -->
+            <a href="contacts.html" class="service-cta portal-magnetic">
+              <span class="cta-text">SCHEDULE CONSULTATION</span>
+              <span class="cta-circle">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M4 10H16M16 10L10 4M16 10L10 16"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <!-- Right: Tall Vertical Image with Parallax -->
+          <div class="service-image-wrapper parallax-wrapper">
+            <img
+              src="assets/images/Elegant Armchair Design.png"
+              alt="Close-up of mood boards, fabric swatches, and design sketches"
+              class="parallax-image"
+            />
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 4: SECONDARY SERVICES - TRIPLE GRID
+         The Bespoke Triple Grid
+    ============================================ -->
+    <section class="secondary-services" id="secondary-services">
+      <div class="container">
+        <div class="secondary-grid">
+          <!-- Column 1: Furniture Sourcing -->
+          <div class="secondary-card">
+            <div class="secondary-card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9 22V12h6v10"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <h3 class="secondary-card-title">FURNITURE SOURCING</h3>
+            <p class="secondary-card-text">
+              Access to exclusive pieces from global artisans and bespoke custom
+              furniture crafted to your exact specifications.
+            </p>
+            <a href="catalog.html" class="secondary-cta-link">
+              <span>Explore Collection</span>
+              <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
+                <path
+                  d="M4 10H16M16 10L10 4M16 10L10 16"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Column 2: Art Advisory -->
+          <div class="secondary-card">
+            <div class="secondary-card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <rect
+                  x="3"
+                  y="3"
+                  width="18"
+                  height="18"
+                  rx="2"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <circle
+                  cx="8.5"
+                  cy="8.5"
+                  r="1.5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M21 15l-5-5L5 21"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <h3 class="secondary-card-title">ART ADVISORY</h3>
+            <p class="secondary-card-text">
+              Curated art collections that harmonize with your space, from
+              contemporary pieces to timeless masterpieces.
+            </p>
+            <a href="projects.html" class="secondary-cta-link">
+              <span>View Curated Works</span>
+              <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
+                <path
+                  d="M4 10H16M16 10L10 4M16 10L10 16"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Column 3: Project Management -->
+          <div class="secondary-card">
+            <div class="secondary-card-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 2L2 7l10 5 10-5-10-5z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M2 17l10 5 10-5M2 12l10 5 10-5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <h3 class="secondary-card-title">PROJECT MANAGEMENT</h3>
+            <p class="secondary-card-text">
+              Seamless coordination with architects, contractors, and craftsmen
+              to ensure flawless execution.
+            </p>
+            <a href="contacts.html" class="secondary-cta-link">
+              <span>Discuss Your Project</span>
+              <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
+                <path
+                  d="M4 10H16M16 10L10 4M16 10L10 16"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 5: COMPARISON TABLE
+         For the Rational Client
+    ============================================ -->
+    <section class="comparison-section" id="comparison">
+      <div class="container">
+        <div class="comparison-header">
+          <h2 class="comparison-title">SERVICE COMPARISON</h2>
+          <p class="comparison-subtitle">
+            Choose the level of service that fits your needs
+          </p>
+        </div>
+
+        <div class="comparison-table-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th class="capability-header">CAPABILITY</th>
+                <th class="tier-header tier-consultation">CONSULTATION</th>
+                <th class="tier-header tier-full">FULL DESIGN</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="capability-name">Material Specification</td>
+                <td class="tier-cell tier-consultation">
+                  <span class="check-filled">●</span>
+                </td>
+                <td class="tier-cell tier-full">
+                  <span class="check-filled">●</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="capability-name">3D Visualizations</td>
+                <td class="tier-cell tier-consultation">
+                  <span class="check-outline">○</span>
+                </td>
+                <td class="tier-cell tier-full">
+                  <span class="check-filled">●</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="capability-name">On-site Management</td>
+                <td class="tier-cell tier-consultation">
+                  <span class="check-outline">○</span>
+                </td>
+                <td class="tier-cell tier-full">
+                  <span class="check-filled">●</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="capability-name">Turn-key Delivery</td>
+                <td class="tier-cell tier-consultation">
+                  <span class="check-outline">○</span>
+                </td>
+                <td class="tier-cell tier-full">
+                  <span class="check-filled">●</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="comparison-cta">
+          <a href="contacts.html" class="btn-portal">
+            <span class="btn-text">START YOUR JOURNEY</span>
+            <div class="btn-portal-circle">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path
+                  d="M4 10H16M16 10L10 4M16 10L10 16"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 6: FOOTER - CLOSING PORTAL
+         The Final CTA
+    ============================================ -->
+    <footer class="services-footer">
+      <div class="footer-portal-content">
+        <p class="portal-closing-text">
+          Your space is an investment in your legacy.
+        </p>
+
+        <a href="contacts.html" class="footer-portal-cta magnetic-portal-cta">
+          <span class="magnetic-text">DEFINE YOUR PROJECT</span>
+          <div class="magnetic-circle">
+            <svg width="24" height="24" viewBox="0 0 20 20" fill="none">
+              <path
+                d="M4 10H16M16 10L10 4M16 10L10 16"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      <!-- Minimal Footer Info -->
+      <div class="footer-minimal">
+        <div class="footer-logo">ABAMBAS</div>
+        <div class="footer-location">Port Harcourt, Nigeria</div>
       </div>
     </footer>
 
     <script src="/js/script.js"></script>
     <script src="/js/animations.js"></script>
+    <script>
+      // ============================================
+      // SERVICES PAGE ANIMATIONS
+      // ============================================
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // Initialize smooth scroll
+        const lenis = new Lenis({
+          duration: 1.2,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          smooth: true,
+        });
+
+        function raf(time) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // ============================================
+        // HEADER MASKED REVEAL ANIMATION
+        // ============================================
+        const headerTimeline = gsap.timeline();
+
+        // Initial state - mask content
+        gsap.set(".title-line-mask", {
+          overflow: "hidden",
+        });
+        gsap.set(".title-line-inner", {
+          y: "100%",
+        });
+        gsap.set(".header-substatement", {
+          opacity: 0,
+          y: 30,
+        });
+
+        // Animate title lines with masked reveal
+        headerTimeline
+          .to(".title-line-inner", {
+            y: "0%",
+            duration: 1.2,
+            stagger: 0.15,
+            ease: "power4.out",
+          })
+          .to(
+            ".header-substatement",
+            {
+              opacity: 0.8,
+              y: 0,
+              duration: 0.8,
+              ease: "power3.out",
+            },
+            "-=0.4"
+          );
+
+        // ============================================
+        // SERVICE SECTIONS SCROLL ANIMATIONS
+        // ============================================
+
+        // Service 01 - Full Design
+        gsap.fromTo(
+          ".service-full-design .service-image-wrapper",
+          {
+            clipPath: "inset(0 0 100% 0)",
+            y: 60,
+          },
+          {
+            clipPath: "inset(0 0 0% 0)",
+            y: 0,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ".service-full-design",
+              start: "top 70%",
+            },
+          }
+        );
+
+        gsap.fromTo(
+          ".service-full-design .service-content",
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ".service-full-design",
+              start: "top 65%",
+            },
+          }
+        );
+
+        // Service 02 - Consultation (with parallax)
+        gsap.fromTo(
+          ".service-consultation .service-content",
+          { opacity: 0, x: -40 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ".service-consultation",
+              start: "top 70%",
+            },
+          }
+        );
+
+        // Parallax effect for consultation image
+        gsap.to(".service-consultation .parallax-image", {
+          yPercent: 15,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".service-consultation",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+
+        gsap.fromTo(
+          ".service-consultation .service-image-wrapper",
+          {
+            clipPath: "inset(0 0 100% 0)",
+            y: 60,
+          },
+          {
+            clipPath: "inset(0 0 0% 0)",
+            y: 0,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ".service-consultation",
+              start: "top 65%",
+            },
+          }
+        );
+
+        // ============================================
+        // SECONDARY SERVICES - STAGGERED REVEAL
+        // ============================================
+        gsap.fromTo(
+          ".secondary-card",
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ".secondary-services",
+              start: "top 70%",
+            },
+          }
+        );
+
+        // ============================================
+        // COMPARISON TABLE ANIMATION
+        // ============================================
+        gsap.fromTo(
+          ".comparison-table",
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ".comparison-section",
+              start: "top 70%",
+            },
+          }
+        );
+
+        // Table row stagger animation
+        gsap.fromTo(
+          ".comparison-table tbody tr",
+          { opacity: 0, x: -20 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.5,
+            stagger: 0.1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ".comparison-table",
+              start: "top 60%",
+            },
+          }
+        );
+
+        // ============================================
+        // FOOTER PORTAL ANIMATION
+        // ============================================
+        gsap.fromTo(
+          ".portal-closing-text",
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ".services-footer",
+              start: "top 75%",
+            },
+          }
+        );
+
+        gsap.fromTo(
+          ".footer-portal-cta",
+          { opacity: 0, scale: 0.8 },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            delay: 0.2,
+            ease: "back.out(1.7)",
+            scrollTrigger: {
+              trigger: ".services-footer",
+              start: "top 70%",
+            },
+          }
+        );
+
+        // ============================================
+        // MAGNETIC PORTAL CTA
+        // ============================================
+        const magneticCTA = document.querySelector(".magnetic-portal-cta");
+        const magneticCircle = document.querySelector(".magnetic-circle");
+
+        if (magneticCTA && magneticCircle) {
+          let isHovering = false;
+          let mouseX = 0;
+          let mouseY = 0;
+          let circleX = 0;
+          let circleY = 0;
+
+          const updateCirclePosition = () => {
+            const rect = magneticCircle.getBoundingClientRect();
+            circleX = rect.left + rect.width / 2;
+            circleY = rect.top + rect.height / 2;
+          };
+
+          document.addEventListener("mousemove", (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            if (isHovering) {
+              const distance = Math.sqrt(
+                Math.pow(mouseX - circleX, 2) + Math.pow(mouseY - circleY, 2)
+              );
+
+              if (distance < 150) {
+                const strength = (150 - distance) / 150;
+                const pullX = (mouseX - circleX) * strength * 0.35;
+                const pullY = (mouseY - circleY) * strength * 0.35;
+
+                gsap.to(magneticCircle, {
+                  x: pullX,
+                  y: pullY,
+                  duration: 0.1,
+                  ease: "power2.out",
+                });
+              } else {
+                gsap.to(magneticCircle, {
+                  x: 0,
+                  y: 0,
+                  duration: 0.3,
+                  ease: "power2.out",
+                });
+              }
+            }
+          });
+
+          magneticCTA.addEventListener("mouseenter", () => {
+            isHovering = true;
+            updateCirclePosition();
+            magneticCTA.classList.add("magnetic-active");
+          });
+
+          magneticCTA.addEventListener("mouseleave", () => {
+            isHovering = false;
+            magneticCTA.classList.remove("magnetic-active");
+            gsap.to(magneticCircle, {
+              x: 0,
+              y: 0,
+              duration: 0.4,
+              ease: "elastic.out(1, 0.5)",
+            });
+          });
+        }
+
+        // ============================================
+        // LIST ITEMS ANIMATION
+        // ============================================
+        gsap.fromTo(
+          ".service-list li",
+          { opacity: 0, x: -20 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.4,
+            stagger: 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".service-list",
+              start: "top 60%",
+            },
+          }
+        );
+
+        // ============================================
+        // CTA HOVER EFFECTS
+        // ============================================
+        const portalCTAs = document.querySelectorAll(".service-cta");
+
+        portalCTAs.forEach((cta) => {
+          const circle = cta.querySelector(".cta-circle");
+          const text = cta.querySelector(".cta-text");
+
+          if (!circle || !text) return;
+
+          cta.addEventListener("mouseenter", () => {
+            gsap.to(circle, {
+              backgroundColor: "var(--accent)",
+              color: "var(--bg-primary)",
+              scale: 1.1,
+              duration: 0.3,
+              ease: "power2.out",
+            });
+            gsap.to(text, {
+              color: "var(--accent)",
+              duration: 0.3,
+            });
+          });
+
+          cta.addEventListener("mouseleave", () => {
+            gsap.to(circle, {
+              backgroundColor: "transparent",
+              color: "var(--accent)",
+              scale: 1,
+              duration: 0.3,
+              ease: "power2.out",
+            });
+            gsap.to(text, {
+              color: "var(--text-primary)",
+              duration: 0.3,
+            });
+          });
+        });
+      });
+    </script>
   </body>
 </html>

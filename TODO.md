@@ -1,40 +1,50 @@
-# Projects Page Implementation - TODO
+# Contact Page Implementation - TODO List
 
-## Phase 1: HTML Structure (projects.html)
+## Phase 1: CSS Styles
 
-- [x] 1.1 Add Projects Page Header (Title + Narrative)
-- [x] 1.2 Add Category Navigation with 1px line
-- [x] 1.3 Add Monolith Project Stream (4-5 alternating rows)
-- [x] 1.4 Add Intermission Triptych Section
-- [x] 1.5 Add Footer Portal CTA
-- [x] 1.6 Add Portal Cursor markup
+- [x] Create css/contacts.css with Monolith design system
+  - [x] Hero section styles (masked reveal, typography)
+  - [x] Monolith split layout (50/50 grid)
+  - [x] Studio info styling (vertical stack, labels)
+  - [x] Inquiry form with underline inputs
+  - [x] Portal submit CTA with magnetic effects
+  - [x] Atmosphere frame (map container, sepia filter)
+  - [x] Sensory closing section
+  - [x] Mobile responsive breakpoints
 
-## Phase 2: CSS Styling (css/projects.css)
+## Phase 2: HTML Structure
 
-- [x] 2.1 Header typography styles
-- [x] 2.2 Category navigation styles
-- [x] 2.3 Monolith row layouts (split pattern)
-- [x] 2.4 Portal CTA button styles
-- [x] 2.5 Triptych grid styles
-- [x] 2.6 Portal cursor hover effects
+- [x] Rewrite contacts.html with new sections
+  - [x] Hero section with masked reveal title
+  - [x] Monolith split section (info + form)
+  - [x] Atmosphere frame (map)
+  - [x] Sensory closing section
+  - [x] Keep existing nav and footer
 
-## Phase 3: Animations (js/animations.js)
+## Phase 3: JavaScript Animations
 
-- [x] 3.1 Header masked reveal animation
-- [x] 3.2 Category filter Slide-Fade transition
-- [x] 3.3 Frame Reveal for project rows
-- [x] 3.4 Triptych reveal animation
-- [x] 3.5 Portal cursor hover effect
-- [x] 3.6 Magnetic footer CTA
+- [x] Add new animation functions to js/animations.js
+  - [x] Contact hero masked reveal animation
+  - [x] Portal submit magnetic effect
+  - [x] Form input color transitions
+  - [x] Frame reveal scroll triggers
+  - [x] Sensory closing reveal
 
 ## Phase 4: Testing & Refinement
 
-- [ ] 4.1 Test all animations
-- [ ] 4.2 Verify responsiveness
-- [ ] 4.3 Check hover states
-- [ ] 4.4 Final polish
+- [ ] Test hero animation on page load
+- [ ] Test form input focus states
+- [ ] Test portal submit hover and click
+- [ ] Test map frame scroll reveal
+- [ ] Test mobile responsiveness
+- [ ] Verify reduced motion preferences
+- [ ] Cross-browser testing
 
----
+## Completion Checklist
 
-Created: Current Date
-Status: Implementation Complete
+- [x] All animations work smoothly
+- [x] Design matches Monolith philosophy
+- [x] No hero image (typography only)
+- [x] Vertical structure maintained
+- [x] Portal CTA implemented correctly
+- [ ] Mobile layout functional

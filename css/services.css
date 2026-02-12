@@ -1,0 +1,797 @@
+/**
+ * ============================================
+ * ABAMBAS SERVICES PAGE STYLES
+ * Premium Services Page with Monolith Layout
+ * ============================================
+ */
+
+/* ============================================
+   SERVICES HEADER - TYPOGRAPHIC AUTHORITY
+   The Masked Reveal Animation
+   ============================================ */
+.services-header {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 0 80px;
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.services-header-container {
+  text-align: center;
+  max-width: 900px;
+  padding: 0 40px;
+}
+
+.header-mask-container {
+  margin-bottom: 40px;
+}
+
+.header-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+.title-line-mask {
+  display: block;
+  overflow: hidden;
+}
+
+.title-line-inner {
+  display: block;
+  transform: translateY(100%);
+}
+
+.header-substatement {
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  opacity: 0;
+}
+
+/* ============================================
+   SERVICE SECTIONS - BASE STYLES
+   ============================================ */
+.service-section {
+  padding: var(--spacing-xl) 0;
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.service-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.service-split-reversed {
+  direction: rtl;
+}
+
+.service-split-reversed > * {
+  direction: ltr;
+}
+
+/* ============================================
+   SERVICE IMAGES - PARALLAX CONTAINERS
+   ============================================ */
+.service-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.service-full-design .service-image-wrapper {
+  height: 700px;
+}
+
+.service-consultation .service-image-wrapper {
+  height: 700px;
+}
+
+.parallax-wrapper {
+  overflow: hidden;
+}
+
+.parallax-image {
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  position: absolute;
+  top: -10%;
+  left: 0;
+  will-change: transform;
+}
+
+/* ============================================
+   SERVICE CONTENT - TEXT SIDE
+   ============================================ */
+.service-content {
+  position: relative;
+  padding: 20px 0;
+}
+
+.service-number {
+  font-family: var(--font-heading);
+  font-size: 100px;
+  font-weight: 400;
+  color: var(--accent);
+  opacity: 0.15;
+  line-height: 1;
+  display: block;
+  margin-bottom: -30px;
+}
+
+.service-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+  font-weight: 400;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin-bottom: 35px;
+}
+
+.service-description {
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  max-width: 480px;
+}
+
+/* ============================================
+   SERVICE LIST - FEATURES
+   ============================================ */
+.service-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 50px;
+}
+
+.service-list li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+
+.service-list li:last-child {
+  border-bottom: none;
+}
+
+.list-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+
+/* ============================================
+   CONSULTATION FEATURES
+   ============================================ */
+.consultation-features {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.feature-item {
+  padding: 25px;
+  background: rgba(248, 244, 225, 0.5);
+  border-left: 2px solid var(--accent);
+}
+
+.feature-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+}
+
+.feature-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* ============================================
+   SERVICE CTA - PORTAL STYLE
+   ============================================ */
+.service-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.cta-text {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.cta-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.cta-circle svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ============================================
+   SECONDARY SERVICES - TRIPLE GRID
+   ============================================ */
+.secondary-services {
+  padding: var(--spacing-xl) 0;
+  background: rgba(248, 244, 225, 0.3);
+}
+
+.secondary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+}
+
+.secondary-card {
+  text-align: center;
+  padding: 50px 30px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  transition: all 0.4s ease;
+}
+
+.secondary-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(84, 51, 16, 0.08);
+}
+
+.secondary-card-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 30px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  transition: all 0.3s ease;
+}
+
+.secondary-card:hover .secondary-card-icon {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+
+.secondary-card-title {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.secondary-card-text {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Secondary CTA - Underlined Text */
+.secondary-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.secondary-cta-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.4s ease;
+}
+
+.secondary-cta-link:hover {
+  color: var(--accent);
+}
+
+.secondary-cta-link:hover::after {
+  width: 100%;
+}
+
+.secondary-cta-link svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s ease;
+}
+
+.secondary-cta-link:hover svg {
+  transform: translateX(6px);
+}
+
+/* ============================================
+   COMPARISON TABLE - MINIMAL DESIGN
+   ============================================ */
+.comparison-section {
+  padding: var(--spacing-xl) 0;
+  background: var(--bg-primary);
+}
+
+.comparison-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.comparison-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 400;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+  margin-bottom: 15px;
+}
+
+.comparison-subtitle {
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.comparison-table-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.comparison-table th {
+  padding: 30px 20px;
+  text-align: center;
+  border-bottom: 2px solid var(--border);
+}
+
+.comparison-table td {
+  padding: 24px 20px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.capability-header {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text-primary);
+  text-align: left;
+  letter-spacing: 0.02em;
+}
+
+.tier-header {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.tier-header.tier-full {
+  color: var(--accent);
+}
+
+.capability-name {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-primary);
+  text-align: left;
+  letter-spacing: 0.02em;
+}
+
+.tier-cell {
+  font-size: 18px;
+}
+
+.check-filled {
+  color: var(--accent);
+}
+
+.check-outline {
+  color: var(--border);
+  opacity: 0.5;
+}
+
+.comparison-cta {
+  text-align: center;
+  margin-top: 60px;
+}
+
+/* ============================================
+   SERVICES FOOTER - CLOSING PORTAL
+   ============================================ */
+.services-footer {
+  padding: var(--spacing-xl) 0;
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border);
+}
+
+.footer-portal-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.portal-closing-text {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 400;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  margin-bottom: 60px;
+}
+
+/* Footer Portal CTA */
+.footer-portal-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.magnetic-text {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.magnetic-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.magnetic-circle svg {
+  width: 24px;
+  height: 24px;
+}
+
+.footer-portal-cta:hover .magnetic-circle {
+  background: var(--accent);
+  color: var(--bg-primary);
+  transform: scale(1.05);
+}
+
+.footer-portal-cta:hover .magnetic-text {
+  color: var(--accent);
+}
+
+/* Minimal Footer Info */
+.footer-minimal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 80px auto 0;
+  padding: 40px 60px 0;
+  border-top: 1px solid var(--border);
+}
+
+.footer-logo {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--text-primary);
+}
+
+.footer-location {
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .service-container {
+    padding: 0 40px;
+  }
+
+  .service-split {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .service-split-reversed {
+    direction: ltr;
+  }
+
+  .service-image-wrapper {
+    height: 500px;
+  }
+
+  .secondary-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  .secondary-card:last-child {
+    grid-column: span 2;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .services-header {
+    min-height: 60vh;
+    padding: 100px 0 60px;
+  }
+
+  .services-header-container {
+    padding: 0 25px;
+  }
+
+  .header-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .header-substatement {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+  }
+
+  .service-section {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .service-container {
+    padding: 0 25px;
+  }
+
+  .service-image-wrapper {
+    height: 350px;
+  }
+
+  .service-number {
+    font-size: 70px;
+    margin-bottom: -20px;
+  }
+
+  .service-title {
+    font-size: 1.5rem;
+  }
+
+  .service-list li {
+    font-size: 14px;
+  }
+
+  .consultation-features {
+    gap: 20px;
+  }
+
+  .feature-item {
+    padding: 20px;
+  }
+
+  .secondary-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .secondary-card:last-child {
+    grid-column: auto;
+  }
+
+  .secondary-card {
+    padding: 40px 25px;
+  }
+
+  .comparison-section {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .comparison-table-wrapper {
+    padding: 0 20px;
+  }
+
+  .comparison-table {
+    min-width: 600px;
+  }
+
+  .capability-header {
+    font-size: 16px;
+  }
+
+  .tier-header {
+    font-size: 12px;
+  }
+
+  .capability-name {
+    font-size: 14px;
+  }
+
+  .services-footer {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .footer-portal-content {
+    padding: 0 25px;
+  }
+
+  .portal-closing-text {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+  }
+
+  .magnetic-circle {
+    width: 64px;
+    height: 64px;
+  }
+
+  .magnetic-circle svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .magnetic-text {
+    font-size: 12px;
+  }
+
+  .footer-minimal {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding: 30px 25px 0;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+  .service-container {
+    max-width: 1500px;
+    padding: 0 80px;
+  }
+
+  .service-split {
+    gap: 120px;
+  }
+
+  .service-image-wrapper {
+    height: 750px;
+  }
+
+  .service-number {
+    font-size: 120px;
+    margin-bottom: -40px;
+  }
+
+  .service-title {
+    font-size: 2.8rem;
+  }
+
+  .secondary-grid {
+    gap: 80px;
+  }
+
+  .secondary-card {
+    padding: 60px 40px;
+  }
+
+  .secondary-card-title {
+    font-size: 24px;
+  }
+
+  .footer-minimal {
+    max-width: 1500px;
+    padding: 50px 80px 0;
+  }
+}
+
+/* Ultra-wide */
+@media (min-width: 1920px) {
+  .services-header {
+    min-height: 60vh;
+  }
+
+  .service-image-wrapper {
+    height: 850px;
+  }
+
+  .secondary-card {
+    padding: 80px 50px;
+  }
+}
