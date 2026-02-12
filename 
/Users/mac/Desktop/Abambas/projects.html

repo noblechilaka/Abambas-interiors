@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -141,7 +142,7 @@
           </div>
           <div class="mobile-menu-divider"></div>
           <div class="mobile-social">
-            <a href="#" class="mobile-social-link" aria-label="Facebook">
+            <a href="https://www.facebook.com/abambas" class="mobile-social-link" aria-label="Facebook" target="_blank" rel="noopener">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <path
                   d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
@@ -152,7 +153,7 @@
                 />
               </svg>
             </a>
-            <a href="#" class="mobile-social-link" aria-label="Instagram">
+            <a href="https://www.instagram.com/abambas" class="mobile-social-link" aria-label="Instagram" target="_blank" rel="noopener">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <rect
                   x="2"
@@ -474,7 +475,7 @@
               <span class="vibe-style">Smart Living</span>
               <span class="vibe-year">2024</span>
             </div>
-            <a href="#" class="portal-cta">
+            <a href="projects.html" class="portal-cta">
               <span class="portal-cta-text">STEP INSIDE</span>
               <span class="portal-cta-circle">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -515,9 +516,9 @@
               <img
                 src="assets/images/Minimalist Table Lamp.png"
                 alt="Window shadow study"
-                class=""
+                class="triptych-image"
               />
-              <div class="triptych-overlaytriptych-image"></div>
+              <div class="triptych-overlay"></div>
             </div>
           </div>
           <div class="triptych-frame">
@@ -567,3 +568,4 @@
     <script src="/js/animations.js"></script>
   </body>
 </html>
+
