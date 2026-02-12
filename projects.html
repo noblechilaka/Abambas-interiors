@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Abambas - Interior Design Studio | Port Harcourt</title>
+    <title>Selected Works | Abambas Interior Design Studio</title>
     <meta
       name="description"
-      content="Professional interior design services in Port Harcourt. Residential, office, and commercial space design by Abambas."
+      content="Explore our curated collection of interior design projects. Each space is a singular narrative of architecture, light, and material."
     />
     <meta
       property="og:image"
@@ -26,12 +26,17 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/projects.css" />
     <!-- JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   </head>
   <body>
+    <!-- Custom Luxury Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="custom-cursor-dot" id="customCursorDot"></div>
+
     <!-- Hamburger positioned outside navigation -->
     <button
       class="hamburger"
@@ -87,7 +92,7 @@
           <li><a href="about.html">ABOUT</a></li>
           <li><a href="catalog.html">CATALOGUE</a></li>
           <li><a href="services.html">SERVICES</a></li>
-          <li><a href="projects.html">PROJECTS</a></li>
+          <li><a href="projects.html" class="active">PROJECTS</a></li>
           <li><a href="contacts.html">CONTACT</a></li>
         </ul>
         <div class="nav-phone">
@@ -95,25 +100,29 @@
         </div>
       </div>
     </nav>
+
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
       <div class="mobile-menu-content">
         <nav class="mobile-nav">
           <ul class="mobile-nav-list">
             <li class="mobile-nav-item">
-              <a href="#home" class="mobile-nav-link">HOME</a>
+              <a href="index.html" class="mobile-nav-link">HOME</a>
             </li>
             <li class="mobile-nav-item">
-              <a href="#about" class="mobile-nav-link">ABOUT</a>
+              <a href="about.html" class="mobile-nav-link">ABOUT</a>
             </li>
             <li class="mobile-nav-item">
-              <a href="#services" class="mobile-nav-link">SERVICES</a>
-            </li>
-            <li class="mo bile-nav-item">
-              <a href="#work" class="mobile-nav-link">PROJECTS</a>
+              <a href="catalog.html" class="mobile-nav-link">CATALOGUE</a>
             </li>
             <li class="mobile-nav-item">
-              <a href="#contact" class="mobile-nav-link">CONTACT</a>
+              <a href="services.html" class="mobile-nav-link">SERVICES</a>
+            </li>
+            <li class="mobile-nav-item">
+              <a href="projects.html" class="mobile-nav-link">PROJECTS</a>
+            </li>
+            <li class="mobile-nav-item">
+              <a href="contacts.html" class="mobile-nav-link">CONTACT</a>
             </li>
           </ul>
         </nav>
@@ -180,119 +189,64 @@
         </div>
       </div>
     </div>
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-layout">
-          <div class="footer-image">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.4259845285583!2d6.959053700000006!3d4.868076000000015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1069d1078c0950bf%3A0xb71192285397d580!2sAbambas!5e0!3m2!1sen!2sng!4v1766142856411!5m2!1sen!2sng"
-              width="600"
-              height="450"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-          <div class="footer-content">
-            <h2 class="section-title">CONTACTS</h2>
 
-            <div class="contact-info">
-              <div class="contact-item">
-                <div class="contact-label">CALL US ON PHONE</div>
-                <a href="tel:09097192285" class="contact-value">09097192285</a>
-              </div>
+    <!-- ==================== SECTION 1: THE ARCHIVIST'S OPENING ==================== -->
+    <header class="projects-header">
+      <div class="projects-header-content">
+        <h1 class="projects-title">
+          <span class="title-line-mask">
+            <span class="title-line">SELECTED</span>
+          </span>
+          <span class="title-line-mask">
+            <span class="title-line">WORKS</span>
+          </span>
+        </h1>
+        <p class="projects-narrative">
+          A curation of environments where architectural precision meets the
+          warmth of lived-in luxury. Each project is a singular narrative of
+          space, light, and material.
+        </p>
+      </div>
+    </header>
 
-              <div class="contact-item">
-                <div class="contact-label">THE SHOWROOM IS LOCATED AT</div>
-                <p class="contact-value">
-                  Along Mgbuoba Road, After Mount Harmond Hospital, Port
-                  Harcourt
-                </p>
-                <p class="contact-meta">VX95+6J, Port Harcourt</p>
-              </div>
+    <!-- ==================== SECTION 2: THE SILENT FILTER ==================== -->
+    <nav class="projects-nav">
+      <div class="projects-nav-line"></div>
+      <ul class="projects-categories">
+        <li class="project-category active" data-category="all">
+          <span class="category-text">ALL</span>
+          <span class="category-circle"></span>
+        </li>
+        <li class="project-category" data-category="residential">
+          <span class="category-text">RESIDENTIAL</span>
+          <span class="category-circle"></span>
+        </li>
+        <li class="project-category" data-category="commercial">
+          <span class="category-text">COMMERCIAL</span>
+          <span class="category-circle"></span>
+        </li>
+        <li class="project-category" data-category="retail">
+          <span class="category-text">RETAIL</span>
+          <span class="category-circle"></span>
+        </li>
+      </ul>
+    </nav>
 
-              <div class="contact-item">
-                <div class="contact-label">FOLLOW US ON SOCIAL NETWORKS</div>
-                <div class="social-links">
-                  <a href="#" aria-label="Facebook" class="social-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </a>
-                  <a href="#" aria-label="Instagram" class="social-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <rect
-                        x="2"
-                        y="2"
-                        width="20"
-                        height="20"
-                        rx="5"
-                        ry="5"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <line
-                        x1="17.5"
-                        y1="6.5"
-                        x2="17.51"
-                        y2="6.5"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </a>
-                  <a href="#" aria-label="Twitter" class="social-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="newsletter">
-          <div class="container">
-            <div class="newsletter-content">
-              <h2 class="newsletter-title">Stay Updated</h2>
-              <p class="newsletter-text">
-                Subscribe to our newsletter for the latest design trends,
-                project updates, and exclusive insights.
-              </p>
-              <form class="newsletter-form">
-                <input
-                  type="email"
-                  placeholder="Enter your email address"
-                  required
-                />
-                <button type="submit" class="btn-subscribe">
-                  Subscribe
-                  <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+    <!-- ==================== SECTION 3: THE MONOLITH PROJECT STREAM ==================== -->
+    <main class="projects-stream">
+      <!-- Row 01: The Hero Project (Image Left, Text Right) -->
+      <article class="project-row project-row-hero" data-category="residential">
+        <div class="project-monolith-frame">
+          <div class="frame-reveal-mask">
+            <div class="frame-reveal-inner">
+              <img
+                src="assets/images/Modern Minimalist Living Room.png"
+                alt="The Ivory Sanctuary - Modern minimalist living space"
+                class="project-monolith-image"
+              />
+              <div class="portal-overlay">
+                <div class="portal-circle-large">
+                  <svg width="32" height="32" viewBox="0 0 20 20" fill="none">
                     <path
                       d="M4 10H16M16 10L10 4M16 10L10 16"
                       stroke="currentColor"
@@ -301,15 +255,311 @@
                       stroke-linejoin="round"
                     />
                   </svg>
-                </button>
-              </form>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
-        <div class="footer-bottom">
-          <p>&copy; 2024 Abambas. All rights reserved.</p>
+        <div class="project-details">
+          <div class="details-inner">
+            <h2 class="project-title">The Ivory Sanctuary</h2>
+            <div class="project-vibe">
+              <span class="vibe-style">Modern Organic</span>
+              <span class="vibe-year">2026</span>
+            </div>
+            <a href="#" class="portal-cta">
+              <span class="portal-cta-text">STEP INSIDE</span>
+              <span class="portal-cta-circle">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M4 10H16M16 10L10 4M16 10L10 16"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
         </div>
+      </article>
+
+      <!-- Row 02: The Reverse (Text Left, Image Right) -->
+      <article
+        class="project-row project-row-reverse"
+        data-category="residential"
+      >
+        <div class="project-details">
+          <div class="details-inner">
+            <h2 class="project-title">Serene Bedroom Retreat</h2>
+            <div class="project-vibe">
+              <span class="vibe-style">Coastal Calm</span>
+              <span class="vibe-year">2025</span>
+            </div>
+            <a href="#" class="portal-cta">
+              <span class="portal-cta-text">STEP INSIDE</span>
+              <span class="portal-cta-circle">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M4 10H16M16 10L10 4M16 10L10 16"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="project-monolith-frame">
+          <div class="frame-reveal-mask">
+            <div class="frame-reveal-inner">
+              <img
+                src="assets/images/Cozy Minimalist Bedroom.png"
+                alt="Serene Bedroom Retreat - Peaceful bedroom interior"
+                class="project-monolith-image"
+              />
+              <div class="portal-overlay">
+                <div class="portal-circle-large">
+                  <svg width="32" height="32" viewBox="0 0 20 20" fill="none">
+                    <path
+                      d="M4 10H16M16 10L10 4M16 10L10 16"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Row 03: Image Left, Text Right -->
+      <article class="project-row" data-category="commercial">
+        <div class="project-monolith-frame">
+          <div class="frame-reveal-mask">
+            <div class="frame-reveal-inner">
+              <img
+                src="assets/images/Luxurious Modern Interior.webp"
+                alt="Modern Luxury Residence - Waterfront property"
+                class="project-monolith-image"
+              />
+              <div class="portal-overlay">
+                <div class="portal-circle-large">
+                  <svg width="32" height="32" viewBox="0 0 20 20" fill="none">
+                    <path
+                      d="M4 10H16M16 10L10 4M16 10L10 16"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-details">
+          <div class="details-inner">
+            <h2 class="project-title">Modern Luxury Residence</h2>
+            <div class="project-vibe">
+              <span class="vibe-style">Waterfront Elegance</span>
+              <span class="vibe-year">2025</span>
+            </div>
+            <a href="#" class="portal-cta">
+              <span class="portal-cta-text">STEP INSIDE</span>
+              <span class="portal-cta-circle">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M4 10H16M16 10L10 4M16 10L10 16"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Row 04: Reverse (Text Left, Image Right) -->
+      <article class="project-row project-row-reverse" data-category="retail">
+        <div class="project-details">
+          <div class="details-inner">
+            <h2 class="project-title">The Statement Living Room</h2>
+            <div class="project-vibe">
+              <span class="vibe-style">Urban Sophistication</span>
+              <span class="vibe-year">2024</span>
+            </div>
+            <a href="#" class="portal-cta">
+              <span class="portal-cta-text">STEP INSIDE</span>
+              <span class="portal-cta-circle">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M4 10H16M16 10L10 4M16 10L10 16"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="project-monolith-frame">
+          <div class="frame-reveal-mask">
+            <div class="frame-reveal-inner">
+              <img
+                src="assets/images/Modern Minimalist Interior with Orange Armchair.png"
+                alt="The Statement Living Room - Bold color interiors"
+                class="project-monolith-image"
+              />
+              <div class="portal-overlay">
+                <div class="portal-circle-large">
+                  <svg width="32" height="32" viewBox="0 0 20 20" fill="none">
+                    <path
+                      d="M4 10H16M16 10L10 4M16 10L10 16"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Row 05: Image Left, Text Right -->
+      <article class="project-row" data-category="residential">
+        <div class="project-monolith-frame">
+          <div class="frame-reveal-mask">
+            <div class="frame-reveal-inner">
+              <img
+                src="assets/images/Minimalist Cozy Interior.png"
+                alt="Elegant Urban Apartment - Compact living"
+                class="project-monolith-image"
+              />
+              <div class="portal-overlay">
+                <div class="portal-circle-large">
+                  <svg width="32" height="32" viewBox="0 0 20 20" fill="none">
+                    <path
+                      d="M4 10H16M16 10L10 4M16 10L10 16"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="project-details">
+          <div class="details-inner">
+            <h2 class="project-title">Elegant Urban Apartment</h2>
+            <div class="project-vibe">
+              <span class="vibe-style">Smart Living</span>
+              <span class="vibe-year">2024</span>
+            </div>
+            <a href="#" class="portal-cta">
+              <span class="portal-cta-text">STEP INSIDE</span>
+              <span class="portal-cta-circle">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M4 10H16M16 10L10 4M16 10L10 16"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <!-- ==================== SECTION 4: THE INTERMISSION TRIPTYCH ==================== -->
+    <section class="intermission-triptych">
+      <div class="triptych-container">
+        <div class="triptych-header">
+          <h3 class="triptych-label">ATMOSPHERE STUDIES</h3>
+        </div>
+        <div class="triptych-grid">
+          <div class="triptych-frame">
+            <div class="triptych-image-wrapper">
+              <img
+                src="assets/images/Minimalist Shelf Decor.png"
+                alt="Staircase detail study"
+                class="triptych-image"
+              />
+              <div class="triptych-overlay"></div>
+            </div>
+          </div>
+          <div class="triptych-frame">
+            <div class="triptych-image-wrapper">
+              <img
+                src="assets/images/Minimalist Table Lamp.png"
+                alt="Window shadow study"
+                class=""
+              />
+              <div class="triptych-overlaytriptych-image"></div>
+            </div>
+          </div>
+          <div class="triptych-frame">
+            <div class="triptych-image-wrapper">
+              <img
+                src="assets/images/Elegant Armchair Design.png"
+                alt="Texture detail study"
+                class="triptych-image"
+              />
+              <div class="triptych-overlay"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 5: PROJECT PORTAL HOVER (handled via CSS/JS) ==================== -->
+    <!-- Portal cursor effect implemented in animations.js -->
+
+    <!-- ==================== SECTION 6: THE CLOSING PORTAL ==================== -->
+    <footer class="projects-footer">
+      <div class="footer-portal-content">
+        <p class="footer-portal-headline">
+          Your vision, realized through our lens.
+        </p>
+        <a href="contacts.html" class="magnetic-portal-cta">
+          <span class="portal-btn-text-large">START THE JOURNEY</span>
+          <div class="magnetic-circle">
+            <svg width="24" height="24" viewBox="0 0 20 20" fill="none">
+              <path
+                d="M4 10H16M16 10L10 4M16 10L10 16"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </a>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Abambas. All rights reserved.</p>
       </div>
     </footer>
 

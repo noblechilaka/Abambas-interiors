@@ -1326,13 +1326,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initialize monolith catalog animations
   initMonolithCatalogAnimations();
 
+  // Initialize projects page animations
+  initProjectsPageAnimations();
+
   // Handle reduced motion preference
   initReducedMotion();
 });
-
-// ===================================
-// CUSTOM LUXURY CURSOR
-// ===================================
 
 /**
  * Custom Cursor Implementation
@@ -2751,4 +2750,371 @@ window.MonolithCatalogAnimations = {
   initMonolithPanelClose,
   initMonolithBespokeInvitation,
   initMonolithCatalogAnimations,
+};
+
+// ===================================
+// PROJECTS PAGE ANIMATIONS
+// Editorial, Museum-Like Experience
+// ===================================
+
+/**
+ * Projects Header Masked Reveal Animation
+ * Title lines rise slowly from hidden state
+ */
+function initProjectsHeaderAnimations() {
+  const headerContent = document.querySelector(".projects-header-content");
+  const titleLines = document.querySelectorAll(".title-line");
+  const narrative = document.querySelector(".projects-narrative");
+
+  if (!headerContent || titleLines.length === 0) return;
+
+  const tl = gsap.timeline({
+    onComplete: () => {
+      // Mark header as animated for other functions
+      headerContent.classList.add("header-animated");
+    },
+  });
+
+  // Animate title lines with stagger
+  tl.to(titleLines, {
+    y: 0,
+    opacity: 1,
+    duration: 1.4,
+    stagger: 0.2,
+    ease: "power4.out",
+  });
+
+  // Narrative fades in after title
+  if (narrative) {
+    tl.to(
+      narrative,
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+      },
+      "-=0.8"
+    );
+  }
+}
+
+/**
+ * Projects Category Navigation Animation
+ * Category filter with Micro-Circle CTA
+ */
+function initProjectsNavAnimations() {
+  const categories = document.querySelectorAll(".project-category");
+  const navLine = document.querySelector(".projects-nav-line");
+
+  if (categories.length === 0) return;
+
+  // Animate categories in
+  gsap.fromTo(
+    categories,
+    { opacity: 0, y: 20 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: ".projects-nav",
+        start: "top 80%",
+      },
+    }
+  );
+
+  // Category click handler for Slide-Fade transition
+  categories.forEach((category) => {
+    category.addEventListener("click", () => {
+      const selectedCategory = category.dataset.category;
+
+      // Update active state
+      categories.forEach((c) => c.classList.remove("active"));
+      category.classList.add("active");
+
+      // Filter projects with Slide-Fade animation
+      filterProjects(selectedCategory);
+    });
+  });
+}
+
+/**
+ * Filter Projects with Slide-Fade Transition
+ */
+function filterProjects(category) {
+  const rows = document.querySelectorAll(".project-row");
+  const stream = document.querySelector(".projects-stream");
+
+  if (rows.length === 0) return;
+
+  // Add filtering class for transition
+  stream.classList.add("filtering");
+
+  setTimeout(() => {
+    rows.forEach((row, index) => {
+      const rowCategory = row.dataset.category;
+      const shouldShow = category === "all" || rowCategory === category;
+
+      if (shouldShow) {
+        row.classList.remove("hidden");
+
+        // Staggered reveal
+        gsap.fromTo(
+          row,
+          {
+            opacity: 0,
+            y: 40,
+            display: "block",
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            delay: index * 0.1,
+            ease: "power3.out",
+            onComplete: () => {
+              row.classList.add("visible");
+            },
+          }
+        );
+      } else {
+        row.classList.remove("visible");
+        gsap.to(row, {
+          opacity: 0,
+          y: -20,
+          duration: 0.4,
+          ease: "power3.in",
+          onComplete: () => {
+            row.classList.add("hidden");
+            row.style.display = "none";
+          },
+        });
+      }
+    });
+
+    // Remove filtering class
+    setTimeout(() => {
+      stream.classList.remove("filtering");
+    }, rows.length * 100 + 600);
+  }, 400);
+}
+
+/**
+ * Project Row Frame Reveal Animation
+ * Images slide up inside fixed vertical frames
+ */
+function initProjectRowReveals() {
+  const rows = document.querySelectorAll(".project-row");
+
+  if (rows.length === 0) return;
+
+  rows.forEach((row, index) => {
+    ScrollTrigger.create({
+      trigger: row,
+      start: "top 75%",
+      once: true,
+      onEnter: () => {
+        row.classList.add("visible");
+      },
+    });
+  });
+}
+
+/**
+ * Intermission Triptych Reveal Animation
+ * Three narrow vertical frames with staggered reveal
+ */
+function initTriptychRevealAnimations() {
+  const triptychFrames = document.querySelectorAll(".triptych-frame");
+
+  if (triptychFrames.length === 0) return;
+
+  // Set initial state
+  gsap.set(triptychFrames, {
+    opacity: 0,
+    y: 30,
+  });
+
+  triptychFrames.forEach((frame, index) => {
+    ScrollTrigger.create({
+      trigger: frame,
+      start: "top 80%",
+      once: true,
+      onEnter: () => {
+        gsap.to(frame, {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          delay: index * 0.15,
+          ease: "power3.out",
+          onStart: () => {
+            frame.classList.add("visible");
+          },
+        });
+      },
+    });
+  });
+}
+
+/**
+ * Portal Hover Effect
+ * Cursor morphs into Portal Circle with text change on hover
+ */
+function initPortalHoverEffect() {
+  const monolithFrames = document.querySelectorAll(".project-monolith-frame");
+  const customCursor = document.getElementById("customCursor");
+  const customCursorDot = document.getElementById("customCursorDot");
+
+  if (monolithFrames.length === 0) return;
+
+  monolithFrames.forEach((frame) => {
+    const overlay = frame.querySelector(".portal-overlay");
+    const portalCircle = frame.querySelector(".portal-circle-large");
+
+    if (!overlay || !portalCircle) return;
+
+    // Track mouse for portal effect
+    const updatePortalPosition = (e) => {
+      const rect = frame.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      gsap.to(overlay, {
+        "--portal-x": `${x}px`,
+        "--portal-y": `${y}px`,
+        duration: 0.1,
+      });
+    };
+
+    frame.addEventListener("mouseenter", () => {
+      frame.classList.add("portal-hover");
+    });
+
+    frame.addEventListener("mouseleave", () => {
+      frame.classList.remove("portal-hover");
+    });
+
+    frame.addEventListener("mousemove", updatePortalPosition);
+  });
+}
+
+/**
+ * Magnetic Footer Portal CTA
+ * Circle follows mouse with magnetic pull effect
+ */
+function initMagneticFooterCTA() {
+  const cta = document.querySelector(".magnetic-portal-cta");
+  const circle = cta?.querySelector(".magnetic-circle");
+
+  if (!cta || !circle) return;
+
+  let isHovering = false;
+  let mouseX = 0;
+  let mouseY = 0;
+  let circleX = 0;
+  let circleY = 0;
+
+  // Get CTA center position
+  const updateCirclePosition = () => {
+    const rect = circle.getBoundingClientRect();
+    circleX = rect.left + rect.width / 2;
+    circleY = rect.top + rect.height / 2;
+  };
+
+  // Track mouse
+  document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    if (isHovering) {
+      applyMagneticPull();
+    }
+  });
+
+  // Apply magnetic pull
+  const applyMagneticPull = () => {
+    const distance = Math.sqrt(
+      Math.pow(mouseX - circleX, 2) + Math.pow(mouseY - circleY, 2)
+    );
+
+    if (distance < 100) {
+      const strength = (100 - distance) / 100;
+      const pullX = (mouseX - circleX) * strength * 0.4;
+      const pullY = (mouseY - circleY) * strength * 0.4;
+
+      gsap.to(circle, {
+        x: pullX,
+        y: pullY,
+        duration: 0.15,
+        ease: "power2.out",
+      });
+    } else {
+      gsap.to(circle, {
+        x: 0,
+        y: 0,
+        duration: 0.4,
+        ease: "power2.out",
+      });
+    }
+  };
+
+  cta.addEventListener("mouseenter", () => {
+    isHovering = true;
+    updateCirclePosition();
+    cta.classList.add("magnetic-active");
+  });
+
+  cta.addEventListener("mouseleave", () => {
+    isHovering = false;
+    cta.classList.remove("magnetic-active");
+
+    gsap.to(circle, {
+      x: 0,
+      y: 0,
+      duration: 0.5,
+      ease: "elastic.out(1, 0.5)",
+    });
+  });
+
+  // Continuous magnetic loop
+  const magneticLoop = () => {
+    if (isHovering) {
+      updateCirclePosition();
+      applyMagneticPull();
+    }
+    requestAnimationFrame(magneticLoop);
+  };
+  magneticLoop();
+}
+
+/**
+ * Initialize All Projects Page Animations
+ */
+function initProjectsPageAnimations() {
+  // Only run if projects page elements exist
+  if (!document.querySelector(".projects-header")) return;
+
+  // Initialize all projects animations
+  initProjectsHeaderAnimations();
+  initProjectsNavAnimations();
+  initProjectRowReveals();
+  initTriptychRevealAnimations();
+  initPortalHoverEffect();
+  initMagneticFooterCTA();
+
+  console.log("Projects page animations initialized");
+}
+
+// Export Projects Page Animations
+window.ProjectsPageAnimations = {
+  initProjectsHeaderAnimations,
+  initProjectsNavAnimations,
+  initProjectRowReveals,
+  initTriptychRevealAnimations,
+  initPortalHoverEffect,
+  initMagneticFooterCTA,
+  initProjectsPageAnimations,
 };

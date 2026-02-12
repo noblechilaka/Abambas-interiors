@@ -1,0 +1,641 @@
+/**
+ * ===================================
+ * PROJECTS PAGE STYLES
+ * Monolith Design System - Editorial Experience
+ * ===================================
+ */
+
+/* ==================== CSS CUSTOM PROPERTIES ==================== */
+:root {
+  /* Projects Page Typography */
+  --projects-font-serif: 'Carves', Georgia, serif;
+  --projects-font-sans: 'Montserrat', -apple-system, sans-serif;
+  
+  /* Projects Page Colors */
+  --projects-bg-primary: #f8f6f3;
+  --projects-bg-secondary: #f0ece5;
+  --projects-text-primary: #1a1a1a;
+  --projects-text-secondary: #4a4a4a;
+  --projects-accent: #af8f6f;
+  --projects-accent-dark: #8a7055;
+  
+  /* Spacing */
+  --projects-header-spacing: 180px;
+  --projects-nav-spacing: 60px;
+  --projects-row-spacing: 120px;
+  --projects-triptych-spacing: 80px;
+  
+  /* Timing */
+  --projects-reveal-duration: 1.2s;
+  --projects-ease-reveal: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==================== BASE RESET ==================== */
+.projects-page {
+  background-color: var(--projects-bg-primary);
+  color: var(--projects-text-primary);
+}
+
+/* ==================== SECTION 1: THE ARCHIVIST'S OPENING ==================== */
+.projects-header {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--projects-header-spacing) 5vw 80px;
+  background-color: var(--projects-bg-primary);
+}
+
+.projects-header-content {
+  max-width: 900px;
+  text-align: center;
+}
+
+.projects-title {
+  font-family: var(--projects-font-serif);
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--projects-text-primary);
+  margin-bottom: 60px;
+}
+
+.title-line-mask {
+  display: block;
+  overflow: hidden;
+}
+
+.title-line {
+  display: block;
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.projects-narrative {
+  font-family: var(--projects-font-sans);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  color: var(--projects-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* ==================== SECTION 2: THE SILENT FILTER ==================== */
+.projects-nav {
+  padding: 0 5vw var(--projects-nav-spacing);
+  background-color: var(--projects-bg-primary);
+}
+
+.projects-nav-line {
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.projects-categories {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-category {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 10px 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-category:hover {
+  opacity: 0.7;
+}
+
+.project-category.active .category-text {
+  opacity: 1;
+}
+
+.project-category.active .category-circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--projects-accent);
+}
+
+.category-text {
+  font-family: var(--projects-font-sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--projects-text-secondary);
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.category-circle {
+  width: 0;
+  height: 0;
+  transition: all 0.3s ease;
+}
+
+/* ==================== SECTION 3: THE MONOLITH PROJECT STREAM ==================== */
+.projects-stream {
+  padding: 0 5vw var(--projects-nav-spacing);
+  background-color: var(--projects-bg-primary);
+}
+
+.project-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  margin-bottom: var(--projects-row-spacing);
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.project-row.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-row.hero {
+  gap: 100px;
+}
+
+/* Monolith Frame */
+.project-monolith-frame {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background-color: var(--projects-bg-secondary);
+}
+
+.frame-reveal-mask {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.frame-reveal-inner {
+  position: absolute;
+  inset: 0;
+  transform: translateY(100%);
+}
+
+.project-row.visible .frame-reveal-inner {
+  animation: frameReveal var(--projects-reveal-duration) var(--projects-ease-reveal) forwards;
+}
+
+@keyframes frameReveal {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.project-monolith-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--projects-ease-reveal);
+}
+
+.project-monolith-frame:hover .project-monolith-image {
+  transform: scale(1.05);
+}
+
+/* Portal Overlay */
+.portal-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-monolith-frame:hover .portal-overlay {
+  opacity: 1;
+}
+
+.portal-circle-large {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transform: scale(0.8);
+  transition: transform 0.4s var(--projects-ease-reveal);
+}
+
+.project-monolith-frame:hover .portal-circle-large {
+  transform: scale(1);
+}
+
+/* Project Details */
+.project-details {
+  display: flex;
+  align-items: center;
+}
+
+.details-inner {
+  padding: 20px 0;
+}
+
+.project-title {
+  font-family: var(--projects-font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: var(--projects-text-primary);
+  margin: 0 0 20px;
+  line-height: 1.2;
+}
+
+.project-vibe {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.vibe-style,
+.vibe-year {
+  font-family: var(--projects-font-sans);
+  font-size: 0.85rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--projects-text-secondary);
+}
+
+.vibe-year {
+  color: var(--projects-accent);
+}
+
+/* Portal CTA */
+.portal-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.portal-cta-text {
+  font-family: var(--projects-font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--projects-text-primary);
+  transition: color 0.3s ease;
+}
+
+.portal-cta:hover .portal-cta-text {
+  color: var(--projects-accent);
+}
+
+.portal-cta-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--projects-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--projects-text-primary);
+  transition: all 0.3s ease;
+}
+
+.portal-cta:hover .portal-cta-circle {
+  background-color: var(--projects-accent);
+  border-color: var(--projects-accent);
+  color: white;
+  transform: translateX(8px);
+}
+
+/* Reverse Layout */
+.project-row-reverse .project-monolith-frame {
+  order: 2;
+}
+
+.project-row-reverse .project-details {
+  order: 1;
+}
+
+/* Row Reverse Animation */
+.project-row-reverse .frame-reveal-inner {
+  transform: translateY(-100%);
+}
+
+.project-row-reverse.visible .frame-reveal-inner {
+  animation: frameRevealReverse var(--projects-reveal-duration) var(--projects-ease-reveal) forwards;
+}
+
+@keyframes frameRevealReverse {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* ==================== SECTION 4: THE INTERMISSION TRIPTYCH ==================== */
+.intermission-triptych {
+  padding: var(--projects-triptych-spacing) 5vw;
+  background-color: var(--projects-bg-secondary);
+}
+
+.triptych-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.triptych-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.triptych-label {
+  font-family: var(--projects-font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--projects-accent);
+}
+
+.triptych-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.triptych-frame {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.triptych-frame.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.triptych-frame:nth-child(1) { transition-delay: 0s; }
+.triptych-frame:nth-child(2) { transition-delay: 0.15s; }
+.triptych-frame:nth-child(3) { transition-delay: 0.3s; }
+
+.triptych-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.triptych-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s var(--projects-ease-reveal);
+}
+
+.triptych-frame:hover .triptych-image {
+  transform: scale(1.08);
+}
+
+.triptych-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.triptych-frame:hover .triptych-overlay {
+  opacity: 1;
+}
+
+/* ==================== SECTION 5: PROJECT PORTAL HOVER ==================== */
+/* Portal Cursor Effect - Applied via JS */
+
+/* ==================== SECTION 6: THE CLOSING PORTAL ==================== */
+.projects-footer {
+  padding: 100px 5vw 60px;
+  background-color: var(--projects-bg-primary);
+  text-align: center;
+}
+
+.footer-portal-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.footer-portal-headline {
+  font-family: var(--projects-font-serif);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 400;
+  color: var(--projects-text-primary);
+  margin: 0 0 50px;
+  line-height: 1.4;
+}
+
+/* Magnetic Portal CTA */
+.magnetic-portal-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 20px 40px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  transition: border-color 0.3s ease;
+}
+
+.magnetic-portal-cta:hover {
+  border-color: var(--projects-accent);
+}
+
+.portal-btn-text-large {
+  font-family: var(--projects-font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--projects-text-primary);
+  transition: color 0.3s ease;
+}
+
+.magnetic-portal-cta:hover .portal-btn-text-large {
+  color: var(--projects-accent);
+}
+
+.magnetic-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid var(--projects-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--projects-text-primary);
+  transition: all 0.4s var(--projects-ease-reveal);
+}
+
+.magnetic-portal-cta:hover .magnetic-circle {
+  background-color: var(--projects-accent);
+  border-color: var(--projects-accent);
+  color: white;
+  transform: translateX(8px);
+}
+
+.footer-bottom {
+  margin-top: 80px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.footer-bottom p {
+  font-family: var(--projects-font-sans);
+  font-size: 0.75rem;
+  color: var(--projects-text-secondary);
+  opacity: 0.6;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 1024px) {
+  :root {
+    --projects-header-spacing: 120px;
+    --projects-row-spacing: 80px;
+  }
+  
+  .project-row {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .project-row-reverse .project-monolith-frame {
+    order: 0;
+  }
+  
+  .project-row-reverse .project-details {
+    order: 0;
+  }
+  
+  .project-monolith-frame {
+    aspect-ratio: 4/3;
+  }
+  
+  .triptych-grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --projects-header-spacing: 80px;
+    --projects-nav-spacing: 40px;
+    --projects-row-spacing: 60px;
+    --projects-triptych-spacing: 60px;
+  }
+  
+  .projects-title {
+    font-size: 2.5rem;
+  }
+  
+  .projects-categories {
+    flex-wrap: wrap;
+    gap: 20px 30px;
+    justify-content: flex-start;
+    padding-left: 5vw;
+  }
+  
+  .project-monolith-frame {
+    aspect-ratio: 16/10;
+  }
+  
+  .triptych-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .triptych-frame {
+    aspect-ratio: 16/9;
+  }
+  
+  .magnetic-portal-cta {
+    padding: 16px 30px;
+  }
+  
+  .projects-footer {
+    padding: 60px 5vw 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-title {
+    font-size: 2rem;
+  }
+  
+  .project-title {
+    font-size: 1.5rem;
+  }
+  
+  .projects-narrative {
+    font-size: 0.9rem;
+  }
+  
+  .portal-cta-circle {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .portal-circle-large {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* ==================== FILTER TRANSITIONS ==================== */
+.project-row.filtering {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.project-row.filtering.hidden {
+  display: none;
+}
+
+.project-row.filtering.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==================== LOADING STATE ==================== */
+.projects-stream.loading .project-row {
+  opacity: 0;
+}
+
+.projects-stream.loading .triptych-frame {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
