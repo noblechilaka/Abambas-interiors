@@ -3118,3 +3118,273 @@ window.ProjectsPageAnimations = {
   initMagneticFooterCTA,
   initProjectsPageAnimations,
 };
+
+// ===================================
+// THE LINEN UNVEILING PRELOADER
+// Luxury preloader with architectural animations
+// ===================================
+
+/**
+ * Linen Unveiling Preloader Animation System
+ * Implements the "Birth of the Axis" concept with smart timing
+ */
+function initLinenUnveilingPreloader() {
+  const preloader = document.getElementById("preloader");
+  const mainContent = document.getElementById("mainContent");
+  const counterNumber = document.getElementById("counterNumber");
+
+  if (!preloader || !mainContent) return;
+
+  // Check if preloader was already shown (using sessionStorage)
+  const preloaderShown = sessionStorage.getItem("preloaderShown");
+
+  // If preloader was shown, skip animation and show content immediately
+  if (preloaderShown === "true") {
+    preloader.style.display = "none";
+    mainContent.style.visibility = "visible";
+    mainContent.style.opacity = "1";
+
+    // Trigger page entrance animations
+    initHeroAnimations();
+    initNavbarAnimations();
+    return;
+  }
+
+  // Check if device prefers reduced motion
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  // Timing Configuration
+  const TIMING = {
+    axisDraw: 0.8, // Line draws from top to center
+    wordmark: 1.0, // Letters slide out
+    hold: 0.5, // Moment of Zen
+    exit: 1.0, // Portal exit animation (slower for smoother effect)
+    smartMinimum: 2.5, // Minimum time before exit
+  };
+
+  // Mobile timing (slightly faster)
+  const isMobile = window.innerWidth <= 768;
+  if (isMobile) {
+    TIMING.exit = 0.7;
+  }
+
+  // Create master timeline
+  const masterTl = gsap.timeline({
+    onComplete: () => {
+      // Mark preloader as shown
+      sessionStorage.setItem("preloaderShown", "true");
+
+      // Hide preloader
+      preloader.classList.add("complete");
+      mainContent.classList.add("visible");
+
+      // Trigger page entrance animations
+      initHeroAnimations();
+      initNavbarAnimations();
+    },
+  });
+
+  // Phase 1: The Axis Draw (0.8s)
+  // Line draws from top to center
+  masterTl.to(".monolith-line", {
+    height: "50vh",
+    duration: TIMING.axisDraw,
+    ease: "power2.inOut",
+  });
+
+  // Phase 2: The Wordmark Manifestation (1.0s)
+  // Letters slide out from behind the line
+  masterTl.to(
+    ".wordmark-container",
+    {
+      opacity: 1,
+      duration: 0.2,
+      ease: "power2.out",
+    },
+    `-=${TIMING.wordmark * 0.2}`
+  );
+
+  // Animate letters sliding out
+  masterTl.to(
+    ".wordmark-left .letter",
+    {
+      y: 0,
+      duration: TIMING.wordmark,
+      stagger: 0.08,
+      ease: "power3.out",
+    },
+    "<"
+  );
+
+  masterTl.to(
+    ".wordmark-right .letter",
+    {
+      y: 0,
+      duration: TIMING.wordmark,
+      stagger: 0.08,
+      ease: "power3.out",
+    },
+    `-=${TIMING.wordmark * 0.8}`
+  );
+
+  // Phase 3: Counter Animation (runs parallel with wordmark)
+  // Counter counts from 01 to 80 during first phases
+  const counterTl = gsap.timeline();
+  const counterDuration = TIMING.axisDraw + TIMING.wordmark;
+
+  // Counter from 00 to 80
+  let counterValue = 0;
+  const counterInterval = setInterval(() => {
+    counterValue += Math.ceil(80 / (counterDuration * 60));
+    if (counterValue > 80) counterValue = 80;
+    counterNumber.textContent = counterValue.toString().padStart(2, "0");
+  }, 1000 / 60);
+
+  masterTl.add(() => {
+    clearInterval(counterInterval);
+  }, `-=${TIMING.wordmark * 0.2}`);
+
+  // Fade in counter
+  masterTl.to(
+    ".counter-container",
+    {
+      opacity: 1,
+      duration: 0.3,
+      ease: "power2.out",
+    },
+    `-=${TIMING.wordmark + 0.3}`
+  );
+
+  // Phase 4: The Hold - Moment of Zen (0.5s)
+  // Perfect stillness
+  masterTl.to(
+    {},
+    {
+      duration: TIMING.hold,
+    }
+  );
+
+  // Phase 5: Check if page is loaded, complete counter to 100
+  const checkPageLoad = () => {
+    return new Promise((resolve) => {
+      // Simulate checking if document is ready
+      if (document.readyState === "complete") {
+        resolve(true);
+      } else {
+        window.addEventListener("load", () => resolve(true));
+        // Timeout after 2 seconds
+        setTimeout(() => resolve(false), 2000);
+      }
+    });
+  };
+
+  masterTl.add(async () => {
+    // Complete counter to 100
+    const currentValue = parseInt(counterNumber.textContent) || 80;
+    const targetValue = 100;
+    const steps = targetValue - currentValue;
+    const duration = 300; // 300ms to complete counter
+
+    for (let i = 0; i <= steps; i++) {
+      setTimeout(() => {
+        counterNumber.textContent = (currentValue + i)
+          .toString()
+          .padStart(2, "0");
+      }, (i / steps) * duration);
+    }
+
+    // Wait for counter to complete
+    await new Promise((r) => setTimeout(r, duration + 50));
+
+    // Fade out counter
+    gsap.to(".counter-container", {
+      opacity: 0,
+      duration: 0.2,
+      ease: "power2.out",
+    });
+  });
+
+  // Phase 6: The Portal Exit (0.7s)
+  // Circle expands and screen splits to reveal homepage
+  masterTl.add(() => {
+    preloader.classList.add("exiting");
+
+    // Show portal circle container
+    gsap.set(".portal-circle-container", { opacity: 1 });
+
+    // Animate circle expansion
+    gsap.to(".portal-circle-large", {
+      width: "200vmax",
+      height: "200vmax",
+      duration: TIMING.exit * 0.6,
+      ease: "expo.out",
+      onComplete: () => {
+        // Trigger split slide animation
+        preloader.classList.add("exit-complete");
+      },
+    });
+
+    // Mobile pulse animation (if mobile)
+    if (isMobile) {
+      gsap.to(".mobile-pulse", {
+        opacity: 0.3,
+        scale: 1.2,
+        duration: TIMING.exit * 0.8,
+        ease: "power2.inOut",
+        repeat: 2,
+        yoyo: true,
+      });
+    }
+  });
+
+  // Ensure minimum time before exit
+  const totalCalculatedTime = TIMING.axisDraw + TIMING.wordmark + TIMING.hold;
+
+  if (totalCalculatedTime < TIMING.smartMinimum) {
+    // Add padding time to meet minimum
+    const paddingTime = TIMING.smartMinimum - totalCalculatedTime;
+    masterTl.to({}, { duration: paddingTime });
+  }
+
+  // Skip animations for reduced motion preference
+  if (prefersReducedMotion) {
+    masterTl.progress(1);
+    sessionStorage.setItem("preloaderShown", "true");
+    preloader.style.display = "none";
+    mainContent.style.visibility = "visible";
+    mainContent.style.opacity = "1";
+    initHeroAnimations();
+    initNavbarAnimations();
+  }
+}
+
+// ===================================
+// PRELOADER INITIALIZATION
+// ===================================
+
+/**
+ * Initialize preloader when DOM is ready
+ */
+function initPreloader() {
+  // Wait for fonts to load before starting animation
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => {
+      setTimeout(() => {
+        initLinenUnveilingPreloader();
+      }, 100);
+    });
+  } else {
+    // Fallback if fonts API not available
+    setTimeout(() => {
+      initLinenUnveilingPreloader();
+    }, 200);
+  }
+}
+
+// Add preloader initialization to DOM ready event
+document.addEventListener("DOMContentLoaded", () => {
+  // Initialize preloader first
+  initPreloader();
+});

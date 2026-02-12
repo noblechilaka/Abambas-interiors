@@ -32,6 +32,49 @@
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   </head>
   <body>
+    <!-- THE LINEN UNVEILING PRELOADER -->
+    <div class="preloader" id="preloader">
+      <!-- Split Background Panels for Exit Animation -->
+      <div class="preloader-panel preloader-panel-left"></div>
+      <div class="preloader-panel preloader-panel-right"></div>
+      
+      <!-- The Monolith Line (1px vertical line) -->
+      <div class="monolith-line">
+        <div class="monolith-line-inner"></div>
+      </div>
+      
+      <!-- ABAMBAS Wordmark -->
+      <div class="wordmark-container">
+        <div class="wordmark-left">
+          <span class="letter" data-letter="A">A</span>
+          <span class="letter" data-letter="B">B</span>
+          <span class="letter" data-letter="A">A</span>
+        </div>
+        <div class="wordmark-right">
+          <span class="letter" data-letter="M">M</span>
+          <span class="letter" data-letter="B">B</span>
+          <span class="letter" data-letter="A">A</span>
+          <span class="letter" data-letter="S">S</span>
+        </div>
+      </div>
+      
+      <!-- Counter (01-100) -->
+      <div class="counter-container">
+        <span class="counter-number" id="counterNumber">00</span>
+      </div>
+      
+      <!-- Portal Circle for Exit Animation -->
+      <div class="portal-circle-container">
+        <div class="portal-circle-large"></div>
+      </div>
+      
+      <!-- Mobile Pulse Element -->
+      <div class="mobile-pulse"></div>
+    </div>
+
+    <!-- Main Content (Hidden during preloader) -->
+    <div class="main-content" id="mainContent">
+    
     <!-- Custom Luxury Cursor -->
     <div class="custom-cursor" id="customCursor"></div>
     <div class="custom-cursor-dot" id="customCursorDot"></div>
@@ -1124,6 +1167,7 @@
           });
         });
       });
-    </script>
+  </script>
+  </div><!-- End Main Content -->
   </body>
 </html>

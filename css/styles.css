@@ -1,5 +1,235 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=DM+Serif+Display&display=swap");
 
+/* ============================================
+   THE LINEN UNVEILING PRELOADER
+   Luxury preloader with architectural animations
+   ============================================ */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-primary);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Split Background Panels for Exit Animation */
+.preloader-panel {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: var(--bg-primary);
+  z-index: -1;
+}
+
+.preloader-panel-left {
+  left: 0;
+}
+
+.preloader-panel-right {
+  right: 0;
+}
+
+/* The Monolith Line (1px vertical line) */
+.monolith-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 0;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.monolith-line-inner {
+  width: 100%;
+  height: 100%;
+  background: var(--text-primary);
+}
+
+/* ABAMBAS Wordmark */
+.wordmark-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  opacity: 0;
+  z-index: 15;
+}
+
+.wordmark-left,
+.wordmark-right {
+  display: flex;
+  overflow: hidden;
+}
+
+.wordmark-left .letter,
+.wordmark-right .letter {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--text-primary);
+  display: inline-block;
+  transform: translateY(100%);
+}
+
+/* Counter (01-100) */
+.counter-container {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  opacity: 0;
+}
+
+.counter-number {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  color: var(--text-secondary);
+}
+
+/* Portal Circle for Exit Animation */
+.portal-circle-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.portal-circle-large {
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  background: transparent;
+}
+
+/* Mobile Pulse Element */
+.mobile-pulse {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  opacity: 0;
+}
+
+/* Main Content - Hidden initially */
+.main-content {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.main-content.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Preloader Exit Animation States */
+.preloader.exiting {
+  pointer-events: none;
+}
+
+.preloader.exiting .monolith-line {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.preloader.exiting .wordmark-container {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.preloader.exiting .counter-container {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Split Slide Exit Animation */
+.preloader.exit-complete .preloader-panel-left {
+  animation: slideLeft 0.7s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+}
+
+.preloader.exit-complete .preloader-panel-right {
+  animation: slideRight 0.7s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Preloader Complete - Hide completely */
+.preloader.complete {
+  display: none;
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE ADAPTATION
+   ============================================ */
+@media (max-width: 768px) {
+  .counter-container {
+    bottom: 40px;
+  }
+
+  .counter-number {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+  }
+
+  .mobile-pulse {
+    display: block;
+  }
+
+  .wordmark-left .letter,
+  .wordmark-right .letter {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+}
+
+/* ============================================
+   TABLET ADAPTATION
+   ============================================ */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .counter-container {
+    bottom: 50px;
+  }
+
+  .wordmark-left .letter,
+  .wordmark-right .letter {
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -3808,8 +4038,8 @@ button,
   color: var(--bg-primary);
   border-color: var(--text-primary);
 }
-.view-all-works{
-   font-size: 12px;
+.view-all-works {
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.05em;
   text-transform: uppercase;
