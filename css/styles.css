@@ -902,7 +902,10 @@ p {
   display: none;
 }
 
-/* Custom Hamburger Icon & Mobile Menu */
+/* ============================================
+   ARCHITECTURAL HAMBURGER MENU
+   The Trigger - Design statement with unequal lines
+   ============================================ */
 .hamburger {
   display: none;
   background: none;
@@ -917,13 +920,14 @@ p {
   border-radius: 6px;
   opacity: 0.8;
   pointer-events: auto;
+  width: 44px;
+  height: 44px;
 }
 
 .hamburger:hover {
   opacity: 1;
   background: none;
   transform: scale(1.05);
-  /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); */
 }
 
 .hamburger-icon {
@@ -931,13 +935,27 @@ p {
   color: var(--text-primary);
   transition: all 0.5s ease;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+  width: 24px;
+  height: 18px;
 }
 
-.hamburger-line {
+/* Architectural Hamburger - 2 Unequal Lines */
+.arch-line {
   stroke: currentColor;
-  stroke-width: 1.5;
+  stroke-width: 1;
   stroke-linecap: round;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+/* Top line - longer (24px equivalent) */
+.arch-line-top {
+  transform-origin: 12px 3px;
+}
+
+/* Bottom line - shorter (16px equivalent) */
+.arch-line-bottom {
+  transform-origin: 12px 15px;
 }
 
 /* Hamburger hover effect */
@@ -945,24 +963,478 @@ p {
   transform: scale(1.05);
 }
 
-.hamburger:hover .hamburger-line {
-  transform: translateY(0.5px);
+/* ============================================
+   ARCHITECTURAL TO SYMMETRICAL CROSS TRANSFORMATION
+   Lines rotate and lengthen into symmetrical cross
+   ============================================ */
+.hamburger.active .arch-line {
+  stroke-width: 1;
 }
 
-/* Hamburger to Close Animation - Minimal transition */
-.hamburger.active .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(4px, 4px);
-  transform-origin: 12px 2px;
+.hamburger.active .arch-line-top {
+  transform: rotate(45deg) translate(2px, 2px);
+  stroke-dasharray: 20;
+  stroke-dashoffset: 0;
 }
 
-.hamburger.active .hamburger-line:nth-child(2) {
+.hamburger.active .arch-line-bottom {
+  transform: rotate(-45deg) translate(-2px, 2px);
+  stroke-dasharray: 20;
+  stroke-dashoffset: 0;
+}
+
+/* ============================================
+   MOBILE MENU OVERLAY - VERTICAL UNFOLD
+   Full-screen cream overlay with architectural reveal
+   ============================================ */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--bg-primary);
+  z-index: 1000;
   opacity: 0;
-  transform: scale(0.8);
+  visibility: hidden;
+  overflow: hidden;
 }
 
-.hamburger.active .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-  transform-origin: 12px 16px;
+/* Cream background with mask reveal */
+.mobile-menu-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-primary);
+  transform: translateY(-100%);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu-overlay.active .mobile-menu-bg {
+  transform: translateY(0);
+}
+
+/* Vertical unfold entrance */
+.mobile-menu-content {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 120px 40px 60px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.mobile-menu-overlay.active .mobile-menu-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ============================================
+   MONOLITH LINE - 1px Vertical Center Line
+   Draws down center of menu
+   ============================================ */
+.mobile-monolith-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 0;
+  background: var(--border);
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+.mobile-monolith-line::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+}
+
+.mobile-menu-overlay.active .mobile-monolith-line {
+  height: 100%;
+  transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.2s;
+}
+
+.mobile-monolith-line::after {
+  animation: lineDraw 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes lineDraw {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+/* ============================================
+   NUMBERED MONOLITH NAVIGATION
+   01 — HOME format with tiny numbers + large serif
+   ============================================ */
+.mobile-nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mobile-nav-item {
+  opacity: 0;
+  transform: translateY(30px);
+  margin-bottom: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.mobile-nav-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Stagger animation timing */
+.mobile-menu-overlay.active .mobile-nav-item:nth-child(1) {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: 0.4s;
+}
+.mobile-menu-overlay.active .mobile-nav-item:nth-child(2) {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: 0.45s;
+}
+.mobile-menu-overlay.active .mobile-nav-item:nth-child(3) {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: 0.5s;
+}
+.mobile-menu-overlay.active .mobile-nav-item:nth-child(4) {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: 0.55s;
+}
+.mobile-menu-overlay.active .mobile-nav-item:nth-child(5) {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: 0.6s;
+}
+.mobile-menu-overlay.active .mobile-nav-item:nth-child(6) {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: 0.65s;
+}
+
+.mobile-menu-overlay.active .mobile-nav-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Numbered Monolith Link Styling */
+.mobile-nav-link {
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 8vw, 56px);
+  font-weight: 400;
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  padding: 12px 0;
+  cursor: pointer;
+}
+
+/* Tiny wide-tracked number */
+.mobile-nav-number {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  color: var(--text-secondary);
+  opacity: 0.6;
+  transform: translateY(-4px);
+}
+
+/* Page name in Large Bold Serif */
+.mobile-nav-page {
+  font-family: var(--font-heading);
+  font-size: inherit;
+  font-weight: 400;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+
+/* Hover effect */
+.mobile-nav-link:hover .mobile-nav-number {
+  opacity: 1;
+  color: var(--accent);
+}
+
+.mobile-nav-link:hover .mobile-nav-page {
+  color: var(--accent);
+}
+
+/* ============================================
+   TOUCH RIPPLE EFFECT
+   Portal Circle expands from tap center
+   ============================================ */
+.touch-ripple {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  background: transparent;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: 1;
+}
+
+.mobile-nav-link.touching .touch-ripple {
+  animation: rippleExpand 0.6s ease-out forwards;
+}
+
+@keyframes rippleExpand {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.8;
+  }
+  100% {
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   CONCIERGE FOOTER
+   Socials, Location, Inquire CTA
+   ============================================ */
+.mobile-menu-footer {
+  margin-top: auto;
+  padding-top: 60px;
+  opacity: 0;
+  transform: translateY(20px);
+  position: relative;
+  z-index: 10;
+}
+
+.mobile-menu-overlay.active .mobile-menu-footer {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: 0.7s;
+}
+
+/* Contact Section */
+.mobile-contact {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.mobile-contact-item {
+  margin-bottom: 24px;
+}
+
+.mobile-contact-item:last-child {
+  margin-bottom: 0;
+}
+
+.mobile-contact-label {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  display: block;
+  margin-bottom: 8px;
+  opacity: 0.6;
+}
+
+.mobile-contact-value {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text-primary);
+  margin: 0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  letter-spacing: 0.02em;
+}
+
+.mobile-contact-value:hover {
+  color: var(--accent);
+}
+
+/* Social Links - Underlined Secondary Style */
+.mobile-social {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.mobile-social-link {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.mobile-social-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.mobile-social-link:hover {
+  color: var(--accent);
+}
+
+.mobile-social-link:hover::after {
+  width: 100%;
+}
+
+/* Location */
+.mobile-location {
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--text-secondary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+/* Inquire Portal CTA */
+.mobile-inquire-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-inquire-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  background: transparent;
+  border: 1px solid var(--accent);
+  border-radius: 30px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-inquire-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: var(--accent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+  z-index: -1;
+}
+
+.mobile-inquire-btn:hover {
+  color: var(--bg-primary);
+}
+
+.mobile-inquire-btn:hover::before {
+  width: 200%;
+  height: 200%;
+}
+
+.mobile-inquire-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.mobile-inquire-btn:hover .mobile-inquire-circle {
+  background: var(--bg-primary);
+}
+
+.mobile-inquire-circle svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ============================================
+   SPLIT-FOLD CLOSING ANIMATION
+   Matches preloader and "Linen" reveals
+   ============================================ */
+.mobile-menu-overlay.closing .mobile-monolith-line {
+  transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 0;
+}
+
+.mobile-menu-overlay.closing .mobile-nav-item {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.mobile-menu-overlay.closing .mobile-menu-footer {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.mobile-menu-overlay.closing .mobile-menu-bg {
+  transform: translateY(-100%);
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu-overlay.closing .mobile-menu-content {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
+  transition-delay: 0.2s;
 }
 
 /* Mobile Menu Overlay */
