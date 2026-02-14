@@ -851,6 +851,9 @@ function initApp() {
   // Initialize Dynamic Monolith Fetcher for Projects page
   initProjectsWithStaggeredRender();
 
+  // Initialize Categories from JSON (for index.html)
+  initCategoriesFromJSON();
+
   // Animation system is initialized via animations.js
   // This file focuses on non-animation functionality
 }
@@ -909,6 +912,135 @@ function initProductCategories() {
       }
     });
   }
+}
+
+/**
+ * Render Categories from products.json for index.html
+ * Dynamically loads categories and renders them in the categories section
+ */
+async function initCategoriesFromJSON() {
+  const categoriesContainer = document.querySelector(".categories");
+  if (!categoriesContainer) return;
+
+  // Check if categories are already populated (don't re-render if already loaded)
+  if (categoriesContainer.querySelectorAll(".category").length > 0) {
+    return;
+  }
+
+  // Fetch products data
+  const products = await fetchContent("products");
+
+  if (products.length === 0) {
+    console.warn("No products found for categories");
+    return;
+  }
+
+  // Calculate category counts from products
+  const categoryMap = new Map();
+
+  // Map of category IDs to their display data
+  const categoryData = {
+    seating: {
+      name: "Seating",
+      image: "assets/images/Elegant Armchair Design.png",
+      alt: "Seating category",
+    },
+    lighting: {
+      name: "Lighting",
+      image: "assets/images/Minimalist Table Lamp.png",
+      alt: "Lighting category",
+    },
+    tables: {
+      name: "Tables",
+      image: "assets/images/Modern Wooden Table.png",
+      alt: "Tables category",
+    },
+    textiles: {
+      name: "Textiles",
+      image: "assets/images/Minimalist Cozy Interior.png",
+      alt: "Textiles category",
+    },
+    art: {
+      name: "Art",
+      image: "assets/images/Minimalist Shelf Decor.png",
+      alt: "Art category",
+    },
+  };
+
+  // Count products per category
+  products.forEach((product) => {
+    const category = product.category;
+    if (categoryMap.has(category)) {
+      categoryMap.set(category, categoryMap.get(category) + 1);
+    } else {
+      categoryMap.set(category, 1);
+    }
+  });
+
+  // Build category HTML
+  let categoriesHTML = "";
+
+  categoryMap.forEach((count, categoryId) => {
+    const data = categoryData[categoryId] || {
+      name: categoryId.charAt(0).toUpperCase() + categoryId.slice(1),
+      image: "assets/images/placeholder.jpg",
+      alt: `${categoryId} category`,
+    };
+
+    categoriesHTML += `
+      <div class="category" data-category="${categoryId}">
+        <img src="${data.image}" alt="${data.alt}" loading="lazy" />
+        <div class="overlay">
+          <h3>${data.name}</h3>
+          <span>${count} products</span>
+        </div>
+      </div>
+    `;
+  });
+
+  // Inject categories into the container
+  categoriesContainer.innerHTML = categoriesHTML;
+
+  // Reinitialize category hover interactions for dynamically added elements
+  initCategoryHoverInteractions();
+}
+
+/**
+ * Initialize hover interactions for dynamically loaded categories
+ */
+function initCategoryHoverInteractions() {
+  const categories = document.querySelectorAll(".category");
+
+  if (categories.length === 0) return;
+
+  categories.forEach((category) => {
+    category.addEventListener("mouseenter", () => {
+      categories.forEach((c) => c.classList.remove("active"));
+      category.classList.add("active");
+
+      gsap.to(category.querySelector("img"), {
+        scale: 1.06,
+        duration: 0.8,
+        ease: "power3.out",
+      });
+    });
+
+    category.addEventListener("mouseleave", () => {
+      categories.forEach((c) => c.classList.remove("active"));
+
+      gsap.to(category.querySelector("img"), {
+        scale: 1,
+        duration: 0.8,
+        ease: "power3.out",
+      });
+    });
+
+    // Add click handler to navigate to catalog with category filter
+    category.addEventListener("click", () => {
+      const categoryId = category.dataset.category;
+      window.location.href = `catalog.html?category=${categoryId}`;
+    });
+  });
 }
 
 // ===================================
