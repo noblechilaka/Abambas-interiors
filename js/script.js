@@ -1192,7 +1192,7 @@ function initContactForm() {
  */
 
 // WhatsApp Business Number (replace with actual number)
-const WHATSAPP_NUMBER = "2349097192285"; // Format: country code + number (without +)
+const WHATSAPP_NUMBER = "2348034550910"; // Format: country code + number (without +)
 
 /**
  * Get pre-filled WhatsApp message based on current context

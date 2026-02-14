@@ -24,7 +24,7 @@
 >
 > ```javascript
 > const EmailJSConfig = {
->   publicKey: "wIB2M-AkPaeyGRJig", // Get from emailjs.com
+>   publicKey: "wIB2M-AkPaeyGRJigmb", // Get from emailjs.com
 >   serviceId: "service_8h23v9m", // Get from emailjs.com
 >   templateId: "template_iqsy4ju", // Get from emailjs.com
 > };
