@@ -1,0 +1,211 @@
+{
+  "products": [
+    {
+      "id": "origen-lounge",
+      "name": "The Origen Lounge",
+      "category": "seating",
+      "number": "01",
+      "specs": "Finish: Natural Ash / Sand Bouclé | Origin: Hand-finished in Port Harcourt",
+      "material": "Brushed Oak & Bouclé",
+      "price": "Custom Commission",
+      "description": "This piece represents the perfect marriage of form and function. The brushed oak frame provides structural integrity while the bouclé upholstery offers both comfort and texture. Each Origen Lounge is crafted with meticulous attention to detail, ensuring it becomes a cherished heirloom in your space.",
+      "images": [
+        "assets/images/Elegant Armchair Design.png",
+        "assets/images/Modern Minimalist Interior with Orange Armchair.png"
+      ],
+      "inquiryMessage": "Hello Abambas, I'm interested in The Origen Lounge. Can we discuss the lead time?"
+    },
+    {
+      "id": "nova-pendant",
+      "name": "The Nova Pendant",
+      "category": "lighting",
+      "number": "02",
+      "specs": "Brass & Frosted Glass | Origin: Artisans in Lagos",
+      "material": "Brass & Frosted Glass",
+      "price": "₦450,000",
+      "description": "A striking pendant that casts beautiful ambient light through its frosted glass diffuser. The brass hardware develops a rich patina over time, adding character to this sculptural piece.",
+      "images": ["assets/images/Minimalist Table Lamp.png"],
+      "inquiryMessage": "Hello Abambas, I'm interested in The Nova Pendant. Can we discuss the lead time?"
+    },
+    {
+      "id": "atlas-chair",
+      "name": "The Atlas Chair",
+      "category": "seating",
+      "number": "03",
+      "specs": "Walnut Frame & Leather | Origin: Handcrafted in Port Harcourt",
+      "material": "Walnut Frame & Leather",
+      "price": "₦680,000",
+      "description": "An ergonomic masterpiece that combines mid-century modern aesthetics with contemporary comfort. The solid walnut frame showcases natural grain patterns, while the leather upholstery ages beautifully.",
+      "images": [
+        "assets/images/Modern Minimalist Interior with Orange Armchair.png"
+      ],
+      "inquiryMessage": "Hello Abambas, I'm interested in The Atlas Chair. Can we discuss the lead time?"
+    },
+    {
+      "id": "summit-table",
+      "name": "The Summit Table",
+      "category": "tables",
+      "number": "04",
+      "specs": "Finish: White Oak / Blackened Steel | Origin: Bespoke Commission in Abuja",
+      "material": "Solid Oak & Steel",
+      "price": "Custom Commission",
+      "description": "A statement dining table that anchors any space. The white oak top features live edges that celebrate the wood's natural beauty, paired with blackened steel legs for industrial elegance.",
+      "images": ["assets/images/Modern Wooden Table.png"],
+      "inquiryMessage": "Hello Abambas, I'm interested in The Summit Table. Can we discuss the lead time?"
+    },
+    {
+      "id": "haven-rug",
+      "name": "The Haven Rug",
+      "category": "textiles",
+      "number": "05",
+      "specs": "100% New Zealand Wool | Origin: Hand-woven in Kano",
+      "material": "100% New Zealand Wool",
+      "price": "₦320,000",
+      "description": "Hand-woven by master artisans using traditional techniques passed down through generations. The dense wool pile provides luxurious comfort underfoot while the subtle pattern adds visual interest without overwhelming.",
+      "images": ["assets/images/Minimalist Cozy Interior.png"],
+      "inquiryMessage": "Hello Abambas, I'm interested in The Haven Rug. Can we discuss the lead time?"
+    },
+    {
+      "id": "echo-sculpture",
+      "name": "The Echo Sculpture",
+      "category": "art",
+      "number": "06",
+      "specs": "Bronze & Stone | Origin: Limited Edition, Port Harcourt",
+      "material": "Bronze & Stone",
+      "price": "₦890,000",
+      "description": "A limited edition sculptural piece that captures movement in静态 form. The contrast between polished bronze and raw stone creates a dialogue between refinement and nature.",
+      "images": ["assets/images/Minimalist Shelf Decor.png"],
+      "inquiryMessage": "Hello Abambas, I'm interested in The Echo Sculpture. Can we discuss the lead time?"
+    },
+    {
+      "id": "serene-lounge",
+      "name": "The Serene Lounge",
+      "category": "seating",
+      "number": "07",
+      "specs": "Finish: Walnut / Cream Linen | Origin: Signature Collection, Port Harcourt",
+      "material": "Solid Walnut & Belgian Linen",
+      "price": "Custom Commission",
+      "description": "Our signature lounge design embodies calm sophistication. The generous proportions invite relaxation, while the careful tailoring of the Belgian linen upholstery speaks to understated luxury.",
+      "images": ["assets/images/Cozy Minimalist Bedroom.png"],
+      "inquiryMessage": "Hello Abambas, I'm interested in The Serene Lounge. Can we discuss the lead time?"
+    },
+    {
+      "id": "luna-floor-lamp",
+      "name": "The Luna Floor Lamp",
+      "category": "lighting",
+      "number": "08",
+      "specs": "Matte Black Metal & Opal Glass | Origin: Designed in Port Harcourt",
+      "material": "Matte Black Metal & Opal Glass",
+      "price": "₦280,000",
+      "description": "A sculptural floor lamp that provides soft, diffused illumination. The opal glass sphere appears to float above the matte black base, creating an ethereal presence in any room.",
+      "images": ["assets/images/Minimalist Table Lamp.png"],
+      "inquiryMessage": "Hello Abambas, I'm interested in The Luna Floor Lamp. Can we discuss the lead time?"
+    },
+    {
+      "id": "horizon-console",
+      "name": "The Horizon Console",
+      "category": "tables",
+      "number": "09",
+      "specs": "Blackened Steel & Reclaimed Wood | Origin: Limited Production",
+      "material": "Blackened Steel & Reclaimed Wood",
+      "price": "₦420,000",
+      "description": "A versatile console table that works beautifully in entryways, living rooms, or as a statement piece behind a sofa. The reclaimed wood top tells a story while the steel base provides industrial contrast.",
+      "images": ["assets/images/Modern Wooden Table.png"],
+      "inquiryMessage": "Hello Abambas, I'm interested in The Horizon Console. Can we discuss the lead time?"
+    },
+    {
+      "id": "zen-armchair",
+      "name": "The Zen Armchair",
+      "category": "seating",
+      "number": "10",
+      "specs": "Teak & Natural Canvas | Origin: Handcrafted in Lagos",
+      "material": "Teak & Natural Canvas",
+      "price": "₦380,000",
+      "description": "Inspired by traditional Japanese design principles, this chair embodies simplicity and mindfulness. The natural materials age gracefully, developing a rich character over time.",
+      "images": ["assets/images/Elegant Armchair Design.png"],
+      "inquiryMessage": "Hello Abambas, I'm interested in The Zen Armchair. Can we discuss the lead time?"
+    },
+    {
+      "id": "aurora-pendant",
+      "name": "The Aurora Pendant",
+      "category": "lighting",
+      "number": "11",
+      "specs": "Brushed Brass & Ribbed Glass | Origin: Artisans in Abuja",
+      "material": "Brushed Brass & Ribbed Glass",
+      "price": "₦520,000",
+      "description": "A dramatic pendant light that transforms any space into a sanctuary. The ribbed glass diffuses light beautifully, creating dancing patterns that change throughout the day.",
+      "images": ["assets/images/Minimalist Table Lamp.png"],
+      "inquiryMessage": "Hello Abambas, I'm interested in The Aurora Pendant. Can we discuss the lead time?"
+    },
+    {
+      "id": "meridian-side-table",
+      "name": "The Meridian Side Table",
+      "category": "tables",
+      "number": "12",
+      "specs": "Carrara Marble & Brass | Origin: Imported from Italy",
+      "material": "Carrara Marble & Brass",
+      "price": "₦290,000",
+      "description": "A luxurious side table featuring genuine Carrara marble with distinctive grey veining. The brass ring detail adds a touch of glamour while providing functional storage.",
+      "images": ["assets/images/Minimalist Shelf Decor.png"],
+      "inquiryMessage": "Hello Abambas, I'm interested in The Meridian Side Table. Can we discuss the lead time?"
+    },
+    {
+      "id": "serenity-throw",
+      "name": "The Serenity Throw",
+      "category": "textiles",
+      "number": "13",
+      "specs": "100% Organic Cotton & Cashmere Blend | Origin: Ethically Sourced",
+      "material": "Organic Cotton & Cashmere",
+      "price": "₦95,000",
+      "description": "An impossibly soft throw blanket that adds warmth and texture to any seating arrangement. The subtle herringbone pattern provides visual interest while the cashmere blend ensures ultimate comfort.",
+      "images": ["assets/images/Minimalist Cozy Interior.png"],
+      "inquiryMessage": "Hello Abambas, I'm interested in The Serenity Throw. Can we discuss the lead time?"
+    },
+    {
+      "id": "tempo-table-lamp",
+      "name": "The Tempo Table Lamp",
+      "category": "lighting",
+      "number": "14",
+      "specs": "Terrazzo Base & Linen Shade | Origin: Handmade in Port Harcourt",
+      "material": "Terrazzo Base & Linen Shade",
+      "price": "₦185,000",
+      "description": "A playful table lamp with a hand-poured terrazzo base featuring chips of marble and brass. The natural linen shade casts a warm, diffused glow perfect for ambient lighting.",
+      "images": ["assets/images/Minimalist Table Lamp.png"],
+      "inquiryMessage": "Hello Abambas, I'm interested in The Tempo Table Lamp. Can we discuss the lead time?"
+    },
+    {
+      "id": "contour-sofa",
+      "name": "The Contour Sofa",
+      "category": "seating",
+      "number": "15",
+      "specs": "Modular Design / Velvet & Oak | Origin: Signature Collection",
+      "material": "Velvet & Solid Oak",
+      "price": "Custom Commission",
+      "description": "A modular sofa system that adapts to your space and lifestyle. The clean lines and comfortable proportions make it perfect for modern living, while the high-quality construction ensures lasting durability.",
+      "images": [
+        "assets/images/Modern Minimalist Interior with Orange Armchair.png"
+      ],
+      "inquiryMessage": "Hello Abambas, I'm interested in The Contour Sofa. Can we discuss the lead time?"
+    },
+    {
+      "id": "drift-coffee-table",
+      "name": "The Drift Coffee Table",
+      "category": "tables",
+      "number": "16",
+      "specs": "Live Edge Acacia & Hairpin Steel | Origin: One of a Kind",
+      "material": "Live Edge Acacia & Steel",
+      "price": "₦650,000",
+      "description": "Each Drift table is unique, featuring a live edge acacia slab with natural variations in grain and color. The blackened steel hairpin legs provide a contemporary contrast.",
+      "images": ["assets/images/Modern Wooden Table.png"],
+      "inquiryMessage": "Hello Abambas, I'm interested in The Drift Coffee Table. Can we discuss the lead time?"
+    }
+  ],
+  "categories": [
+    { "id": "all", "name": "ALL", "count": 16 },
+    { "id": "seating", "name": "SEATING", "count": 5 },
+    { "id": "lighting", "name": "LIGHTING", "count": 4 },
+    { "id": "tables", "name": "TABLES", "count": 4 },
+    { "id": "textiles", "name": "TEXTILES", "count": 2 },
+    { "id": "art", "name": "ART", "count": 1 }
+  ]
+}

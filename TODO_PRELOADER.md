@@ -1,37 +1,25 @@
-# Preloader Implementation Complete - "The Linen Unveiling"
+# TODO - Luxury Preloader Animation Implementation
 
-## Final Timing (Updated for Luxury Feel)
+## Task: Implement "Moment of Weight" luxury preloader animation
 
-| Phase | Duration |
-|-------|----------|
-| The Axis Draw | 1.2s |
-| The Wordmark | 1.2s |
-| The Hold | 0.8s |
-| **The Exit** | **1.5s** |
-| **Circle Expansion** | **1.28s** (TIMING.exit * 0.85) |
-| **Split Slide** | **1.5s** |
-| **Smart Minimum** | **3.5s** |
+### Steps:
 
-## Files Modified
+- [ ] 1. Update CSS (styles.css) - Add pivot scale effect and update exit animations
+- [ ] 2. Update JavaScript (animations.js) - Modify preloader timeline for exact timing
 
-### 1. index.html
-- Preloader HTML structure with split panels
-- Monolith line, ABAMBAS wordmark, counter, portal circle
+### Animation Requirements:
 
-### 2. css/styles.css
-- Preloader styles with 1.5s split slide animation
-- Mobile responsive styles
+1. **Moment of Weight (0.0s - 0.3s)**: Counter hits 100 → blink once → fade (300ms)
+2. **The Split (0.3s - 1.2s)**:
+   - Panels scale 100%→98% (pivot effect)
+   - Slide apart with cubic-bezier(0.645, 0.045, 0.355, 1)
+3. **Logo Tear**: Letters fade as panels move
+4. **Total Duration**: 1.2 seconds
 
-### 3. js/animations.js
-- Complete GSAP animation system:
-  - Axis Draw: 1.2s
-  - Wordmark: 1.2s  
-  - Hold: 0.8s
-  - Exit: 1.5s
-  - Smart Minimum: 3.5s
+### Timing Profile:
 
-## Testing Notes
-- Clear sessionStorage to see preloader again
-- Preloader only shows once per browser session
-- The exit animation now has plenty of time to play
-
+- 0.0s: Counter hits 100, numbers fade
+- 0.3s: Split begins, panels move 5%
+- 0.6s: Panels at 50%, logo at 50% opacity
+- 0.9s: Panels reach edges, content sharp
+- 1.2s: Panels vanish, axis line disappears last

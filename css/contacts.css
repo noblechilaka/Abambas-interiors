@@ -566,6 +566,63 @@
 }
 
 /* ============================================
+   WHATSAPP DIRECT CTA - Dual-Path Contact
+   ============================================ */
+
+.whatsapp-direct-cta {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.whatsapp-label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin: 0 0 20px 0;
+  opacity: 0.7;
+}
+
+.btn-whatsapp-direct {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 20px 30px;
+  background: transparent;
+  border: 1px solid #25d366;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #25d366;
+  transition: all 0.3s ease;
+}
+
+.btn-whatsapp-direct:hover {
+  background: #25d366;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp-direct svg {
+  flex-shrink: 0;
+}
+
+.btn-whatsapp-direct span {
+  margin-left: 0;
+}
+
+/* ============================================
    RESPONSIVE BREAKPOINTS
    ============================================ */
 

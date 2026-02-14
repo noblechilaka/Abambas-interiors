@@ -1,0 +1,174 @@
+{
+  "projects": [
+    {
+      "id": "ivory-sanctuary",
+      "title": "The Ivory Sanctuary",
+      "category": "residential",
+      "year": "2026",
+      "style": "Modern Organic",
+      "location": "Old GRA, Port Harcourt",
+      "description": "A complete transformation of a concrete shell into a warm, organic retreat that embraces natural light and sustainable materials. The design philosophy centered on creating spaces that breathe, with organic curves softening the architectural lines.",
+      "features": [
+        "Floor-to-ceiling windows maximizing natural light",
+        "Sustainable materials throughout",
+        "Custom millwork and cabinetry",
+        "Integrated smart home technology"
+      ],
+      "images": ["assets/images/Modern Minimalist Living Room.png"],
+      "thumbnail": "assets/images/Modern Minimalist Living Room.png",
+      "inquiryMessage": "Hello Abambas, I'm interested in The Ivory Sanctuary project. Can we discuss a similar project?"
+    },
+    {
+      "id": "serene-bedroom",
+      "title": "Serene Bedroom Retreat",
+      "category": "residential",
+      "year": "2025",
+      "style": "Coastal Calm",
+      "location": "Garden City, Port Harcourt",
+      "description": "Creating a peaceful sanctuary from a noisy street-facing room through strategic sound dampening and calming color palettes. The design evokes the tranquility of coastal living without leaving the city.",
+      "features": [
+        "Sound-dampening wall systems",
+        "Custom built-in storage",
+        "Natural fiber textiles",
+        "Ambient lighting design"
+      ],
+      "images": ["assets/images/Cozy Minimalist Bedroom.png"],
+      "thumbnail": "assets/images/Cozy Minimalist Bedroom.png",
+      "inquiryMessage": "Hello Abambas, I'm interested in The Serene Bedroom Retreat project. Can we discuss a similar project?"
+    },
+    {
+      "id": "modern-luxury",
+      "title": "Modern Luxury Residence",
+      "category": "residential",
+      "year": "2025",
+      "style": "Waterfront Elegance",
+      "location": "Borokiri, Port Harcourt",
+      "description": "Blending contemporary elegance with stunning waterfront views through floor-to-ceiling windows and curated art pieces. Every design decision was made to frame the breathtaking views while maintaining privacy.",
+      "features": [
+        "Panoramic waterfront views",
+        "Open plan living spaces",
+        "Custom furniture curation",
+        "Outdoor entertainment area"
+      ],
+      "images": ["assets/images/Luxurious Modern Interior.webp"],
+      "thumbnail": "assets/images/Luxurious Modern Interior.webp",
+      "inquiryMessage": "Hello Abambas, I'm interested in The Modern Luxury Residence project. Can we discuss a similar project?"
+    },
+    {
+      "id": "statement-living",
+      "title": "The Statement Living Room",
+      "category": "residential",
+      "year": "2024",
+      "style": "Urban Sophistication",
+      "location": "Onne, Port Harcourt",
+      "description": "Adding personality through bold color accents and carefully curated furniture that tells a story of sophistication. The space balances drama with comfort, creating a room that impresses yet welcomes.",
+      "features": [
+        "Bold accent wall treatments",
+        "Custom rug design",
+        "Statement lighting fixtures",
+        "Art curation services"
+      ],
+      "images": [
+        "assets/images/Modern Minimalist Interior with Orange Armchair.png"
+      ],
+      "thumbnail": "assets/images/Modern Minimalist Interior with Orange Armchair.png",
+      "inquiryMessage": "Hello Abambas, I'm interested in The Statement Living Room project. Can we discuss a similar project?"
+    },
+    {
+      "id": "urban-apartment",
+      "title": "Elegant Urban Apartment",
+      "category": "residential",
+      "year": "2024",
+      "style": "Smart Living",
+      "location": "Trans Amadi, Port Harcourt",
+      "description": "Maximizing space in a compact urban footprint without compromising on style or comfort through smart storage solutions. Every inch was carefully considered to create a functional yet beautiful home.",
+      "features": [
+        "Custom built-in storage",
+        "Multi-functional furniture",
+        "Space-maximizing layouts",
+        "Clever lighting solutions"
+      ],
+      "images": ["assets/images/Minimalist Cozy Interior.png"],
+      "thumbnail": "assets/images/Minimalist Cozy Interior.png",
+      "inquiryMessage": "Hello Abambas, I'm interested in The Elegant Urban Apartment project. Can we discuss a similar project?"
+    },
+    {
+      "id": "minimalist-sanctuary",
+      "title": "The Minimalist Sanctuary",
+      "category": "residential",
+      "year": "2024",
+      "style": "Essential Living",
+      "location": "New GRA, Port Harcourt",
+      "description": "A meditation on minimalism, this home proves that less truly is more. The design focuses on essential elements, quality materials, and the beauty of negative space.",
+      "features": [
+        "Minimal material palette",
+        "Hidden storage solutions",
+        "Natural light optimization",
+        "Japanese-inspired aesthetics"
+      ],
+      "images": ["assets/images/Minimalist Cozy Interior.png"],
+      "thumbnail": "assets/images/Minimalist Cozy Interior.png",
+      "inquiryMessage": "Hello Abambas, I'm interested in The Minimalist Sanctuary project. Can we discuss a similar project?"
+    },
+    {
+      "id": "family-home",
+      "title": "The Family Home",
+      "category": "residential",
+      "year": "2023",
+      "style": "Warm Contemporary",
+      "location": "Rivers State",
+      "description": "A warm, inviting space designed for family gatherings and everyday living. The design balances durability with aesthetics, creating a home that grows with the family.",
+      "features": [
+        "Child-friendly design elements",
+        "Open living spaces",
+        "Durable yet beautiful materials",
+        "Flexible zoning"
+      ],
+      "images": ["assets/images/familyhome.jpg"],
+      "thumbnail": "assets/images/familyhome.jpg",
+      "inquiryMessage": "Hello Abambas, I'm interested in The Family Home project. Can we discuss a similar project?"
+    },
+    {
+      "id": "retail-boutique",
+      "title": "The Artisan Boutique",
+      "category": "retail",
+      "year": "2024",
+      "style": "Curated Elegance",
+      "location": "Port Harcourt",
+      "description": "A retail space designed to showcase products as art pieces. The minimalist environment allows the merchandise to take center stage while providing an elevated shopping experience.",
+      "features": [
+        "Custom display fixtures",
+        "Adjustable lighting system",
+        "Premium finishes",
+        "Fitting room suites"
+      ],
+      "images": ["assets/images/Minimalist Shelf Decor.png"],
+      "thumbnail": "assets/images/Minimalist Shelf Decor.png",
+      "inquiryMessage": "Hello Abambas, I'm interested in The Artisan Boutique project. Can we discuss a similar project?"
+    },
+    {
+      "id": "office-space",
+      "title": "The Creative Studio",
+      "category": "commercial",
+      "year": "2024",
+      "style": "Industrial Chic",
+      "location": "Port Harcourt",
+      "description": "A creative workspace that inspires collaboration and focus. The design balances open areas for teamwork with private spaces for concentrated work.",
+      "features": [
+        "Open collaboration zones",
+        "Private focus pods",
+        "Industrial aesthetic",
+        "Acoustic solutions"
+      ],
+      "images": ["assets/images/Modern Interior Design.png"],
+      "thumbnail": "assets/images/Modern Interior Design.png",
+      "inquiryMessage": "Hello Abambas, I'm interested in The Creative Studio project. Can we discuss a similar project?"
+    }
+  ],
+  "categories": [
+    { "id": "all", "name": "ALL" },
+    { "id": "residential", "name": "RESIDENTIAL" },
+    { "id": "commercial", "name": "COMMERCIAL" },
+    { "id": "retail", "name": "RETAIL" }
+  ]
+}
