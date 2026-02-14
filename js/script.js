@@ -961,11 +961,11 @@ window.AppState = AppState;
  */
 const EmailJSConfig = {
   // Public Key from EmailJS dashboard
-  publicKey: "YOUR_PUBLIC_KEY",
+  publicKey: "wIB2M-AkPaeyGRJig",
   // Service ID from EmailJS dashboard
-  serviceId: "YOUR_SERVICE_ID",
+  serviceId: "service_8h23v9m",
   // Template ID from EmailJS dashboard
-  templateId: "YOUR_TEMPLATE_ID",
+  templateId: "template_iqsy4ju",
 };
 
 /**
@@ -1013,7 +1013,7 @@ async function handleEmailSubmission(formData) {
   };
 
   // If EmailJS is configured, use it
-  if (EmailJSConfig.publicKey !== "YOUR_PUBLIC_KEY") {
+  if (EmailJSConfig.publicKey !== "wIB2M-AkPaeyGRJig") {
     try {
       // Dynamically load EmailJS if not already loaded
       if (!window.emailjs) {
